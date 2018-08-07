@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试发送邮件</title>
+</head>
+<body>
+<input type="text" value="0.0000001" style="width:50px;">
+<a href="mailto:1091719743@qq.com">单击这里给peun发电子邮件</a>
+<div class="commonemail_Wrap">
+    <!-- <form  name="frmEmailOutLook" action="" method="post" enctype="text/plain">
+         <input type="hidden" name="message" value=""/>
+     </form>-->
+    <!--<form name="frmEmail" action="" method="post">
+        <div><label>收件人</label><input type="text" name="website"  /></div>
+        <div><label>主题</label><input type="text"  name="subject"/></div>
+        <div><label class="unique">内容</label><textarea  rows="4"   name="message"></textarea></div>
+        <input type="button" name="send" value="发送邮件" id="SendEmai"/>
+    </form>-->
+    <div>
+        <div><label>收件人</label><input type="text" name="website" id="test1" /></div>
+        <div><label>主题</label><input type="text"  id="test2" name="subject"/></div>
+        <div><label class="unique">内容</label><textarea  rows="4"   id="test3" name="message"></textarea></div>
+        <!--<input type="button" name="send" value="发送邮件" id="SendEmail"/>-->
+        <a href="" id="SendEmail">发送邮件</a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).on("click", "#SendEmail", function () {
+
+        var website = document.getElementById("test1").value;
+        var subject = document.getElementById("test2").value;
+        var body = document.getElementById("test3").value;
+        var url = "mailto:" + website + "?subject=" + subject + "&body=" + body;
+        document.getElementById("SendEmai").setAttribute("href", url);
+        //return fasle;
+    });
+</script>
+<SCRIPT LANGUAGE="JavaScript">
+    <!-- Begin
+    function mailsome1(){
+        who=prompt("Enter recipient's email address: ","antispammer@earthling.net");
+        what=prompt("Enter the subject: ","none");
+        if (confirm("Are you sure you want to mail "+who+" with the subject of "+what+"?")==true){
+            parent.location.href='mailto:'+who+'?subject='+what+'';
+        }
+    }
+    // End -->
+</SCRIPT>
+<a href='javascript:mailsome1()'>E-Mail Someone!</a>
+<FORM>
+    <input type=button value="E-Mail Someone!" onClick="mailsome1()">
+</FORM>
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=UmNia2NlY2tlZmESIyN8MT0-" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_01.png"/></a>
+</body>
+</html>

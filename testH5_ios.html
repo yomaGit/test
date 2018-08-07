@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="ejs/ejs.core.js"></script>
+<script src="ejs/ejs.promise.js"></script>
+<script src="ejs/eapp.js"></script>
+<script>
+
+    var browserIOS = {
+        versions: function () {
+            var u = navigator.userAgent;
+            return { ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)};
+        }()
+    }
+
+    alert(navigator.userAgent);
+    if(navigator.userAgent.indexOf("YDJ")>0) {
+        alert("YDJ");
+        EApp.request({
+            url: "eapp://CommonPlugin/viewSotre",
+            parameters: {storeId: 11},
+            success: function (e) {
+
+            },
+            fail: function (e) {
+
+            }
+        });
+
+        if (browserIOS.versions.ios) newviewSotre("storeId":11);
+    }
+
+    alert("YDJ w");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title></title>
+</head>
+<body>
+这里是第三个页面
+
+<div id="test">点击我测试数据</div>
+
+<div id="con"></div>
+<a href="ceshi1.html">点击进入到第一个页面</a>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+    $("#test").click(function(){
+        $("#con").html("我是填充的测试数据");
+    })
+//    window.onload=function(){
+//        alert("第三个页面加载完了");
+//    }
+    window.addEventListener("popstate", function(e) {
+        alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
+    }, false);
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/Users/wangpeng/Desktop/wapTest/myApp/bin/Debug/netcoreapp2.0/myApp.deps.json
+/Users/wangpeng/Desktop/wapTest/myApp/bin/Debug/netcoreapp2.0/myApp.runtimeconfig.json
+/Users/wangpeng/Desktop/wapTest/myApp/bin/Debug/netcoreapp2.0/myApp.runtimeconfig.dev.json
+/Users/wangpeng/Desktop/wapTest/myApp/bin/Debug/netcoreapp2.0/myApp.dll
+/Users/wangpeng/Desktop/wapTest/myApp/bin/Debug/netcoreapp2.0/myApp.pdb
+/Users/wangpeng/Desktop/wapTest/myApp/obj/Debug/netcoreapp2.0/myApp.csproj.CoreCompileInputs.cache
+/Users/wangpeng/Desktop/wapTest/myApp/obj/Debug/netcoreapp2.0/myApp.AssemblyInfoInputs.cache
+/Users/wangpeng/Desktop/wapTest/myApp/obj/Debug/netcoreapp2.0/myApp.AssemblyInfo.cs
+/Users/wangpeng/Desktop/wapTest/myApp/obj/Debug/netcoreapp2.0/myApp.dll
+/Users/wangpeng/Desktop/wapTest/myApp/obj/Debug/netcoreapp2.0/myApp.pdb
+/Users/wangpeng/Desktop/wapTest/myApp/obj/Debug/netcoreapp2.0/myApp.csprojResolveAssemblyReference.cache

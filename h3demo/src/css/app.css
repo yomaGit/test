@@ -1,0 +1,47 @@
+a, address, b, big, blockquote, body, button, center, cite, code, dd, del, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, hr, html, i, iframe, img, input, ins, legend, li, ol, p, pre, small, span, strong, table, td, textarea, th, tr, u, ul, var {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Microsoft YaHei;
+}
+a{
+  text-decoration: none;
+}
+li, ul {
+  list-style: none
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+html,body,#app{
+  width: 100%;
+  height: 100%;
+}
+.width25{
+  width: 25px;
+}
+
+.width120{
+  width: 120px;
+}
+.width130{
+  width: 130px;
+}
+.width80{
+  width: 80px;
+}
+.padding_left_3{
+  padding-left: 3px;
+}
+.padding_right_3 {
+  padding-right: 3px;
+}
+.align_center{
+  text-align: center;
+}
+.align_right{
+  text-align: right;
+}

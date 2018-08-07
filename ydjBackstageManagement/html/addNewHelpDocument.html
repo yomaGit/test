@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="ie-stand">
+    <title>操作指南</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <!--<link rel="stylesheet" type="text/css" href="../css/jquery_common.css">-->
+    <!--&lt;!&ndash;<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">&ndash;&gt;-->
+    <!--&lt;!&ndash;<link rel="stylesheet" type="text/css" href="../css/froala_editor.min.css">&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="../assets/design/css/trumbowyg.css">-->
+    <!--<script src="../assets/jquery.min.js"></script>-->
+    <!--<script src="../assets/trumbowyg.js"></script>-->
+    <!--<script src="../assets/plugins/base64/trumbowyg.base64.js"></script>-->
+
+</head>
+<body class="help-bg">
+<div class="help_top">
+    <div class="help-top-area">
+        <span class="nowPath">操作指南</span>
+        <span class="nowPathContext">药店加简介</span>
+        <input type="button" value="发布" class="width80 btn-line-shadow" id="forReleaseDocument">
+    </div>
+</div>
+<div class="help-bottom">
+    <div class="help-bottom-area">
+        <div class="div-title-wrapper">
+            <label class="input">
+                <label class="inputLabel" for="documentTitle" id="documentTitleLabel">请输入标题</label>
+                <input type="text" class="labelInput justLine" id="documentTitle" placeholder="请输入标题">
+            </label>
+        </div>
+        <ul class="ul-contain-info paddingLeft10">
+            <li class="width80">视频ID</li>
+            <li>
+                <label class="input">
+                    <label class="inputLabel" for="mediaId" id="mediaIdLabel">请输入相关视频的链接ID</label>
+                    <input type="text" class="labelInput width300" id="mediaId" placeholder="请输入相关视频的链接ID">
+                </label>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="ul-contain-info paddingLeft10">
+            <li class="width80">上传文件</li>
+            <li>
+                <label class="uploadDocument">上传PDF<input type="file"></label>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="ul-uploadDocument">
+            <li>
+                <span class="name">文件名文件名文件名</span>
+                <span class="span-deleteDocument"></span>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <!--<div class="div-media-wrapper">-->
+            <!--<label class="input">-->
+                <!--<label class="inputLabel" for="mediaId" id="mediaIdLabel">请输入相关视频的链接ID</label>-->
+                <!--<input type="text" class="labelInput width100Pre" id="mediaId" placeholder="请输入相关视频的链接ID">-->
+            <!--</label>-->
+        <!--</div>-->
+        <!--<div id="odiv" style="display:none;position:absolute;z-index:100;">-->
+            <!--<img src="../assets/pic/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);"/>-->
+            <!--<img src="../assets/pic/fd.png" title="放大" border="0" alt="放大" onclick="sub(1)"/>-->
+            <!--<img src="../assets/pic/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)"/>-->
+            <!--<img src="../assets/pic/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';"/>-->
+        <!--</div>-->
+        <!--<div  onmousedown="show_element(event)" style="clear:both" id="customized-buttonpane" class="editor"></div>-->
+
+    </div>
+</div>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

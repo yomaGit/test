@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title></title>
+</head>
+<body>
+测试sprint
+<div class="c" style="display:none;"><span>111</span>我class c默认不显示</div>
+<div id="c" style="display:none;">我id c默认不显示</div>
+<script src="js/sprint.min.js"></script>
+<script>
+    $("#c").css("display","block");
+    $(function(){
+        console.log("in");
+        $(".c").css("display","block");
+        $(".c>span").css("display","block");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var hiddenProperty = 'hidden' in document ? 'hidden' :
+            'webkitHidden' in document ? 'webkitHidden' :
+                    'mozHidden' in document ? 'mozHidden' :
+                            null;
+
+    var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+    var onVisibilityChange = function(){  audioControl();}
+    document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+    function audioControl(){
+        alert("in");
+    }
+    window.onload=function(){
+        alert("load");
+    }
+</script>
+</body>
+</html>

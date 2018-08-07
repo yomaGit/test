@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img0_750x200.jpg">
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img0_750x300.jpg">
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img1_750x200.jpg">
+
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img0_750x200.jpg">
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img0_750x300.jpg">
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img1_750x200.jpg">
+
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img0_750x200.jpg">
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img0_750x300.jpg">
+    <img src="img/d33a00e9ce1e8e9e5504b5e060ba5b52.jpg" alt="" data-echo="img/img1_750x200.jpg">
+
+    <script src="js/echo/echo.min.js"></script>
+    <script>
+        echo.init({
+            offset: 100,//距离
+            throttle: 50,//显示时间
+            callback: function (element, op) {
+                console.log(element, 'has been', op + 'ed')
+            }
+        });
+    </script>
+</body>
+</html>

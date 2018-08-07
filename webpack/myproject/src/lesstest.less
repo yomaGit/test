@@ -1,0 +1,79 @@
+@color: red;
+.lesstest {
+  border: 1px solid @color;
+
+  .tb {
+    color: blue;
+  }
+
+}
+
+.border {
+  border-top: 1px dashed #0a82e9;
+  border-bottom: 1px solid #0b0b0b;
+}
+
+.exbor {
+  font-weight: bold;
+  .border;
+}
+
+.testafter {
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+  border: 1px solid @color;
+  position: relative;
+
+  &:after {
+    content: '123';
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: blue;
+  }
+
+}
+
+@tw: 12px+4px*2;
+.testfontsize {
+  font-size: @tw;
+}
+
+.extent {
+  .test {
+    color: yellow;
+  }
+}
+
+.extent .test1:extend(.extent .test) {
+}
+
+.border-radius(@radius:5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.radiustest {
+  width: 10px;
+  height: 10px;
+  background: red;
+  margin: 10px;
+  .border-radius(10px);
+}
+
+@import (reference) "lesstest1";
+
+.testimport {
+  color: @tc;
+}
+
+.generate-columns(4);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}

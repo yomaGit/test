@@ -1,0 +1,18 @@
+[
+  {
+    "type":"POST",
+    "porturl":"/getdata/post0",
+    "returndata": {
+      "name": "mary",
+      "age": 12
+    }
+  },
+  {
+    "type":"POST",
+    "porturl":"/getdata/post1",
+    "returndata": {
+      "name": "len",
+      "age": 13
+    }
+  }
+]

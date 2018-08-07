@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <title>顾客下单提醒</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #FFFFFF;
+            text-align: left;
+            padding-bottom: 10px;
+        }
+        .top{
+            width: 100%;
+            height: 110px;
+            display: -webkit-box;
+            -webkit-box-align:center;
+            -webkit-box-pack:center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #17c5b3;
+        }
+        .ddts_ul{
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding-left: 15px;
+            margin-bottom: 40px;
+            position: relative;
+            border-bottom: none !important;
+            border-top: none !important;
+        }
+        .ddts_ul:before,.ddts_ul:after{
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 1px;
+            background: #F2F2F2;
+            -webkit-transform: scale(.5, .5);
+            transform: scale(.5, .5);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+        .ddts_ul:before{
+            left: 0;
+            top: 0;
+        }
+        .ddts_ul:after{
+            left: 0;
+            bottom: 0;
+        }
+        .ddts_ul li{
+            width: 100%;
+            height: auto;
+            display: -webkit-box;
+            -webkit-box-align:center;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 14px 15px 14px 0;
+            font-size: 17px;
+            color: #333333;
+            position: relative;
+            border-bottom: none !important;
+        }
+        .ddts_ul li:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 200%;
+            height: 1px;
+            background: #F2F2F2;
+            -webkit-transform: scale(.5, .5);
+            transform: scale(.5, .5);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+        .ddts_ul li:last-child:after{
+            height: 0;
+        }
+        .ddts_ul li .left{
+            width: 90px;
+            font-size: 15px;
+            color: #999999;
+        }
+        .ddts_ul li .right{
+            -webkit-box-flex: 1;
+            -ms-word-break: break-all;
+            word-break: break-all;
+        }
+        .ddts_ul li .right a{
+            color: blue;
+        }
+        .ddts_btn{
+            display: -webkit-box;
+            -webkit-box-align:center;
+            -webkit-box-pack:center;
+            width: 100%;
+            height: 43px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 15px;
+            margin-top: 10px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .ddts_btn span{
+            display: block;
+            width: 100%;
+            height: 43px;
+            text-align: center;
+            line-height: 43px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid #17c5b3;
+        }
+        #btn_l span{
+            color: #FFFFFF;
+            background: #17c5b3;
+        }
+        #btn_d span{
+            color: #17c5b3;
+            background: #ffffff;
+        }
+        .loader1 {
+            display:inline-block;
+            font-size:0px;
+            padding:0px;
+        }
+        .loader1 span {
+            vertical-align:middle;
+            border-radius:100%;
+            -webkit-border-radius:100%;
+            display:inline-block;
+            width:10px;
+            height:10px;
+            margin:3px 2px;
+            -webkit-animation:loader1 0.8s linear infinite alternate;
+            animation:loader1 0.8s linear infinite alternate;
+        }
+        .loader1 span:nth-child(1) {
+            -webkit-animation-delay:-1s;
+            animation-delay:-1s;
+            background:rgba(245, 103, 115,0.6);
+        }
+        .loader1 span:nth-child(2) {
+            -webkit-animation-delay:-0.8s;
+            animation-delay:-0.8s;
+            background:rgba(245, 103, 115,0.8);
+        }
+        .loader1 span:nth-child(3) {
+            -webkit-animation-delay:-0.26666s;
+            animation-delay:-0.26666s;
+            background:rgba(245, 103, 115,1);
+        }
+        .loader1 span:nth-child(4) {
+            -webkit-animation-delay:-0.8s;
+            animation-delay:-0.8s;
+            background:rgba(245, 103, 115,0.8);
+
+        }
+        .loader1 span:nth-child(5) {
+            -webkit-animation-delay:-1s;
+            animation-delay:-1s;
+            background:rgba(245, 103, 115,0.4);
+        }
+
+        @keyframes loader1 {
+            from {transform: scale(0, 0);}
+            to {transform: scale(1, 1);}
+        }
+        @-webkit-keyframes loader1 {
+            from {-webkit-transform: scale(0, 0);}
+            to {-webkit-transform: scale(1, 1);}
+        }
+        .loadingLogin{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            z-index:1;
+        }
+        .loadingLoginMain{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .loadingLoginMain .loader1{
+            position: absolute;
+            left: 50%;
+            top: 35%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            -o-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+        }
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="toApp" v-cloak>
+        <my-component :dfhuo='dfhuo' :dthuo='dthuo' :urlarr='urlarr'></my-component>
+    </div>
+    <div class="loadingLogin">
+        <div class="loadingLoginMain">
+            <div class="loader1">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+    <script src="js/require.min.js"></script>
+    <script src="js/require_main.js"></script>
+    <script src="js/toApp.js"></script>
+
+</body>
+</html>

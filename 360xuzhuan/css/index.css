@@ -1,0 +1,133 @@
+@charset "utf-8";
+	blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,lengend,li,ol,p,pre,td,textarea,th,ul {
+	margin:0;
+	padding:0
+}
+body,button,input,select,textarea,th {
+	font-size:12px;
+	line-height:1.5;
+	font-family:"hiragino sans gb",Tahoma,Helvetica,Arial
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%
+}
+li {
+	list-style:none
+}
+img {
+	border:none;
+	-ms-interpolation-mode:bicubic
+}
+input[type=button],input[type=submit] {
+	cursor:pointer
+}
+button {
+	cursor:pointer
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+a {
+	text-decoration:none
+}
+a:hover {
+	text-decoration:underline
+}
+.frame_top,.mod_footer,.wrap {
+	min-width:1000px;
+	background-color:#12343f
+}
+.mod_footer a,.mod_footer p {
+	color:#eee
+}
+.wrap {
+	position:relative;
+	width:100%;
+	overflow:hidden
+}
+.mod_bg {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%
+}
+.main {
+	position:relative;
+	z-index:10;
+	width:1000px;
+	margin:0 auto
+}
+.mod_bg .bg1 {
+	background:#0a2631 url(img/bg1.jpg) no-repeat center 0;
+	height:536px
+}
+.mod_bg .bg2 {
+	background:#173b45 url(img/bg2.jpg) no-repeat center 0;
+	height:575px
+}
+.mod_bg .bg3 {
+	height:516px;
+	position:relative
+}
+.mod_bg .bg3_1 {
+	height:52px;
+	background-color:#173b45
+}
+.mod_bg .bg3_2 {
+	height:464px;
+	background-color:#082631
+}
+.mod_bg .bg3_3 {
+	height:100%;
+	width:100%;
+	background:url(img/bg3.jpg) no-repeat center 0;
+	top:0;
+	right:0;
+	position:absolute
+}
+.mod_bg .bg4 {
+	background:#082631 url(img/bg4.jpg) no-repeat center 0;
+	height:1080px
+}
+.mod_info1 {
+	height:536px;
+	position:relative
+}
+.mod_info1__logoall {
+	height:348px;
+	width:345px;
+	position:absolute;
+	top:0;
+	right:32px
+}
+.mod_info1__logo1 {
+	background-image:url(sprite/ani.png);
+	background-position:0 0;
+	_background-image:url(img/logo_1ie.png)
+}
+.mod_info1__logo2 {
+	background-image:url(sprite/ani.png);
+	background-position:-347px 0;
+	_background-image:url(img/logo_2ie.png)
+}
+.mod_info1__logo3 {
+	background-image:url(sprite/ani.png);
+	background-position:-694px 0;
+	_background-image:url(img/logo_3ie.png)
+}
+.mod_info1__f {
+	position:absolute;
+	width:34px;
+	height:34px;
+	background:url(img/flash.png);
+	_display:none
+}
+.mod_info1__flash {
+	bottom:163px;
+	left:130px
+}
+.mod_info1__flash1 {
+	bottom:92px;
+	right:79px
+}

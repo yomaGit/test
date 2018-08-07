@@ -1,0 +1,62 @@
+$color: red
+
+.sasstest_e
+  width: 100%
+  height: auto
+  min-height: 100px
+  border: 1px solid $color
+  margin: 10px 0
+
+.stest_e
+  color: $color
+
+/* 测试测试 */
+.testhover
+  width: 100px
+  height: 30px
+  border: 1px solid #0b7ffe
+  position: relative
+  &:after
+    content: 'hover'
+    position: absolute
+    right: 0px
+    top: 0px
+    color: red
+  &-test
+    color: red
+
+// 测试注释格式
+.testfont
+  font:
+    size: 18px
+    weight: bold
+
+@import "sasstest_ex"
+
+.testimport_ee
+  color: $testsass_ex
+
+.testextent0
+  color: #ff0000
+
+.testextent1
+  @extend .testextent0
+
+@debug 10px+20px
+
+@mixin adjust-location($x, $y)
+  @if unitless($x)
+    @warn "Assuming #{$x} to be in pixels"
+    $x: 1px * $x
+
+    @if unitless($y)
+    @warn "Assuming #{$y} to be in pixels"
+    $y: 1px * $y
+
+    position: relative
+    left: $x
+    top: $y
+
+.testif
+  font-size: if(false,14px,16px)
+

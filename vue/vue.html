@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE test</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    TEST VUE
+    <div id="app" v-cloak>
+        {{ message }}
+    </div>
+
+    <div id="app-2" v-cloak>
+        <span v-bind:title="message">鼠标悬停显示信息</span>
+    </div>
+
+    <div id="app-3" v-cloak>
+        <span v-if="seen">现在你看到我了</span>
+    </div>
+
+    <div id="app-4" v-cloak>
+        <ul>
+            <li v-for="(todo,index) in todos">
+                {{ index }} {{ todo.text }}
+            </li>
+        </ul>
+    </div>
+
+    <div id="app-5" v-cloak>
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMsg">逆转消息</button>
+    </div>
+
+    <div id="app-6" v-cloak>
+        <p>{{ message }}</p>
+        <input type="text" v-model="message" placeholder="输入测试">
+    </div>
+
+    <div id="app-7" v-cloak>
+        <ul>
+            <todo-item
+                    v-for="todo in message"
+                    v-bind:todo="todo"
+                    v-bind:key="todo.id"
+            ></todo-item>
+        </ul>
+    </div>
+
+    <!--慎用html插值-->
+    <div id="app-8" v-cloak>
+        <p>测试变量html {{ message }} <span v-html="message"></span></p>
+    </div>
+
+    <div id="app-9" v-cloak>
+        <p>{{ message.split("").reverse().join("") }}</p>
+    </div>
+
+    <div id="app-x" :testAttr="message" v-cloak>
+        <p :title="time">鼠标浮上来查看页面加载时间</p>
+        <p>{{ message }}</p>
+        <button @click="reverse">逆转</button>
+    </div>
+
+    <div id="app-x0" v-cloak>
+        <p>
+            问一个问题，答案只有 yes/no
+            <input type="text" v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+
+    <div id="app-x1">
+        <div class="test" :class="{ text0:ist0, text1:ist1 }">
+            测试class变化
+            <button @click="change">改变</button>
+        </div>
+    </div>
+
+    <div id="app-x2">
+        <div class="test" class="test" :class="classObj">
+            测试class变化
+            <button @click="change">改变</button>
+        </div>
+    </div>
+
+    <div id="app-x3">
+        <input v-model.number="number" type="number" step="20">
+        <p>{{number}}</p>
+    </div>
+
+
+    <script src="../js/vue/vue.js"></script>
+    <!--//-->
+    <script src="../js/vue/loadsh.min.js"></script>
+    <script src="../js/vue/axios.min.js"></script>
+    <!--//-->
+    <script src="../js/vue/vue_test.js"></script>
+</body>
+</html>

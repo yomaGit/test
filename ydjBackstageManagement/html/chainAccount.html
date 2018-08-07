@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="ie-stand">
+    <title>创建账号</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+</head>
+<body>
+    <div class="subBar">
+        <div class="subBar-left">
+            <div class="logo-wrapper">
+                <img src="../img/logo.png">
+            </div>
+            <ul class="ul-nav-main">
+                <li id="Chain" class="active1">合作连锁</li>
+                <li id="Companies">合作药企</li>
+            </ul>
+        </div>
+        <div class="subBar-right">
+            <div id="forChain">
+                <div>连锁管理</div>
+                <ul class="ul-nav-link">
+                    <li class="active2"><a href="chainAccount.html">创建账号</a></li>
+                    <li><a href="chainList.html">连锁列表</a></li>
+                    <li><a href="chainGoodsAuditing.html">商品审核</a></li>
+                    <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                    <li><a href="systemInfo.html">系统消息</a></li>
+                    <li><a href="cRet_ov.html">合同及回款</a></li>
+                    <li><a href="chain_data.html">连锁数据</a></li>
+                </ul>
+            </div>
+            <!--<div id="forCompanies">-->
+                <!--<div>药企管理</div>-->
+                <!--<ul class="ul-nav-main">-->
+                    <!--<li><a class="active">药企列表</a></li>-->
+                    <!--<li><a class="active">药企账号</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="mainContent">
+        <!--<div class="mainContent-top"></div>-->
+        <div class="mainContent-bottom" id="accountMain">
+            <!--<div class="tableExplain"><p>所有连锁（200）</p></div>-->
+            <!--<ul class="ul-table-header"></ul>-->
+            <!--<ul class="ul-height60px"></ul>-->
+            <ul class="ul-account">
+                <li class="leftLi20">商家全称</li>
+                <li class="rightLi80">
+                    <input type="text" id="cName" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">联系电话</li>
+                <li class="rightLi80">
+                    <input type="text" id="cTel" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">联系地址</li>
+                <li class="rightLi80">
+                    <input type="text" class="marginRight10px width120">
+                    <input type="text" class="marginRight10px width120">
+                    <input type="text" class="width120">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20 nullLi"></li>
+                <li class="rightLi80">
+                    <label class="input">
+                        <label class="inputLabel" for="detailAddress" id="detailAddressLabel">请输入详细地址</label>
+                        <input type="text" class="labelInput width260" id="detailAddress" placeholder="请输入详细地址">
+                    </label>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">平台负责人</li>
+                <li class="rightLi80">
+                    <input type="text" id="mName" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">负责人电话</li>
+                <li class="rightLi80">
+                    <input type="text" id="mTel" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">商家编码</li>
+                <li class="rightLi80">
+                    <input type="text" id="mNum" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">设置账号</li>
+                <li class="rightLi80">
+                    <input type="text" id="accountNum" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">设置密码</li>
+                <li class="rightLi80">
+                    <input type="password" id="accountPwd1" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">确认密码</li>
+                <li class="rightLi80">
+                    <input type="password" id="accountPwd2" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20 nullLi"></li>
+                <li class="rightLi80">
+                    <input type="button" class="btn-hover-skyblue width80" value="创建">
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

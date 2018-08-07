@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="ie-stand">
+    <title>商品审核</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+</head>
+<body>
+<div class="subBar">
+    <div class="subBar-left">
+        <div class="logo-wrapper">
+            <img src="../img/logo.png">
+        </div>
+        <ul class="ul-nav-main">
+            <li id="Chain" class="active1">合作连锁</li>
+            <li id="Companies">合作药企</li>
+        </ul>
+    </div>
+    <div class="subBar-right">
+        <div id="forChain">
+            <div>连锁管理</div>
+            <ul class="ul-nav-link">
+                <li><a href="chainAccount.html">创建账号</a></li>
+                <li><a href="chainList.html">连锁列表</a></li>
+                <li class="active2"><a href="chainGoodsAuditing.html">商品审核</a></li>
+                <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                <li><a href="systemInfo.html">系统消息</a></li>
+                <li><a href="cRet_ov.html">合同及回款</a></li>
+                <li><a href="chain_data.html">连锁数据</a></li>
+            </ul>
+        </div>
+        <!--<div id="forCompanies">-->
+        <!--<div>药企管理</div>-->
+        <!--<ul class="ul-nav-main">-->
+        <!--<li><a class="active">药企列表</a></li>-->
+        <!--<li><a class="active">药企账号</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+<div class="mainContent">
+    <div class="mainContent-top">
+        <ul class="ul-tab-options">
+            <li  class="activeTab" dataId="GoodsInfo">商品信息审核<span></span></li>
+            <li  dataId="GoodsImg">商品图片审核<span></span></li>
+            <li  dataId="GoodsOther">中西医药新品审核<span></span></li>
+            <li  dataId="GoodsOther">营养保健新品审核<span></span></li>
+            <li  dataId="GoodsOther">医疗器械新品审核<span></span></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="mainContent-bottom auditingInfo forGoodsInfo">
+        <div class="tableExplain">
+            <p>待审核消息<span class="fontRed">（20）</span></p>
+            <div class="inputWrapper"><input type="button" class="btn-hover-pR marginRight30px" value="同意所有"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="div-table-area">
+            <ul class="ul-table-header">
+                <li class="width20percent paddingLeft10">连锁名称</li>
+                <li class="width8percent">连锁编码</li>
+                <li class="width14percent">产品名称</li>
+                <li class="width8percent">平台码</li>
+                <li class="width8percent">ERP码</li>
+                <li class="width20percent">修改内容</li>
+                <li class="width10percent">提交时间</li>
+                <li class="width10percent textAlignCenter">操作</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height110px goodsAuditing"  title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent" title="是否含有麻黄碱：是（申请更改为：否）">
+                    <p class="p-list marginTop30px">处方分类：处方药（申请更改为：非处方药）</p>
+                    <p class="p-list fontSkyBlue">（申请更改为：处方分类：处方药申请更改为：非处方药处方分类：处方药（申请更改为：非处方药）</p>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop10px goodsInfoAgree"> <input type="button" class="btn-hover-skyblue width80" value="同意"></div>
+                    <div class="tableBtn goodsInfoDisagree"> <input type="button" class="btn-hover-hyacinth width80" value="拒绝"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height110px goodsAuditing"  title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent" title="是否含有麻黄碱：是（申请更改为：否）">
+                    <p class="p-list marginTop30px">处方分类：处方药（申请更改为：非处方药）</p>
+                    <p class="p-list fontSkyBlue">（申请更改为：处方分类：处方药申请更改为：非处方药处方分类：处方药（申请更改为：非处方药）</p>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop10px goodsInfoAgree"> <input type="button" class="btn-hover-skyblue width80" value="同意"></div>
+                    <div class="tableBtn goodsInfoDisagree"> <input type="button" class="btn-hover-hyacinth width80" value="拒绝"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" >
+            <input type="button" class="btn-pager" value="上一页">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager thisSelected" value="4">
+            <input type="button" class="btn-pager" value="下一页">
+            <input type="button" class="btn-pager" value="末页">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+    <div class="mainContent-bottom auditingInfo forGoodsInfo">
+        <div class="tableExplain"><p>审核历史记录消息（209）</p></div>
+        <div class="div-table-area">
+            <ul class="ul-table-header">
+                <li class="width20percent paddingLeft10">连锁名称</li>
+                <li class="width8percent">连锁编码</li>
+                <li class="width14percent">产品名称</li>
+                <li class="width8percent">平台码</li>
+                <li class="width8percent">ERP码</li>
+                <li class="width20percent">修改内容</li>
+                <li class="width10percent">审核时间</li>
+                <li class="width10percent textAlignCenter">操作</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height110px goodsAuditing"  title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent" title="处方分类：处方药（申请更改为：非处方药）">
+                    <p class="p-list marginTop30px">处方分类：处方药（申请更改为：非处方药）</p>
+                    <p class="p-list fontSkyBlue">处方分类：处方药（申请更改为：非处方药）处方分类：处方药（申请更改为：非处方药）处方分类：处方药（申请更改为：非处方药）</p>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop10px" title="已同意，不可再次操作"> <input type="button" class="width80 btn-disabled-agree" value="已同意" disabled="disabled"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height110px goodsAuditing" title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent" title="处方分类：处方药（申请更改为：非处方药）">
+                    <p class="p-list marginTop30px">处方分类：处方药（申请更改为：非处方药）</p>
+                    <p class="p-list fontSkyBlue">（申请更改为：处方分类：处方药申请更改为：非处方药处方分类：处方药（申请更改为：非处方药）</p>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop10px" title="已拒绝，不可再次操作"><input type="button" class="btn-disabled-disagree width80" value="已拒绝"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" >
+            <input type="button" class="btn-pager" value="上一页">
+            <input type="button" class="btn-pager thisSelected" value="1">
+            <input type="button" class="btn-pager" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页">
+            <input type="button" class="btn-pager" value="末页">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+    <div class="mainContent-bottom auditingInfo forGoodsImg displayNone">
+        <div class="tableExplain"><p>待审核消息<span class="fontRed">（20）</span></p></div>
+        <div class="div-table-area">
+            <ul class="ul-table-header">
+                <li class="width20percent paddingLeft10">连锁名称</li>
+                <li class="width8percent">连锁编码</li>
+                <li class="width14percent">产品名称</li>
+                <li class="width8percent">平台码</li>
+                <li class="width8percent">ERP码</li>
+                <li class="width20percent">上传照片</li>
+                <li class="width10percent">提交时间</li>
+                <li class="width10percent textAlignCenter">操作</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height110px goodsAuditing" title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent li-img-area">
+                    <img class="img-list">
+                    <img class="img-list">
+                    <span class="overDot">……</span>
+                    <div class="clear"></div>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop20px goodsImgAgree"> <input type="button" class="btn-hover-skyblue width80" value="查看"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height110px goodsAuditing" title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent li-img-area">
+                    <img class="img-list">
+
+                    <div class="clear"></div>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop20px goodsImgAgree"> <input type="button" class="btn-hover-skyblue width80" value="查看"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" >
+            <input type="button" class="btn-pager" value="上一页">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页">
+            <input type="button" class="btn-pager" value="末页">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+    <div class="mainContent-bottom auditingInfo forGoodsImg displayNone">
+        <div class="tableExplain"><p>审核历史记录消息（209）</p></div>
+        <div class="div-table-area">
+            <ul class="ul-table-header">
+                <li class="width20percent paddingLeft10">连锁名称</li>
+                <li class="width8percent">连锁编码</li>
+                <li class="width14percent">产品名称</li>
+                <li class="width8percent">平台码</li>
+                <li class="width8percent">ERP码</li>
+                <li class="width20percent">修改内容</li>
+                <li class="width10percent">审核时间</li>
+                <li class="width10percent textAlignCenter">操作</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height110px goodsAuditing" title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent li-img-area">
+                    <img class="img-list">
+                    <img class="img-list">
+                    <div class="clear"></div>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop20px goodsImgAgree_ck"> <input type="button" class="btn-hover-skyblue width80" value="查看"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height110px goodsAuditing" title="点击查看消息详情">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width14percent">板蓝根颗粒</li>
+                <li class="width8percent">190231</li>
+                <li class="width8percent">02360</li>
+                <li class="width20percent li-img-area">
+                    <img class="img-list">
+                    <img class="img-list">
+                    <div class="clear"></div>
+                </li>
+                <li class="width10percent">
+                    <p class="p-list marginTop30px">2016.06.29</p>
+                    <p class="p-list">12:23:56</p>
+                </li>
+                <li class="width10percent">
+                    <div class="tableBtn marginTop20px goodsImgAgree_ck"> <input type="button" class="btn-hover-skyblue width80" value="查看"></div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" >
+            <input type="button" class="btn-pager" value="上一页">
+            <input type="button" class="btn-pager thisSelected" value="4">
+            <input type="button" class="btn-pager" value="5"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="6">
+            <input type="button" class="btn-pager" value="7">
+            <input type="button" class="btn-pager" value="下一页">
+            <input type="button" class="btn-pager" value="末页">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+    <div class="mainContent-bottom auditingInfo forGoodsOther displayNone">
+        <div class="tableTop" >
+            <div class="tableTop-btn">刷新数据</div>
+            <div class="tableTop-inputHold">
+                <input class="tableTop-input ipt1" type="text" placeholder="连锁编码/名称">
+                <input class="tableTop-input ipt2" type="text" placeholder="商品名称">
+                <input class="tableTop-input ipt3" type="text" placeholder="条形码">
+                <input class="tableTop-input ipt4" type="text" placeholder="商品编码">
+                <input class="tableTop-input ipt5" type="text" placeholder="批准文号">
+                <div class="ipt1-win">
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                    <div class="ipt1-win-cell">
+                        <div class="ipt1-win-cell-lt" title="001336">001336</div>
+                        <div class="ipt1-win-cell-rt" title="正源大药房">正源大药房</div>
+                    </div>
+                </div>
+                <div class="ipt1-win-sj"></div>
+            </div>
+            <div class="tableTop-btn ss">搜索</div>
+        </div>
+        <div class="div-table-area">
+            <div class="table-header">
+                <div class="table-header-title t1">商品/规格</div>
+                <div class="table-header-title t2">生产企业</div>
+                <div class="table-header-title t3">条形码</div>
+                <div class="table-header-title t4">批准文号</div>
+                <div class="table-header-title t5">商品编码</div>
+                <div class="table-header-title t6">连锁编码</div>
+                <div class="table-header-title t7">连锁名称</div>
+                <div class="table-header-title t8">提交时间</div>
+            </div>
+
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+
+            <div class="table-cell">
+                <div class="table-cell-t1">
+                    <div class="table-cell-t1-iv">
+                        <img src="http://ydjia.hydee.cn:8090/hwimg/static/images/goodsimage/109/86905108000351001/120/0.jpg">
+                    </div>
+                    <div class="table-cell-t1-t">东阿阿胶250g/盒</div>
+                </div>
+                <div class="table-cell-t2">东阿阿胶股份有限公司</div>
+                <div class="table-cell-t3">122125452212</div>
+                <div class="table-cell-t4">国药准字Z370213</div>
+                <div class="table-cell-t5">333333</div>
+                <div class="table-cell-t6">000333</div>
+                <div class="table-cell-t7">正源大药房</div>
+                <div class="table-cell-t8">2017-11-11   10:10:10</div>
+            </div>
+            <div class="table-cell">
+                <div class="table-cell-t1">
+                    <div class="table-cell-t1-iv">
+                        <img src="http://ydjia.hydee.cn:8090/hwimg/static/images/goodsimage/109/86905108000351001/120/0.jpg">
+                    </div>
+                    <div class="table-cell-t1-t">东阿阿胶250g/盒</div>
+                </div>
+                <div class="table-cell-t2">东阿阿胶股份有限公司</div>
+                <div class="table-cell-t3">122125452212</div>
+                <div class="table-cell-t4">国药准字Z370213</div>
+                <div class="table-cell-t5">333333</div>
+                <div class="table-cell-t6">000333</div>
+                <div class="table-cell-t7">正源大药房</div>
+                <div class="table-cell-t8">2017-11-11   10:10:10</div>
+            </div>
+
+        </div>
+        <!--<div class="btn-wrapper-pager forGoodsOther">&lt;!&ndash;每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东&ndash;&gt;-->
+        <!--<div class="pageTotal">共356200条，每页20条</div>-->
+        <!--<div class="pageInfo">-->
+        <!--<div class="pageInfo-btn left">←</div>-->
+        <!--<div class="pageInfo-btn t1">3/2563</div>-->
+        <!--<div class="pageInfo-btn right">→</div>-->
+        <!--<input class="pageInfo-btn ipt" type="text" value="1" align="middle">&lt;!&ndash;手动输入页码数&ndash;&gt;-->
+        <!--<div class="pageInfo-btn next">跳转</div>-->
+        <!--<div class="pageInfo-btn eachPage">20条/页</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="btn-wrapper-pager">
+            <input type="button" class="btn-pager" value="上一页">
+            <input type="button" class="btn-pager thisSelected" value="4">
+            <input type="button" class="btn-pager" value="下一页">
+            <input type="button" class="btn-pager" value="末页">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+
+    </div>
+</div>
+
+<div class="shadowWhite goodsDetailAudit">
+    <div class="shadowContent shadow800500 ">
+        <div class="shadowTitle">产品详情</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-goods-detail">
+                <li>商品名称：板蓝根颗粒</li>
+                <li>商品规格：每袋装10g</li>
+                <li>生产企业：</li>
+                <li>搜索关键词：BLGKL,板蓝根，感冒,板蓝根颗粒</li>
+                <li>批准文号：国药准字Z44023485</li>
+                <li>条形码：6938200750774</li>
+                <li>是否药品：是</li>
+                <li>药品类型：国产药品</li>
+                <li>处方分类：处方药<span class="editNote">（申请更改为：非处方药）</span></li><!--申请记录-->
+                <li>处方分类：处方药<span class="editNote">（申请更改为：非处方药）</span><span class="refuseNote">（已经拒绝）</span></li><!--已拒绝-->
+                <li>处方分类：非处方药<span class="editNote"></span><span class="acceptNote">（已经同意）</span></li><!--已同意-->
+                <li class="editNote">（原处方分类：处方药）</li>
+                <li>是否含有麻黄碱：否</li>
+                <li>助记码：</li>
+                <li>品牌名称：</li>
+                <li>说明书：如果说明书内如果说明书内容很多如果说明书如果说明书内容很多呢内容很多呢如果说明书内容很多呢如果说明书内容很多呢如果说明书内容很多呢容很如果说明书内容很多呢多呢如果如果说明书内容很如果说明书内容很多呢如果说明书内容很多呢如果说明书内容很多呢多如果说明书内容很多呢呢说明书如果说明书内容很多呢内容很多呢</li>
+                <li>通用名：</li>
+                <li>功能疗效：</li>
+                <li>用法用量：开水冲服。一次5～10克，一日3～4次。</li>
+                <li>不良反应：</li>
+                <li>禁忌：</li>
+                <li>商品图片：</li>
+                <li> <img><img><img><img><img><img></li>
+
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="shadowWhite goodsImgAudit">
+    <div class="shadowContent shadow808500">
+        <div class="shadowTitle">图片筛选</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-goods-detail"><li>原有图片：</li></ul>
+            <ul class="ul-oldImg mainImgOp">
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="fun">
+                        <label class="sc"><input type="checkbox" checked="checked"/>删除</label>
+                        <label class="zt"><input type="checkbox"/>设为主图</label>
+                    </div>
+                </li>
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="fun">
+                        <label class="sc"><input type="checkbox" checked="checked"/>删除</label>
+                        <label class="zt"><input type="checkbox"/>设为主图</label>
+                    </div>
+                </li>
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="fun">
+                        <label class="sc"><input type="checkbox" checked="checked"/>删除</label>
+                        <label class="zt"><input type="checkbox"/>设为主图</label>
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-goods-detail"><li>上传图片：</li></ul>
+            <ul class="ul-newImg mainImgOp">
+                <li class="sel sel_zt">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="fun">
+                        <label class="sh"><input type="checkbox" checked="checked"/>通过审核</label>
+                        <label class="zt"><input type="checkbox" checked="checked"/>设为主图</label>
+                    </div>
+                    <div class="sh_f">
+                        <div class="selL"><span>图片不清晰</span><span>图片有水印</span><span>图片重复</span><span>图片不美观</span><span>有营销文字</span></div>
+                        <input type="text" placeholder="在此输入其他原因"/>
+                    </div>
+                </li>
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="fun">
+                        <label class="sh"><input type="checkbox" checked="checked"/>通过审核</label>
+                        <label class="zt"><input type="checkbox"/>设为主图</label>
+                    </div>
+                    <div class="sh_f">
+                        <div class="selL"><span>图片不清晰</span><span>图片有水印</span><span>图片重复</span><span>图片不美观</span><span>有营销文字</span></div>
+                        <input type="text" placeholder="在此输入其他原因"/>
+                    </div>
+                </li>
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="fun">
+                        <label class="sh"><input type="checkbox" checked="checked"/>通过审核</label>
+                        <label class="zt"><input type="checkbox"/>设为主图</label>
+                    </div>
+                    <div class="sh_f">
+                        <div class="selL"><span>图片不清晰</span><span>图片有水印</span><span>图片重复</span><span>图片不美观</span><span>有营销文字</span></div>
+                        <input type="text" placeholder="在此输入其他原因"/>
+                    </div>
+                </li>
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="fun">
+                        <label class="sh"><input type="checkbox" checked="checked"/>通过审核</label>
+                        <label class="zt"><input type="checkbox"/>设为主图</label>
+                    </div>
+                    <div class="sh_f">
+                        <div class="selL"><span>图片不清晰</span><span>图片有水印</span><span>图片重复</span><span>图片不美观</span><span>有营销文字</span></div>
+                        <input type="text" placeholder="在此输入其他原因"/>
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="shadowWhite goodsImgAudit_res">
+    <div class="shadowContent shadow808500">
+        <div class="shadowTitle">图片审核结果</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-goods-detail"><li>上传图片：</li></ul>
+            <ul class="ul-newImg mainImgOp">
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="jieguo">已通过审核</div>
+                    <div class="yuanyin"></div>
+                </li>
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="jieguo">已通过审核</div>
+                    <div class="yuanyin"></div>
+                </li>
+                <li class="sel no">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="jieguo">未通过审核</div>
+                    <div class="yuanyin" title="有水印">有水印</div>
+                </li>
+                <li class="sel">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="jieguo">已通过审核</div>
+                    <div class="yuanyin"></div>
+                </li>
+                <li class="sel no">
+                    <img src="../img/logoicon@2x.png">
+                    <div class="jieguo">未通过审核</div>
+                    <div class="yuanyin" title="有水印">有水印</div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="wholeBg"></div>
+
+<div class="win-bgView">
+    <div class="contentView">
+
+        <div class="view1">
+            <div class="hide-win">
+                <img src="../img/youjiantou.png" alt="">
+            </div>
+        </div>
+        <div class="view2">
+            <!--当前产品信息-->
+            <div class="winGoodsInfo cur">
+                <div class="t1">当前产品</div>
+                <div class="t1 cur-g">ERP编码：<span>111111</span></div>
+                <div class="g-info">
+                    <div class="title">名称：</div>
+                    <div class="text">999感冒灵颗粒</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">规格：</div>
+                    <div class="text">20g*30袋</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">企业：</div>
+                    <div class="text">浙江XXXX制药厂</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">条码：</div>
+                    <div class="text">434265464346</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">批准文号：</div>
+                    <div class="text">国药准字Z9832733</div>
+                </div>
+            </div>
+            <!--系统中的信息-->
+            <div class="winGoodsInfo  sys">
+                <div class="t1">当前产品</div>
+                <div class="t1 sys-o">ERP编码：<span>111111</span></div>
+                <div class="g-info">
+                    <div class="title">名称：</div>
+                    <div class="text">999感冒灵颗粒</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">规格：</div>
+                    <div class="text">20g*30袋</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">企业：</div>
+                    <div class="text">浙江XXXX制药厂</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">条码：</div>
+                    <div class="text">434265464346</div>
+                </div>
+                <div class="g-info">
+                    <div class="title">批准文号：</div>
+                    <div class="text">国药准字Z9832733</div>
+                </div>
+            </div>
+            <div class="winGoodsInfo btv">
+                <div class="btv-b b1">查看商品详情</div>
+                <div class="btv-b b2">拒绝</div>
+            </div>
+        </div>
+        <div class="view3">
+            <div class="searchView">
+                <input class="input ipt1" type="text" placeholder="商品名称">
+                <input class="input ipt2" type="text" placeholder="条形码">
+                <input class="input ipt3" type="text" placeholder="生产企业">
+                <input class="input ipt4" type="text" placeholder="批准文号">
+                <input class="input ipt5" type="button" placeholder="" value="搜索">
+            </div>
+            <div class="view3-t1">帮您匹配到的药店加平台产品库中与之匹配的产品</div>
+            <div class="div-table-area">
+                <div class="table-header">
+                    <div class="table-header-title t1">商品名称</div>
+                    <div class="table-header-title t2">规格</div>
+                    <div class="table-header-title t3">生产企业</div>
+                    <div class="table-header-title t4">条形码</div>
+                    <div class="table-header-title t5">批准文号</div>
+                    <div class="table-header-title t6">平台编码</div>
+                    <div class="table-header-title t7">使用商家数</div>
+                    <div class="table-header-title t8">匹配得分</div>
+                </div>
+
+                <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+
+                <div class="table-cell sel" >
+                    <div class="table-cell-t t1">板蓝根颗粒</div>
+                    <div class="table-cell-t t2">20g*20袋</div>
+                    <div class="table-cell-t t3">贵州百灵制药厂</div>
+                    <div class="table-cell-t t4">131625052522</div>
+                    <div class="table-cell-t t5">国药准字1262505252</div>
+                    <div class="table-cell-t t6">861132122123</div>
+                    <div class="table-cell-t t7">111</div>
+                    <div class="table-cell-t t8">100</div>
+                </div>
+                <div class="table-cell">
+                    <div class="table-cell-t t1">板蓝根颗粒</div>
+                    <div class="table-cell-t t2">20g*20袋</div>
+                    <div class="table-cell-t t3">贵州百灵制药厂</div>
+                    <div class="table-cell-t t4">131625052522</div>
+                    <div class="table-cell-t t5">国药准字1262505252</div>
+                    <div class="table-cell-t t6">861132122123</div>
+                    <div class="table-cell-t t7">111</div>
+                    <div class="table-cell-t t8">100</div>
+                </div>
+
+
+
+            </div>
+            <div class="btn-wrapper-pager">
+                <input type="button" class="btn-pager" value="上一页">
+                <input type="button" class="btn-pager thisSelected" value="4">
+                <input type="button" class="btn-pager" value="下一页">
+                <input type="button" class="btn-pager" value="末页">
+                <span class="span-pagerSum">共68页/1015条记录</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="win-bgView2">
+    <div class="contentView2">
+        <div class="view1">产品详情
+            <input class="input ipt1" type="button" placeholder="" value="关闭">
+        </div>
+        <div class="view2">
+            <div class="view2-lv">
+                <div class="lv-cell">
+                    <div class="lv-cell-t">商品名称：
+                        <span class="spmc">板蓝根颗粒</span>
+                        <input type="text" class="lv-cell-input spmc" value="板蓝根颗粒">
+                        <span class="view2-bj" id="bj-spmc"></span>
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">商品规格：
+                        <span class="gg">每袋装10g</span>
+                        <input type="text" class="lv-cell-input gg" value="每袋装10g">
+                        <span class="view2-bj" id="bj-gg">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">生产企业：
+                        <span class="scqy">生产企业</span>
+                        <input type="text" class="lv-cell-input scqy" value="生产企业">
+                        <span class="view2-bj" id="bj-scqy">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">搜索关键词：
+                        <span class="ssgjc">BLGKL,板蓝根，感冒,板蓝根颗粒</span>
+                        <input type="text" class="lv-cell-input ssgjc" value="BLGKL,板蓝根，感冒,板蓝根颗粒">
+                        <span class="view2-bj" id="bj-ssgjc">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">批准文号：
+                        <span class="pzwh">国药准字Z44023485</span>
+                        <input type="text" class="lv-cell-input pzwh" value="国药准字Z44023485">
+                        <span class="view2-bj" id="bj-pzwh">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">条形码：
+                        <span class="txm">6938200750774</span>
+                        <input type="text" class="lv-cell-input txm" value="6938200750774">
+                        <span class="view2-bj" id="bj-txm">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">是否药品：
+                        <span class="sfyp">是</span>
+                        <input type="text" class="lv-cell-input sfyp" value="是">
+                        <span class="view2-bj" id="bj-sfyp">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">药品类型：
+                        <span class="yplx">国产药品</span>
+                        <input type="text" class="lv-cell-input yplx" value="国产药品">
+                        <span class="view2-bj" id="bj-yplx">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">处方分类：
+                        <span class="cffl">非处方药</span>
+                        <input type="text" class="lv-cell-input cffl" value="非处方药">
+                        <span class="view2-bj" id="bj-cffl">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">是否含有麻黄碱：
+                        <span class="mhj">否</span>
+                        <input type="text" class="lv-cell-input mhj" value="否">
+                        <span class="view2-bj" id="bj-mhj">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">助记码：
+                        <span class="zjm">助记码</span>
+                        <input type="text" class="lv-cell-input zjm" value="助记码">
+                        <span class="view2-bj" id="bj-zjm">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">品牌名称：
+                        <span class="ppmc">品牌名称</span>
+                        <input type="text" class="lv-cell-input ppmc" value="品牌名称">
+                        <span class="view2-bj" id="bj-ppmc">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">说明书：
+                        <span class="sms">说明书</span>
+                        <input type="text" class="lv-cell-input sms" value="说明书">
+                        <span class="view2-bj" id="bj-sms">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">通用名：
+                        <span class="tym">通用名</span>
+                        <input type="text" class="lv-cell-input tym" value="通用名">
+                        <span class="view2-bj" id="bj-tym">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">功能疗效：
+                        <span class="gnlx">功能疗效</span>
+                        <input type="text" class="lv-cell-input gnlx" value="功能疗效">
+                        <span class="view2-bj" id="bj-gnlx">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">用法用量：
+                        <span class="yfyl">开水冲服。一次5～10克，一日3～4次。</span>
+                        <input type="text" class="lv-cell-input yfyl" value="开水冲服。一次5～10克，一日3～4次。">
+                        <span class="view2-bj" id="bj-yfyl">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">不良反应：
+                        <span class="blfy">不良反应</span>
+                        <input type="text" class="lv-cell-input blfy" value="不良反应">
+                        <span class="view2-bj" id="bj-blfy">
+                    </div>
+                </div>
+                <div class="lv-cell">
+                    <div class="lv-cell-t">禁忌：
+                        <span class="jj">禁忌</span>
+                        <input type="text" class="lv-cell-input jj" value="禁忌">
+                        <span class="view2-bj" id="bj-jj">
+                    </div>
+                </div>
+
+            </div>
+            <div class="view2-rv">
+                <div class="t1">商品图片：</div>
+                <div class="iv">
+                    <!--<div class="btzt  zt">主图</div>-->
+                    <div class="btzt  swzt">
+                        <p>设为</p>
+                        <p>主图</p>
+                    </div>
+                    <img src="http://ydjia.hydee.cn:8090/hwimg/static/images/goodsimage/109/86905108000351001/120/0.jpg" alt="">
+                </div>
+                <div class="row-iv">
+                    <!--未选中状态-->
+                    <div class="iv2">
+                        <img src="http://ydjia.hydee.cn:8090/hwimg/static/images/goodsimage/109/86905108000351001/120/0.jpg" alt="">
+                        <div class="sel-iv"></div>
+                    </div>
+                    <!--选中状态-->
+                    <div class="iv2">
+                        <img src="http://ydjia.hydee.cn:8090/hwimg/static/images/goodsimage/109/86905108000351001/120/0.jpg" alt="">
+                        <div class="sel-iv sel"></div>
+                    </div>
+                </div>
+                <div class="btn-bg">
+                    <!--默认状态-->
+                    <input class="input res-btn" type="button" placeholder="" value="图片不清晰">
+                    <!--选中状态-->
+                    <input class="input res-btn sel" type="button" placeholder="" value="图片有水印">
+                    <input class="input res-btn" type="button" placeholder="" value="图片重复">
+                    <input class="input res-btn" type="button" placeholder="" value="图片不美观">
+                    <input class="input res-btn" type="button" placeholder="" value="有营销文字">
+
+                    <!--<textarea name="ta" id="qtyy"  placeholder="在此输入其他原因"></textarea>-->
+                    <input class="input res-ipt" type="text" placeholder="在此输入其他原因" value="">
+
+                </div>
+            </div>
+        </div>
+        <div class="view3">
+            <input class="input win2btn-tg" type="button" placeholder="" value="通过">
+            <input class="input win2btn-jj" type="button" placeholder="" value="拒绝">
+        </div>
+    </div>
+</div>
+
+<div class="win-bgView3">
+    <div class="contentView3">
+        <div class="view1">选择拒绝原因
+            <input class="input ipt1 gb" type="button" placeholder="" value="关闭">
+        </div>
+        <div class="view2">
+            <div class="option-lt">选择原因:</div>
+            <div class="option-v">药店加平台已存在该商品
+                <img src="../img/xiasanjiao.png" alt="">
+            </div>
+            <div class="option-nr">
+                <input class="option-nr ipt1" type="button" value="药店加平台已存在该商品">
+                <input class="option-nr ipt2" type="button" value="商品信息不够规范合理">
+                <input class="option-nr ipt3" type="button" value="其它原因">
+            </div>
+            <textarea name="ta" id="qtyy" placeholder="其它原因"></textarea>
+
+        </div>
+        <div class="view3">
+
+            <input class="input win3btn-qd" type="button" placeholder="" value="确定">
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

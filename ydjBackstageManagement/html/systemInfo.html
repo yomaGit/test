@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="ie-stand">
+    <title>系统消息</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+</head>
+<body>
+<div class="subBar">
+    <div class="subBar-left">
+        <div class="logo-wrapper">
+            <img src="../img/logo.png">
+        </div>
+        <ul class="ul-nav-main">
+            <li id="Chain" class="active1">合作连锁</li>
+            <li id="Companies">合作药企</li>
+        </ul>
+    </div>
+    <div class="subBar-right">
+        <div id="forChain">
+            <div>连锁管理</div>
+            <ul class="ul-nav-link">
+                <li><a href="chainAccount.html">创建账号</a></li>
+                <li><a href="chainList.html">连锁列表</a></li>
+                <li><a href="chainGoodsAuditing.html">商品审核</a></li>
+                <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                <li class="active2"><a href="systemInfo.html">系统消息</a></li>
+                <li><a href="cRet_ov.html">合同及回款</a></li>
+                <li><a href="chain_data.html">连锁数据</a></li>
+            </ul>
+        </div>
+        <!--<div id="forCompanies">-->
+        <!--<div>药企管理</div>-->
+        <!--<ul class="ul-nav-main">-->
+        <!--<li><a class="active">药企列表</a></li>-->
+        <!--<li><a class="active">药企账号</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+<div class="mainContent">
+    <div class="mainContent-top">
+        <ul class="ul-tab-options">
+            <li  class="activeTab" dataId="AddSystemInfo">创建消息<span></span></li>
+            <li  dataId="SystemInfoList">历史记录<span></span></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div id="systemInfoMain" class="mainContent-bottom systemInfo forAddSystemInfo">
+        <ul class="ul-account">
+            <li class="leftLi10">标题</li>
+            <li class="rightLi80"><input type="text" id="sITitle" class="width340">
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="ul-systemInfo-auto">
+            <li class="leftLi10">正文</li>
+            <li class="rightLi80"><textarea id="sIContent" class="width100PreNoMargin height190px"></textarea>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="ul-systemInfo-auto">
+            <li class="leftLi10">商家</li>
+            <li class="rightLi80"><textarea id="sIChain" class="width100PreNoMargin height129px"></textarea>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="ul-systemInfo-auto">
+            <li class="leftLi10 nullLi"></li>
+            <li class="rightLi80">
+                <div class="width100PreNoMargin">
+                    <input type="button" value="选择全部" class="btn-line-skyblue width80">
+                    <input type="button" value="发送" class="btn-hover-skyblue width80 floatRight">
+                    <div class="clear"></div>
+                </div>
+
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="mainContent-bottom systemInfo forSystemInfoList displayNone">
+        <ul class="ul-right-nav ul-only-height60px">
+            <li>
+                <div class="textTitle">我是标题君标题菌标题标题啊啊啊</div>
+                <div class="textTime">创建时间：2016-02-26 16:25:23</div>
+                <!--<div class="textTime">更新时间：2016-02-28 16:25:23</div>-->
+                <div class="operationDetail"><input type="button" class="btn-hover-skyblue systemMsg_d" value="详细"></div>
+            </li>
+            <li>
+                <div class="textTitle">我是标题君标题菌标题标题啊啊啊</div>
+                <div class="textTime">创建时间：2016-02-26 16:25:23</div>
+                <!--<div class="textTime">更新时间：2016-02-28 16:25:23</div>-->
+                <div class="operationDetail"><input type="button" class="btn-hover-skyblue systemMsg_d" value="详细"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="shadowWhite shadowWhite_sys">
+    <div class="shadowContent shadow800500">
+        <div class="shadowTitle">详细信息</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <div class="name">2月13日药店加版本更新</div>
+            <div class="con"><pre>药店加已于2月13日完成新一轮更新，三大模块更新详情如下：
+一、商家后台发布新版本V2.9.1了，更新内容大致如下：
+1.药店加更新收费系统。
+2.微商城底部增加药店加官网链接。
+3.优惠券的生效时间新增了一种规则。（如：自领取起1天后生效，生效后1天后失效）
+4.会员卡领取流程优化。（省略了选择注册或绑定操作及会员卡激活操作）
+5.商家后台定向给会员发放优惠券。
+6.商家后台产品、商品增加导出功能
+
+二、药师端发布新版本v3.0.0，具体更新如下：
+1.整体页面完成改版。
+2.增加查看门店、员工业绩等新功能。</pre>
+            </div>
+            <div class="time">发送于2017.02.14</div>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="wholeBg"></div>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>合同及回款</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery_common.css">
+</head>
+<body>
+<div class="subBar">
+    <div class="subBar-left">
+        <div class="logo-wrapper">
+            <img src="../img/logo.png">
+        </div>
+        <ul class="ul-nav-main">
+            <li id="Chain" class="active1">合作连锁</li>
+            <li id="Companies">合作药企</li>
+        </ul>
+    </div>
+    <div class="subBar-right">
+        <div id="forChain">
+            <div>连锁管理</div>
+            <ul class="ul-nav-link">
+                <li><a href="chainAccount.html">创建账号</a></li>
+                <li><a href="chainList.html">连锁列表</a></li>
+                <li><a href="chainGoodsAuditing.html">商品审核</a></li>
+                <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                <li><a href="systemInfo.html">系统消息</a></li>
+                <li class="active2"><a href="cRet_ov.html">合同及回款</a></li>
+                <li><a href="chain_data.html">连锁数据</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="mainContent">
+    <div class="mainContent-top">
+        <ul class="ul-tab-options">
+            <li class="activeTab" dataId="cRet_ov">回款及合同概览<span></span></li>
+            <li dataId="cRet_allc">所有合同<span></span></li>
+            <li dataId="cRet_allr">所有回款<span></span></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div id="forcRet_ov" class="mainContent-bottom systemInfo forcRet_ov">
+        <div class="paddingLeft10 marginTop10px"><input type="button" class="btn-hover-skyblue width120 addRbackRec" value="添加回款记录"><input type="button" class="btn-line-skyblue width120 marginLeft20 addRconRec" value="添加合同记录" ></div>
+        <div class="cRetMain">
+            <div class="left floatLeft layer">
+                <a href="javascript:;" onclick="clickId('cRet_allc')">
+                    <ul>
+                        <li>
+                            <div class="top">200</div>
+                            <div class="down">当月合同数</div>
+                        </li>
+                        <li>
+                            <div class="top">500</div>
+                            <div class="down">今年合同数</div>
+                        </li>
+                        <li>
+                            <div class="top">1200</div>
+                            <div class="down">累计合同数</div>
+                        </li>
+                        <div class="clear"> </div>
+                    </ul>
+                </a>
+            </div>
+            <div class="right floatLeft layer">
+                <a href="javascript:;" onclick="clickId('cRet_allr')">
+                    <ul>
+                        <li>
+                            <div class="top">1200000</div>
+                            <div class="down">当月回款额</div>
+                        </li>
+                        <li>
+                            <div class="top">1200000</div>
+                            <div class="down">当年回款额</div>
+                        </li>
+                        <li>
+                            <div class="top">12000000</div>
+                            <div class="down">累计回款额</div>
+                        </li>
+                        <div class="clear"> </div>
+                    </ul>
+                </a>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="cRetMainLi">
+            <ul>
+                <li class="on">
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <li>
+                    <div class="layer">2017-01</div>
+                    <div class="layer">合同：23</div>
+                    <div class="layer">回款：235620</div>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="div-table-area marginTop20px">
+            <ul class="ul-table-header">
+                <li class="width45percent">日期</li>
+                <li class="width38percent">合同数</li>
+                <li class="width14percent">回款项</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height60px">
+                <li class="width45percent" title="2017年03月12日">2017年03月12日</li>
+                <li class="width38percent" title="2">2</li>
+                <li class="width14percent" title="1">1</li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width45percent" title="2017年03月12日">2017年03月12日</li>
+                <li class="width38percent" title="2">2</li>
+                <li class="width14percent" title="1">1</li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width45percent" title="2017年03月12日">2017年03月12日</li>
+                <li class="width38percent" title="2">2</li>
+                <li class="width14percent" title="1">1</li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" id="homePage">
+            <input type="button" class="btn-pager" value="上一页" id="formPage">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页" id="nextPage">
+            <input type="button" class="btn-pager" value="末页" id="lastPage">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+    <div id="forcRet_allc" class="mainContent-bottom systemInfo forcRet_allc displayNone">
+        <div class="selLayer bdashed">
+            <div class="selLayerLeft">所属事业部：</div>
+            <div class="seLayerRight multi">
+                <div class="selMoni on nl">不限</div>
+                <div class="selMoni">华东事业部</div>
+                <div class="selMoni">中南事业部</div>
+                <div class="selMoni">华北事业部</div>
+                <div class="selMoni">西南事业部</div>
+                <div class="selMoni">西北事业部</div>
+                <div class="clear"> </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer bdashed">
+            <div class="selLayerLeft">付费项目：</div>
+            <div class="seLayerRight multi">
+                <div class="selMoni on nl">不限</div>
+                <div class="selMoni">微信平台</div>
+                <div class="selMoni">O2O商城基础套餐</div>
+                <div class="selMoni">上线门店</div>
+                <div class="selMoni">自动售药机系统</div>
+                <div class="clear"> </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">合同确认时间：</div>
+            <div class="seLayerRight">
+                <input type="text" class="width120 time marginRight5px"/>至<input type="text" class="width120 time marginLeft5px"/>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">商家搜索：</div>
+            <div class="seLayerRight">
+                <input type="text" class="width260"/>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">&nbsp;</div>
+            <div class="seLayerRight"><input type="button" class="btn-line-skyblue width80" value="筛选"><input type="button" class="btn-hover-skyblue width80 marginLeft10px" value="导出"></div>
+            <div class="clear"> </div>
+        </div>
+        <div class="div-table-area marginTop20px">
+            <ul class="ul-table-header">
+                <li class="width14percent">合同确认时间</li>
+                <li class="width18percent">商家名称</li>
+                <li class="width12percent">商家编码</li>
+                <li class="width16percent">合同编码</li>
+                <li class="width10percent">事业部</li>
+                <li class="width20percent">付费项目</li>
+                <li class="width10percent tright">合同详情</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height60px">
+                <li class="width14percent" title="2017年03月13日">2017年03月13日</li>
+                <li class="width18percent" title="正源大药房正源大药房">正源大药房正源大药房</li>
+                <li class="width12percent" title="25698546790">25698546790</li>
+                <li class="width16percent" title="HV-dfd36652566">HV-dfd36652566</li>
+                <li class="width10percent" title="华东事业部">华东事业部</li>
+                <li class="width20percent" title="微信平台  O2O商城  售药机">微信平台  O2O商城  售药机</li>
+                <li class="width10percent tright"><a href="javascript:;" class="fontBlue showCDetail">编辑</a><span class="fontBlue">/</span><a href="javascript:;" class="fontBlue">删除</a></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width14percent" title="2017年03月13日">2017年03月13日</li>
+                <li class="width18percent" title="正源大药房正源大药房">正源大药房正源大药房</li>
+                <li class="width12percent" title="25698546790">25698546790</li>
+                <li class="width16percent" title="HV-dfd36652566">HV-dfd36652566</li>
+                <li class="width10percent" title="华东事业部">华东事业部</li>
+                <li class="width20percent" title="微信平台  O2O商城  售药机">微信平台  O2O商城  售药机</li>
+                <li class="width10percent tright"><a href="javascript:;" class="fontBlue showCDetail">查看</a>&nbsp;&nbsp;<a href="javascript:;" class="fontBlue showCDetail_edit">编辑</a></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width14percent" title="2017年03月13日">2017年03月13日</li>
+                <li class="width18percent" title="正源大药房正源大药房">正源大药房正源大药房</li>
+                <li class="width12percent" title="25698546790">25698546790</li>
+                <li class="width16percent" title="HV-dfd36652566">HV-dfd36652566</li>
+                <li class="width10percent" title="华东事业部">华东事业部</li>
+                <li class="width20percent" title="微信平台  O2O商城  售药机">微信平台  O2O商城  售药机</li>
+                <li class="width10percent tright"><a href="javascript:;" class="fontBlue showCDetail">查看</a>&nbsp;&nbsp;<a href="javascript:;" class="fontBlue showCDetail_edit">编辑</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" id="homePage">
+            <input type="button" class="btn-pager" value="上一页" id="formPage">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页" id="nextPage">
+            <input type="button" class="btn-pager" value="末页" id="lastPage">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+    <div id="forcRet_allr" class="mainContent-bottom systemInfo forcRet_allr displayNone">
+        <div class="selLayer bdashed">
+            <div class="selLayerLeft">所属事业部：</div>
+            <div class="seLayerRight multi">
+                <div class="selMoni on nl">不限</div>
+                <div class="selMoni">华东事业部</div>
+                <div class="selMoni">中南事业部</div>
+                <div class="selMoni">华北事业部</div>
+                <div class="selMoni">西南事业部</div>
+                <div class="selMoni">西北事业部</div>
+                <div class="clear"> </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">回款确认时间：</div>
+            <div class="seLayerRight">
+                <input type="text" class="width120 time marginRight5px"/>至<input type="text" class="width120 time marginLeft5px"/>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">商家搜索：</div>
+            <div class="seLayerRight">
+                <input type="text" class="width260"/>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">&nbsp;</div>
+            <div class="seLayerRight"><input type="button" class="btn-line-skyblue width80" value="筛选"><input type="button" class="btn-hover-skyblue width80 marginLeft10px" value="导出"></div>
+            <div class="clear"> </div>
+        </div>
+        <div class="div-table-area marginTop20px">
+            <ul class="ul-table-header">
+                <li class="width12percent">回款时间</li>
+                <li class="width16percent">商家名称</li>
+                <li class="width12percent">商家编码</li>
+                <li class="width10percent">事业部</li>
+                <li class="width10percent">回款金额</li>
+                <li class="width10percent">回款方式</li>
+                <li class="width25percent">付费项目</li>
+                <li class="width5percent">操作</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height60px">
+                <li class="width12percent" title="2017年03月13日">2017年03月13日</li>
+                <li class="width16percent" title="正源大药房正源大药房">正源大药房正源大药房</li>
+                <li class="width12percent" title="25698546790">25698546790</li>
+                <li class="width10percent" title="华东事业部">华东事业部</li>
+                <li class="width10percent" title="121212">121212</li>
+                <li class="width10percent" title="线上支付">线上支付</li>
+                <li class="width25percent" title="微信平台  O2O商城  售药机">微信平台  O2O商城  售药机</li>
+                <li class="width5percent"><a href="javascript:;" class="fontBlue allHT_edit">编辑</a></li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width12percent" title="2017年03月13日">2017年03月13日</li>
+                <li class="width16percent" title="正源大药房正源大药房">正源大药房正源大药房</li>
+                <li class="width12percent" title="25698546790">25698546790</li>
+                <li class="width10percent" title="华东事业部">华东事业部</li>
+                <li class="width10percent" title="121212">121212</li>
+                <li class="width10percent" title="线上支付">线上支付</li>
+                <li class="width25percent" title="微信平台  O2O商城  售药机">微信平台  O2O商城  售药机</li>
+                <li class="width5percent"><a href="javascript:;" class="fontBlue allHT_edit">编辑</a></li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width12percent" title="2017年03月13日">2017年03月13日</li>
+                <li class="width16percent" title="正源大药房正源大药房">正源大药房正源大药房</li>
+                <li class="width12percent" title="25698546790">25698546790</li>
+                <li class="width10percent" title="华东事业部">华东事业部</li>
+                <li class="width10percent" title="121212">121212</li>
+                <li class="width10percent" title="线上支付">线上支付</li>
+                <li class="width25percent" title="微信平台  O2O商城  售药机">微信平台  O2O商城  售药机</li>
+                <li class="width5percent"><a href="javascript:;" class="fontBlue allHT_edit">编辑</a></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" id="homePage">
+            <input type="button" class="btn-pager" value="上一页" id="formPage">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页" id="nextPage">
+            <input type="button" class="btn-pager" value="末页" id="lastPage">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+</div>
+<div class="shadowWhite shadowWhite_cRet">
+    <div class="shadowContent shadow800500">
+        <div class="shadowTitle">添加回款记录</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">商家名称：</li>
+                <li class="rightLiLayer rightLi66">
+                    <div class="sjName dropList">
+                        <div class="dropList-top"></div>
+                        <div class="dropList-con width260">选择商家名称</div>
+                    </div>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">确认回款时间：</li>
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width260 time">
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">确认回款金额：</li>
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width260" id="money">
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account heightAuto">
+                <li class="leftLiLayer leftLi33">汇款所指产品：</li>
+                <li class="rightLiLayer rightLi66 heightAuto">
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加微信平台<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加微信平台售后服务年费<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加O2O商城基础套餐<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;购买线上门店&nbsp;&nbsp;<input type="text" class="width60"/>&nbsp;&nbsp;家<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加自动售药机系统&nbsp;&nbsp;<input type="text" class="width60"/>&nbsp;&nbsp;台<br />
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">回款方式：</li>
+                <li class="rightLiLayer rightLi66">线下汇款</li>
+                <div class="clear"> </div>
+            </ul>
+            <div class="lined9d9d9"><span></span></div>
+            <ul class="ul-account marginTop10px">
+                <li class="leftLiLayer leftLi33">销售：</li>
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width260">
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">售后：</li>
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width260">
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">实施：</li>
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width260">
+                </li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="shadowWhite shadowWhite_cRetcon">
+    <div class="shadowContent shadow800500">
+        <div class="shadowTitle">添加合同记录</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">商家名称：</li>
+                <li class="rightLiLayer rightLi66">
+                    <div class="sjName_x dropList">
+                        <div class="dropList-top"></div>
+                        <div class="dropList-con width260">选择商家名称</div>
+                    </div>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">所属事业部：</li>
+                <li class="rightLiLayer rightLi66">
+                    <select class="selectLayer width260">
+                        <option value="0">北方事业部</option>
+                        <option value="1">华东事业部</option>
+                        <option value="2">中南事业部</option>
+                        <option value="3">西北事业部</option>
+                        <option value="4">西南事业部</option>
+                    </select>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">省份：</li>
+                <li class="rightLiLayer rightLi66">
+                    <select class="selectLayer width260">
+                        <option value="">北京</option>
+                        <option value="">天津</option>
+                        <option value="">河北省</option>
+                        <option value="">山西省</option>
+                        <option value="">内蒙古自治区</option>
+                        <option value="">辽宁省</option>
+                        <option value="">吉林省</option>
+                        <option value="">黑龙江省</option>
+                        <option value="">上海</option>
+                        <option value="">江苏省</option>
+                        <option value="">浙江省</option>
+                        <option value="">安徽省</option>
+                        <option value="">福建省</option>
+                        <option value="">江西省</option>
+                        <option value="">山东省</option>
+                        <option value="">河南省</option>
+                        <option value="">湖北省</option>
+                        <option value="">湖南省</option>
+                        <option value="">广东省</option>
+                        <option value="">广西壮族自治区</option>
+                        <option value="">海南省</option>
+                        <option value="">重庆</option>
+                        <option value="">四川省</option>
+                        <option value="">贵州省</option>
+                        <option value="">云南省</option>
+                        <option value="">西藏自治区</option>
+                        <option value="">陕西省</option>
+                        <option value="">甘肃省</option>
+                        <option value="">青海省</option>
+                        <option value="">宁夏回族自治区</option>
+                        <option value="">新疆维吾尔自治区</option>
+                        <option value="">台湾</option>
+                        <option value="">香港特别行政区</option>
+                        <option value="">澳门特别行政区</option>
+                        <option value="">海外</option>
+                    </select>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <div class="lined9d9d9"><span></span></div>
+            <ul class="ul-account marginTop10px">
+                <li class="leftLiLayer leftLi33">合同签订时间：</li>
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width260 time">
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">合同编号：</li>
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width260">
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account heightAuto">
+                <li class="leftLiLayer leftLi33">付费项目：</li>
+                <li class="rightLiLayer rightLi66 heightAuto">
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加微信平台<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加微信平台售后服务年费<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加O2O商城基础套餐<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;购买线上门店&nbsp;&nbsp;<input type="text" class="width50"/>&nbsp;&nbsp;家<br />
+                    <input type="checkbox"/>&nbsp;&nbsp;药店加自动售药机系统&nbsp;&nbsp;<input type="text" class="width50"/>&nbsp;&nbsp;台<br />
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">O2O商城使用时间：</li>
+                <li class="rightLiLayer rightLi66"><input type="text" class="width120 time">&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" class="width120 time"></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="shadowWhite shadowWhite_cRetShow">
+    <div class="shadowContent shadow800500">
+        <div class="shadowTitle">添加合同记录</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">商家名称：</li>
+                <li class="rightLiLayer rightLi66">这里是商家名称</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">商家编码：</li>
+                <li class="rightLiLayer rightLi66">123446</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">所属事业部：</li>
+                <li class="rightLiLayer rightLi66">北方事业部</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">省份：</li>
+                <li class="rightLiLayer rightLi66">北京</li>
+                <div class="clear"> </div>
+            </ul>
+            <div class="lined9d9d9"><span></span></div>
+            <ul class="ul-account marginTop10px">
+                <li class="leftLiLayer leftLi33">合同签订时间：</li>
+                <li class="rightLiLayer rightLi66">2014.12.11</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">合同编号：</li>
+                <li class="rightLiLayer rightLi66">12121212</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account heightAuto">
+                <li class="leftLiLayer leftLi33">付费项目：</li>
+                <li class="rightLiLayer rightLi66 heightAuto">药店加微信平台<br />药店加微信平台售后服务年费<br />药店加O2O商城基础套餐<br />购买线上门店11家<br />药店加自动售药机系统22台
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">O2O商城使用时间：</li>
+                <li class="rightLiLayer rightLi66">2012.12.12至2012.12.12</li>
+                <div class="clear"> </div>
+            </ul>
+            <div class="lined9d9d9"><span></span></div>
+            <ul class="ul-account marginTop10px">
+                <li class="leftLiLayer leftLi33">销售：</li>
+                <li class="rightLiLayer rightLi66">急急急</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">售后：</li>
+                <li class="rightLiLayer rightLi66">急急急</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">实施：</li>
+                <li class="rightLiLayer rightLi66">急急急</li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="wholeBg"></div>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/jquery-common.js"></script>
+<script src="../js/jquery.datetimepicker.js"></script>
+<script src="../js/common.js"></script>
+<script>
+    $(function(){
+        $(".time").datetimepicker({
+            lang:'ch',
+            timepicker:false,
+            format:'Y.m.d',
+            formatDate:'Y.m.d',
+            scrollMonth:false,
+            scrollTime:false,
+            scrollInput:false,
+        });
+
+        $(".sjName").dropList({
+            dropListz:[{"id":"-1","label":"商家0"},{"id":"1","label":"商家1"},{"id":"4","label":"商家2"}],
+            key:"id",
+            name:"label",
+            inputName:"sjName",
+            width:"260px",
+            input:true
+        });
+
+        $(".sjName_x").dropList({
+            dropListz:[{"id":"-1","label":"商家0"},{"id":"1","label":"商家1"},{"id":"4","label":"商家2"}],
+            key:"id",
+            name:"label",
+            inputName:"sjName",
+            width:"260px",
+            input:true
+        });
+
+    })
+
+</script>
+</body>
+</html>

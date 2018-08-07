@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="ie-stand">
+    <title>连锁列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+</head>
+<body>
+<div class="subBar">
+    <div class="subBar-left">
+        <div class="logo-wrapper">
+            <img src="../img/logo.png">
+        </div>
+        <ul class="ul-nav-main">
+            <li id="Chain" class="active1">合作连锁</li>
+            <li id="Companies">合作药企</li>
+        </ul>
+    </div>
+    <div class="subBar-right">
+        <div id="forChain">
+            <div>连锁管理</div>
+            <ul class="ul-nav-link">
+                <li><a href="chainAccount.html">创建账号</a></li>
+                <li class="active2"><a href="chainList.html">连锁列表</a></li>
+                <li><a href="chainGoodsAuditing.html">商品审核</a></li>
+                <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                <li><a href="systemInfo.html">系统消息</a></li>
+                <li><a href="cRet_ov.html">合同及回款</a></li>
+                <li><a href="chain_data.html">连锁数据</a></li>
+            </ul>
+        </div>
+        <!--<div id="forCompanies">-->
+        <!--<div>药企管理</div>-->
+        <!--<ul class="ul-nav-main">-->
+        <!--<li><a class="active">药企列表</a></li>-->
+        <!--<li><a class="active">药企账号</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+<div class="mainContent">
+    <div class="mainContent-top"></div>
+    <div class="mainContent-bottom ">
+        <div class="tableExplain">
+            <p>所有连锁（200）</p>
+            <label class="input imgSearch marginLeft10 floatRight">
+                <input type="text" id="search" class="width260 labelInput" placeholder="搜索名称或编码">
+                <img src="../img/sc.png" class="right9 top5">
+            </label>
+            <div class="clear"> </div>
+        </div>
+        <div class="div-table-area">
+            <ul class="ul-table-header">
+                <li class="width20percent paddingLeft10">连锁名称</li>
+                <li class="width8percent">连锁编码</li>
+                <li class="width12percent">公司电话</li>
+                <li class="width8percent">平台负责人</li>
+                <li class="width12percent">负责人电话</li>
+                <li class="width12percent">平台账号</li>
+                <li class="width8percent">入驻时间</li>
+                <li class="width16percent textAlignCenter">操作</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height60px">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width12percent">021-00008888</li>
+                <li class="width8percent">王玉海</li>
+                <li class="width12percent">--</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width8percent">2016.06.29</li>
+                <li class="width16percent textAlignCenter">
+                    <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+                    <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width12percent">021-00008888</li>
+                <li class="width8percent">王玉海</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width8percent">2016.06.29</li>
+                <li class="width16percent textAlignCenter">
+                    <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+                    <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width12percent">021-00008888</li>
+                <li class="width8percent">王玉海</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width8percent">2016.06.29</li>
+                <li class="width16percent textAlignCenter">
+                    <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+                    <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width12percent">021-00008888</li>
+                <li class="width8percent">王玉海</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width8percent">2016.06.29</li>
+                <li class="width16percent textAlignCenter">
+                    <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+                    <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width12percent">021-00008888</li>
+                <li class="width8percent">王玉海</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width8percent">2016.06.29</li>
+                <li class="width16percent textAlignCenter">
+                    <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+                    <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width12percent">021-00008888</li>
+                <li class="width8percent">王玉海</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width8percent">2016.06.29</li>
+                <li class="width16percent textAlignCenter">
+                    <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+                    <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+                <li class="width8percent">0001</li>
+                <li class="width12percent">021-00008888</li>
+                <li class="width8percent">王玉海</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width12percent">13966666666</li>
+                <li class="width8percent">2016.06.29</li>
+                <li class="width16percent textAlignCenter">
+                    <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+                    <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+            <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+            <li class="width8percent">0001</li>
+            <li class="width12percent">021-00008888</li>
+            <li class="width8percent">王玉海</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width8percent">2016.06.29</li>
+            <li class="width16percent textAlignCenter">
+            <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+            <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+            </li>
+            <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+            <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+            <li class="width8percent">0001</li>
+            <li class="width12percent">021-00008888</li>
+            <li class="width8percent">王玉海</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width8percent">2016.06.29</li>
+            <li class="width16percent textAlignCenter">
+            <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+            <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+            </li>
+            <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+            <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+            <li class="width8percent">0001</li>
+            <li class="width12percent">021-00008888</li>
+            <li class="width8percent">王玉海</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width8percent">2016.06.29</li>
+            <li class="width16percent textAlignCenter">
+            <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+            <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+            </li>
+            <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+            <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+            <li class="width8percent">0001</li>
+            <li class="width12percent">021-00008888</li>
+            <li class="width8percent">王玉海</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width8percent">2016.06.29</li>
+            <li class="width16percent textAlignCenter">
+            <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+            <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+            </li>
+            <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+            <li class="width20percent paddingLeft10" title="正源大药房">正源大药房</li>
+            <li class="width8percent">0001</li>
+            <li class="width12percent">021-00008888</li>
+            <li class="width8percent">王玉海</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width12percent">13966666666</li>
+            <li class="width8percent">2016.06.29</li>
+            <li class="width16percent textAlignCenter">
+            <input type="button" class="btn-hover-skyblue marginRight10px" value="详情">
+            <input type="button" class="btn-hover-hyacinth editChainInfo" value="修改">
+            </li>
+            <div class="clear"></div>
+            </ul>
+        </div>
+
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" id="homePage">
+            <input type="button" class="btn-pager" value="上一页" id="formPage">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页" id="nextPage">
+            <input type="button" class="btn-pager" value="末页" id="lastPage">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+</div>
+<div class="shadowWhite">
+    <div class="shadowContent shadow800500">
+        <div class="shadowTitle">连锁账号信息</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-account">
+                <li class="leftLi20">公司名称</li>
+                <li class="rightLi80">
+                    <input type="text" id="cName" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">联系电话</li>
+                <li class="rightLi80">
+                    <input type="text" id="cTel" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">联系地址</li>
+                <li class="rightLi80">
+                    <input type="text" class="marginRight10px width120">
+                    <input type="text" class="marginRight10px width120">
+                    <input type="text" class="width120">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20 nullLi"></li>
+                <li class="rightLi80">
+                    <label class="input">
+                        <label class="inputLabel" for="detailAddress" id="detailAddressLabel">请输入详细地址</label>
+                        <input type="text" class="labelInput width260" id="detailAddress" placeholder="请输入详细地址">
+                    </label>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">平台负责人</li>
+                <li class="rightLi80">
+                    <input type="text" id="mName" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">负责人电话</li>
+                <li class="rightLi80">
+                    <input type="text" id="mTel" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">商家编码</li>
+                <li class="rightLi80">
+                    <input type="text" id="mNum" class="width200" disabled="disabled" value="11123">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">平台账号</li>
+                <li class="rightLi80">
+                    <input type="text" id="accountNum" class="width200" disabled="disabled" value="15162145678">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">设置密码</li>
+                <li class="rightLi80">
+                    <input type="password" id="accountPwd1" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-account">
+                <li class="leftLi20">确认密码</li>
+                <li class="rightLi80">
+                    <input type="password" id="accountPwd2" class="width200">
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="wholeBg"></div>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

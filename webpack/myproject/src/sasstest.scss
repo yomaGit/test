@@ -1,0 +1,54 @@
+$color:red;
+.sasstest{
+  width: 100%;
+  height:auto;
+  min-height: 100px;
+  border:1px solid $color;
+  margin: 10px 0;
+}
+
+.stest{
+  color: $color;
+}
+
+.testaif{
+  @if true {
+    font-size: 20px;
+  }
+}
+
+@for $i from 1 through 3{
+  .item-#{$i}{
+    font-size: 12px*$i;
+  }
+}
+
+@each $i in a,b,c{
+  .#{$i}-test{
+    font-size: 20px;
+  }
+}
+
+@mixin testmoudle{
+  font-size: 20px;
+  color: red;
+}
+
+.testmodel{
+  @include testmoudle
+}
+
+$grid-width: 20px;
+$gutter-width: 10px;
+
+@function grid-width($n) {
+  @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+#sidebar { font-size: grid-width(2); }
+
+@import "testsass1";
+
+.testimps{
+  color: $tscss;
+}

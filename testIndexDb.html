@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div style="margin:50px auto;">
+    测试indexDB<input type="text" id="test"/><div id="save">保存</div>
+</div>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+    window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
+    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
+
+    var customerData = {"id":"1123","name":"chatweb2","img":"img/ysDefault.png","chatLog":[{"toUserId":"113","img":"http://p3.so.qhimg.com/bdr/200_200_/60/t010211d1311b8012ed.jpg","name":"孙秋月","time":"2017/04/18 11:06","msg":[{"type":"1","time":"2017/03/21 11:25","msg":"1212121211111111111111111111111111111111111111111111111111111111111111111111111111111111111","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"123456","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":" 额定哦","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"111","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"？","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"1213456","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"，莫","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"，莫a11","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"爸爸","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"哦哦哦","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"我微信","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"27548","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"[敲头]","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"[流泪]","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"123","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"[敲头]","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"11","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"22","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"33","state":"back"},{"type":"1","time":"2017/03/21 11:25","msg":"1","state":"back"},{"type":"1","time":"2017/04/18 10:57","msg":"1","state":"back"},{"type":"1","time":"2017/04/18 10:59","msg":"2","state":"back"},{"type":"1","time":"2017/04/18 11:04","msg":"1","state":"back"},{"type":"1","time":"2017/04/18 11:04","msg":"2","state":"back"},{"type":"1","time":"2017/04/18 11:06","msg":"3","state":"back","noView":true}]}]};
+    var tc={"id":"1123","name":"chatweb2","img":"img/ysDefault.png","chatLog":""};
+
+    var wdb;
+    //openDB("1123_123456",1);
+    function openDB(name,ver){
+        var request = indexedDB.open(name, ver);
+        request.onerror = function(e) {
+            // 错误处理程序在这里。
+            console.log("error");
+        };
+        request.onsuccess=function(e){
+            console.log("success");
+            wdb=request.result;
+        };
+        request.onupgradeneeded = function(e) {
+            console.log("upgrad");
+            var db = e.target.result;
+            var objectStore = db.createObjectStore("webChat", { keyPath: "id" });
+            objectStore.add(customerData);
+        };
+    }
+
+    //getMsg("webChat","1123");
+    //upDataMsg("webChat","1123","aa");
+    function getMsg(b,m){
+        wdb.transaction(b).objectStore(b).get(m).onsuccess = function(e) {
+            var res=e.target.result;
+            console.log(res);
+        };
+    }
+
+    function upDataMsg(b,m,n){
+        var transaction=wdb.transaction(b,"readwrite");
+        var store=transaction.objectStore(b);
+        var request=store.get(m);
+        request.onsuccess=function(e){
+            store.put(n);
+        };
+    }
+
+
+    function closeDB(db){//关闭数据库
+        db.close();
+    }
+
+    function deleteDB(name){//删除数据库
+        indexedDB.deleteDatabase(name);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .testH{
+        width: 100px;
+        height: 50px;
+    }
+    .testH ul{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: auto;
+        background: #ffffff;
+        display: none;
+    }
+    .testH ul li{
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+    }
+    .testH:hover ul{
+        display: block;
+    }
+</style>
+<div class="testH">
+    <span class="c">我是文字</span>
+    <ul>
+        <li onclick="test(this)">第一个<span>123</span></li>
+        <li>第二个</li>
+        <li>第三个</li>
+    </ul>
+    <script>
+        function test(e){
+            console.log(e.parentNode.parentNode.querySelectorAll(".c"));
+            console.log(e.parentNode.parentNode.querySelectorAll(""));
+            e.parentNode.parentNode.querySelectorAll(".c")[0].innerHTML="我是文字123";
+        }
+    </script>
+</div>
+</body>
+</html>

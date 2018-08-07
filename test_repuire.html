@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+测试require
+<script src="js/require.js"></script>
+<script src="js/require_main.js"></script>
+<script>
+    require(["a","b"],function(){
+        console.log("加载了两个js");
+        a.test1();
+        b.test2();
+
+    });
+
+    require(["sprint"],function(){
+        //$(function(){
+            console.log("sprint ok");
+        //})
+    })
+
+</script>
+</body>
+</html>

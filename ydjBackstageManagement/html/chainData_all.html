@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>连锁数据</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery_common.css">
+</head>
+<body>
+<div class="subBar">
+    <div class="subBar-left">
+        <div class="logo-wrapper">
+            <img src="../img/logo.png">
+        </div>
+        <ul class="ul-nav-main">
+            <li id="Chain" class="active1">合作连锁</li>
+            <li id="Companies">合作药企</li>
+        </ul>
+    </div>
+    <div class="subBar-right">
+        <div id="forChain">
+            <div>连锁管理</div>
+            <ul class="ul-nav-link">
+                <li><a href="chainAccount.html">创建账号</a></li>
+                <li><a href="chainList.html">连锁列表</a></li>
+                <li><a href="chainGoodsAuditing.html">商品审核</a></li>
+                <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                <li><a href="systemInfo.html">系统消息</a></li>
+                <li><a href="cRet_ov.html">合同及回款</a></li>
+                <li class="active2"><a href="chain_data.html">连锁数据</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="mainContent">
+    <!--<div class="mainContent-top">-->
+        <!--<div class="sjtj_con">-->
+            <!--<ul>-->
+                <!--<li><a href="chain_data.html">数据统计</a></li>-->
+                <!--<li class="on"><a href="chainData_all.html">所有连锁</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="mainContent-top">
+        <ul class="ul-tab-options">
+            <li><a href="chain_data.html">数据统计</a><span></span></li>
+            <li class="activeTab"><a href="chainData_all.html">所有连锁</a><span></span></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="mainContent-bottom systemInfo">
+        <div class="selLayer bdashed">
+            <div class="selLayerLeft">所属事业部：</div>
+            <div class="seLayerRight multi">
+                <div class="selMoni on nl">不限</div>
+                <div class="selMoni">华东事业部</div>
+                <div class="selMoni">中南事业部</div>
+                <div class="selMoni">华北事业部</div>
+                <div class="selMoni">西南事业部</div>
+                <div class="selMoni">西北事业部</div>
+                <div class="clear"> </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer bdashed">
+            <div class="selLayerLeft">付费项目：</div>
+            <div class="seLayerRight multi">
+                <div class="selMoni on nl">不限</div>
+                <div class="selMoni">微信平台</div>
+                <div class="selMoni">O2O商城基础套餐</div>
+                <div class="selMoni">上线门店</div>
+                <div class="selMoni">自动售药机系统</div>
+                <div class="clear"> </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">商家搜索：</div>
+            <div class="seLayerRight">
+                <input type="text" class="width260"/>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="selLayer">
+            <div class="selLayerLeft">&nbsp;</div>
+            <div class="seLayerRight"><input type="button" class="btn-line-skyblue width80" value="筛选"><input type="button" class="btn-hover-skyblue width80 marginLeft10px" value="导出"></div>
+            <div class="clear"> </div>
+        </div>
+        <div class="div-table-area marginTop20px">
+            <ul class="ul-table-header">
+                <li class="width22percent">商家全称</li>
+                <li class="width10percent">商家编码</li>
+                <li class="width12percent">所属事业部</li>
+                <li class="width18percent">已购产品</li>
+                <li class="width12percent">上线门店数</li>
+                <li class="width16percent">O2O商城到期时间</li>
+                <li class="width10percent">操作</li>
+                <div class="clear"> </div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height60px">
+                <li class="width22percent" title="南昌昌盛大药房">南昌昌盛大药房</li>
+                <li class="width10percent" title="000000">000000</li>
+                <li class="width12percent" title="北方事业部">北方事业部</li>
+                <li class="width18percent" title="药店加O2O商城">药店加O2O商城</li>
+                <li class="width12percent" title="300">300</li>
+                <li class="width16percent" title="2017-2-10">2017-2-10</li>
+                <li class="width10percent"><a href="chainData_detail.html"><input type="button" class="btn-hover-skyblue width60" value="详细"></a></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width22percent" title="南昌昌盛大药房">南昌昌盛大药房</li>
+                <li class="width10percent" title="000000">000000</li>
+                <li class="width12percent" title="北方事业部">北方事业部</li>
+                <li class="width18percent" title="药店加O2O商城">药店加O2O商城</li>
+                <li class="width12percent" title="300">300</li>
+                <li class="width16percent" title="2017-2-10">2017-2-10</li>
+                <li class="width10percent"><a href="chainData_detail.html"><input type="button" class="btn-hover-skyblue width60" value="详细"></a></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="ul-height60px">
+                <li class="width22percent" title="南昌昌盛大药房">南昌昌盛大药房</li>
+                <li class="width10percent" title="000000">000000</li>
+                <li class="width12percent" title="北方事业部">北方事业部</li>
+                <li class="width18percent" title="药店加O2O商城">药店加O2O商城</li>
+                <li class="width12percent" title="300">300</li>
+                <li class="width16percent" title="2017-2-10">2017-2-10</li>
+                <li class="width10percent"><a href="chainData_detail.html"><input type="button" class="btn-hover-skyblue width60" value="详细"></a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" id="homePage">
+            <input type="button" class="btn-pager" value="上一页" id="formPage">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页" id="nextPage">
+            <input type="button" class="btn-pager" value="末页" id="lastPage">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

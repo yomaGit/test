@@ -1,0 +1,249 @@
+@charset "utf-8";
+html,body,button,div,span,table,th,tr,td,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,p,pre,textarea,ul,li, ol,a,i,em,img,address,big,b,blockquote,center,cite,code,del,font,iframe,ins,small,strong,u,var,abbr,address,header,nav,article,footer{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a,img{
+    border:none;
+    outline:none;
+}
+img{
+    display: block;
+    background-color:#e0e0e0;
+}
+li{
+    list-style:none;
+}
+input{
+    outline: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+input{
+    outline: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+body{
+    font-family: 'microsoft yahei',"\5FAE\8F6F\96C5\9ED1",微软雅黑,Helvetica,"黑体",Arial,Tahoma,宋体,新宋体;
+    background: url(../img/bg.png) repeat;
+    font-size: 14px;
+    min-width: 990px;
+    overflow: hidden;
+}
+input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 4px;/*Opera10.5+，以及使用了ie-css3浏览器*/
+    -moz-border-radius: 4px;/*Firefox*/
+    -webkit-border-radius: 4px;/*Safari和Chrome*/
+    outline:none;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #333;
+}
+input:-ms-input-placeholder{color: #B6B8B7 !important;}
+input:-moz-placeholder{color: #B6B8B7 !important;}
+input::-webkit-input-placeholder{color: #B6B8B7 !important;}
+input[type="text"],input[type="password"]{
+    height: 30px;
+    line-height: 28px;
+    text-indent: 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #E6E8E8;
+    color: #999999;
+    font-size: 12px;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0 0 0 20px;
+}
+
+input[type="text"]:focus,input[type="password"]:focus{
+    background: #F1F1F1;
+    -webkit-transition: 300ms ease-in-out;
+    -moz-transition: 300ms ease-in-out;
+    -ms-transition: 300ms ease-in-out;
+    -o-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;
+}
+input[type="submit"]{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 4px;
+    background-color: #1ba593;
+    border: none;
+    outline: none;
+    color: #ffffff;
+}
+input[type="submit"]:hover{
+    background-color: #25AD9B;
+    border-color: #008e99;
+    color: #ffffff;
+    -webkit-transition: 300ms ease-in-out;
+    -moz-transition: 300ms ease-in-out;
+    -ms-transition: 300ms ease-in-out;
+    -o-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;
+}
+input[type="submit"]:focus{
+    background-color: #25AD9B;
+    border-color: #008e99;
+    color: #ffffff;
+    -webkit-transition: 300ms ease-in-out;
+    -moz-transition: 300ms ease-in-out;
+    -ms-transition: 300ms ease-in-out;
+    -o-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;
+}
+.floatLeft{float: left;}
+.floatRight{float: right;}
+.clear{
+    font: 0px/0px sans-serif;
+    clear: both;
+    content:".";
+    height:0;
+    visibility:hidden;
+    display:block;
+}
+.displayNone{ display:none;}
+/*------------------------------------登录相关---------------------------------------------*/
+.loginBody{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.loginHeader{
+    width: 450px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+}
+.loginMain{
+    width: 450px;
+    height: auto;
+    margin: 0 auto;
+    background-color: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 15px;
+    -webkit-animation: spin 1s linear;
+    -moz-animation: spin 1s linear;
+    -o-animation: spin 1s linear;
+    animation: spin 1s linear;
+}
+@-webkit-keyframes spin{
+    0%{-webkit-transform:perspective(400px) rotateX(90deg);
+        opacity:0}
+    40%{-webkit-transform:perspective(400px) rotateX(-10deg)}
+    70%{-webkit-transform:perspective(400px) rotateX(10deg)}
+    100%{-webkit-transform:perspective(400px) rotateX(0deg);
+        opacity:1}
+}
+@-moz-keyframes spin{
+    0%{-webkit-transform:perspective(400px) rotateX(90deg);
+        opacity:0}
+    40%{-webkit-transform:perspective(400px) rotateX(-10deg)}
+    70%{-webkit-transform:perspective(400px) rotateX(10deg)}
+    100%{-webkit-transform:perspective(400px) rotateX(0deg);
+        opacity:1}
+}
+@-o-keyframes spin{
+    0%{-webkit-transform:perspective(400px) rotateX(90deg);
+        opacity:0}
+    40%{-webkit-transform:perspective(400px) rotateX(-10deg)}
+    70%{-webkit-transform:perspective(400px) rotateX(10deg)}
+    100%{-webkit-transform:perspective(400px) rotateX(0deg);
+        opacity:1}
+}
+@-ms-keyframes spin {
+    0%{-webkit-transform:perspective(400px) rotateX(90deg);
+        opacity:0}
+    40%{-webkit-transform:perspective(400px) rotateX(-10deg)}
+    70%{-webkit-transform:perspective(400px) rotateX(10deg)}
+    100%{-webkit-transform:perspective(400px) rotateX(0deg);
+        opacity:1}
+}
+.loginMain ul>li{
+    position: relative;
+    border: 1px solid #E6E8E8;
+    margin-bottom: 15px;
+}
+.loginName{
+    color: #8B91A0;
+    margin: 20px 0 10px 0;
+}
+.loginBg{
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    display: inline-block;
+    width: 13px;
+    height: 12px;
+    -webkit-background-size: 500px 500px;
+    background-size: 500px 500px;
+    vertical-align: middle;
+}
+.userName{
+    background:url(../img/icon.png) no-repeat -43px -311px;
+}
+.passWord{
+    background:url(../img/icon.png) no-repeat -43px -287px;
+}
+.loginFooter{ text-align:right;}
+.loadingLogin{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.1);
+    display: none;
+}
+.loadingLoginMain{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.loadingLoginMain .loader1{
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}

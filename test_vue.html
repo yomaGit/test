@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>vue test</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+测试vue sprint
+<input type="text" :disabled="isb" id="disa"/>
+
+<div id="test_on">
+    <button @click="change($event)">i am vue!</button>
+</div>
+
+<div id="test_com" v-cloak>
+    <input type="text" v-model="mes"/>
+    <p>{{ans}}</p>
+</div>
+
+<div id="t_class">
+    <div class="test1" :class="{test2:act,test3:act1}">测试class</div>
+</div>
+
+<div id="app-7">
+    <ul>
+        <todo-item v-for="item in groceryList" :todo="item" :key="item.id"></todo-item>
+    </ul>
+</div>
+
+<div id="test_tem">
+    <tem_c class="c"></tem_c>
+</div>
+
+<div id="test_style">
+    <div :style="styles" style="background-color:blue;">测试style</div>
+</div>
+
+<div id="test_if">
+    <div v-if="Math.random() > 0.5">Now you see me</div>
+    <div v-else>Now you don't</div>
+</div>
+
+<div id="test_show">
+    <h1 v-if="ok">ok</h1>
+    <h1 v-else>fail</h1>
+</div>
+
+<div id="test_for">
+    <ul>
+        <li v-for="(item,index) in items">{{ item.msg }}+{{index}}</li>
+    </ul>
+</div>
+
+<div id="test_k">
+    <ul>
+        <li v-for="(value,key,index) in items">{{key}}+{{value}}+{{index}}</li>
+    </ul>
+</div>
+
+<div id="test_temp">
+    <div is="child" mes="a"></div>
+</div>
+<style>
+    #test_d li{
+        height: 100px;
+    }
+</style>
+<div id="test_d">
+    <ul id="test_d_u">
+        <li v-for="i in d">{{i}}</li>
+    </ul>
+    <button @click="change">改变数组</button>
+</div>
+
+<style>
+    .router-link-active {
+        color: red;
+    }
+</style>
+<div id="test_router">
+    <h1>Hello App!</h1>
+    <p>
+        <router-link :to="{ name:'foo' }">Go to Foo</router-link>
+        <router-link :to="{ name:'bar' }">Go to Bar</router-link>
+        <router-link :to="{ name:'hello' }">Go to hello</router-link>
+        <router-link :to="{ name:'user',params:{ id:123 } }">Go to User</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+
+<div id="vue">
+
+</div>
+
+<script src="js/require.min.js"></script>
+<script src="js/require_main.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

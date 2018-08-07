@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="ie-stand">
+    <title>登录页</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="loginBody">
+        <div class="loginHeader">药店加运营后台</div>
+        <div class="loginMain">
+            <div class="loginName">请输入您的账户名和密码登录</div>
+            <ul>
+                <li>
+                    <span class="loginBg userName"></span>
+                    <input type="text" placeholder="账户名" id="username" autocomplete="off">
+                </li>
+                <li>
+                    <span class="loginBg passWord"></span>
+                    <input type="password" placeholder="密码" id="password" autocomplete="off">
+                </li>
+            </ul>
+            <div class="loginFooter">
+                <input type="submit" value="登录" id="submit">
+            </div>
+        </div>
+    </div>
+    <div class="loadingLogin">
+        <div class="loadingLoginMain">
+            <div class="loader1">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

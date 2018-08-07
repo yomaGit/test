@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>连锁数据</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery_common.css">
+</head>
+<body>
+<div class="subBar">
+    <div class="subBar-left">
+        <div class="logo-wrapper">
+            <img src="../img/logo.png">
+        </div>
+        <ul class="ul-nav-main">
+            <li id="Chain" class="active1">合作连锁</li>
+            <li id="Companies">合作药企</li>
+        </ul>
+    </div>
+    <div class="subBar-right">
+        <div id="forChain">
+            <div>连锁管理</div>
+            <ul class="ul-nav-link">
+                <li><a href="chainAccount.html">创建账号</a></li>
+                <li><a href="chainList.html">连锁列表</a></li>
+                <li><a href="chainGoodsAuditing.html">商品审核</a></li>
+                <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                <li><a href="systemInfo.html">系统消息</a></li>
+                <li><a href="cRet_ov.html">合同及回款</a></li>
+                <li class="active2"><a href="chain_data.html">连锁数据</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="mainContent">
+    <div class="mainContent-top">
+        <ul class="ul-tab-options">
+            <li class="activeTab" dataId="cRet_xj" onclick="clickId('cRet_xj0')">项目进度<span></span></li>
+            <li dataId="cRet_cd">产品订购<span></span></li>
+            <li dataId="cRet_jc">基础数据<span></span></li>
+            <li dataId="cRet_ys" onclick="clickId('cRet_yx0')">运营数据<span></span></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="mainContent-bottom systemInfo forcRet_xj">
+        <ul class="ul-tab-options-f">
+            <li class="activeTab" dataId="cRet_xj0">合同</li>
+            <li dataId="cRet_xj1" class="backE4CE2A">回款</li>
+            <li dataId="cRet_xj2" class="back17c5b3">实施</li>
+            <div class="clear"> </div>
+        </ul>
+        <div class="forcRet_xj0 systemInfoF">
+            <div class="div-table-area marginTop20px">
+                <ul class="ul-table-header">
+                    <li class="width30percent">连锁名称</li>
+                    <li class="width18percent">客户编码</li>
+                    <li class="width26percent">合同号</li>
+                    <li class="width26percent">签订时间</li>
+                    <div class="clear"> </div>
+                </ul>
+                <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+                <ul class="ul-height60px">
+                    <li class="width30percent" title="正源大药房">正源大药房</li>
+                    <li class="width18percent" title="521000">521000</li>
+                    <li class="width26percent" title="51-01-161129022">51-01-161129022</li>
+                    <li class="width26percent" title="2017-01-11">2017-01-11</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width30percent" title="正源大药房">正源大药房</li>
+                    <li class="width18percent" title="521000">521000</li>
+                    <li class="width26percent" title="51-01-161129022">51-01-161129022</li>
+                    <li class="width26percent" title="2017-01-11">2017-01-11</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width30percent" title="正源大药房">正源大药房</li>
+                    <li class="width18percent" title="521000">521000</li>
+                    <li class="width26percent" title="51-01-161129022">51-01-161129022</li>
+                    <li class="width26percent" title="2017-01-11">2017-01-11</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+                <input type="button" class="btn-pager" value="首页" id="homePage">
+                <input type="button" class="btn-pager" value="上一页" id="formPage">
+                <input type="button" class="btn-pager" value="1">
+                <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+                <input type="button" class="btn-pager" value="3">
+                <input type="button" class="btn-pager" value="4">
+                <input type="button" class="btn-pager" value="下一页" id="nextPage">
+                <input type="button" class="btn-pager" value="末页" id="lastPage">
+                <span class="span-pagerSum">共68页/1015条记录</span>
+            </div>
+        </div>
+        <div class="forcRet_xj1 systemInfoF displayNone">
+            <div class="div-table-area marginTop20px">
+                <ul class="ul-table-header">
+                    <li class="width12percent">时间</li>
+                    <li class="width10percent">金额</li>
+                    <li class="width36percent">费用包含的服务项目</li>
+                    <li class="width10percent">支付方式</li>
+                    <li class="width10percent">销售</li>
+                    <li class="width10percent">实施</li>
+                    <li class="width12percent">售后</li>
+                    <div class="clear"> </div>
+                </ul>
+                <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+                <ul class="ul-height60px">
+                    <li class="width12percent" title="2017-03-04 12:23:45">2017-03-04 12:23:45</li>
+                    <li class="width10percent" title="45200">45200</li>
+                    <li class="width36percent" title="药店加微商城基础套餐+40家门店   售药机系统+50台">药店加微商城基础套餐+40家门店   售药机系统+50台</li>
+                    <li class="width10percent" title="线下支付">线下支付</li>
+                    <li class="width10percent">销售</li>
+                    <li class="width10percent">实施</li>
+                    <li class="width12percent">售后</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width12percent" title="2017-03-04 12:23:45">2017-03-04 12:23:45</li>
+                    <li class="width10percent" title="45200">45200</li>
+                    <li class="width36percent" title="药店加微商城基础套餐+40家门店   售药机系统+50台">药店加微商城基础套餐+40家门店   售药机系统+50台</li>
+                    <li class="width10percent" title="线下支付">线下支付</li>
+                    <li class="width10percent">销售</li>
+                    <li class="width10percent">实施</li>
+                    <li class="width12percent">售后</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width12percent" title="2017-03-04 12:23:45">2017-03-04 12:23:45</li>
+                    <li class="width10percent" title="45200">45200</li>
+                    <li class="width36percent" title="药店加微商城基础套餐+40家门店   售药机系统+50台">药店加微商城基础套餐+40家门店   售药机系统+50台</li>
+                    <li class="width10percent" title="线下支付">线下支付</li>
+                    <li class="width10percent">销售</li>
+                    <li class="width10percent">实施</li>
+                    <li class="width12percent">售后</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+                <input type="button" class="btn-pager" value="首页" id="homePage">
+                <input type="button" class="btn-pager" value="上一页" id="formPage">
+                <input type="button" class="btn-pager" value="1">
+                <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+                <input type="button" class="btn-pager" value="3">
+                <input type="button" class="btn-pager" value="4">
+                <input type="button" class="btn-pager" value="下一页" id="nextPage">
+                <input type="button" class="btn-pager" value="末页" id="lastPage">
+                <span class="span-pagerSum">共68页/1015条记录</span>
+            </div>
+        </div>
+        <div class="forcRet_xj2 systemInfoF displayNone paddingBottom20">
+            <ul class="funList">
+                <li class="on">ERP代理地址<div></div></li>
+                <li>会员卡功能<div></div></li>
+                <li>会员卡推送配置<div></div></li>
+                <li>电子小票<div></div></li>
+                <li>消费记录<div></div></li>
+                <li>ERP参数配置<div></div></li>
+                <li>优惠券参数配置<div></div></li>
+                <li>订单测试<div></div></li>
+                <div class="clear"> </div>
+            </ul>
+            <input type="button" class="btn-hover-skyblue width150 height40px" value="保存">
+        </div>
+    </div>
+    <div class="mainContent-bottom systemInfo forcRet_cd displayNone">
+        <input type="button" class="btn-hover-skyblue open_bauto width80 marginTop20px" value="手动开通">
+        <div class="div-table-area marginTop20px">
+            <ul class="ul-table-header">
+                <li class="width18percent">产品名称</li>
+                <li class="width16percent">产品内容</li>
+                <li class="width12percent">订购期限</li>
+                <li class="width12percent">支付费用</li>
+                <li class="width12percent">支付方式</li>
+                <li class="width18percent">支付时间</li>
+                <li class="width12percent">经办人</li>
+                <div class="clear"> </div>
+            </ul>
+            <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+            <ul class="ul-height80px">
+                <li class="width18percent" title="药店加微信平台">药店加微信平台</li>
+                <li class="width16percent" title="药店加微信平台">药店加微信平台</li>
+                <li class="width12percent" title="永久">永久</li>
+                <li class="width12percent" title="8800元">8800元</li>
+                <li class="width12percent" title="支付宝">支付宝</li>
+                <li class="width18percent" title="2017-02-10 12:23:00">2017-02-10 12:23:00</li>
+                <li class="width12percent" title="张晓辛">张晓辛</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-height80px">
+                <li class="width18percent" title="药店加O2O商城基础套餐">药店加O2O商城基础套餐</li>
+                <li class="width16percent" title="5家线上门店">5家线上门店</li>
+                <li class="width12percent h80p15l25" title="2016-12-30 2017-12-30">2016-12-30<br />2017-12-30</li>
+                <li class="width12percent" title="8800元">8800元</li>
+                <li class="width12percent" title="支付宝">支付宝</li>
+                <li class="width18percent" title="2017-02-10 12:23:00">2017-02-10 12:23:00</li>
+                <li class="width12percent" title="张晓辛">张晓辛</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-height80px">
+                <li class="width18percent" title="药店加O2O商城线上门店">药店加O2O商城线上门店</li>
+                <li class="width16percent" title="5家线上门店">5家线上门店</li>
+                <li class="width12percent h80p15l25" title="2016-12-30 2017-12-30">2016-12-30<br />2017-12-30</li>
+                <li class="width12percent" title="8800元">8800元</li>
+                <li class="width12percent" title="支付宝">支付宝</li>
+                <li class="width18percent" title="2017-02-10 12:23:00">2017-02-10 12:23:00</li>
+                <li class="width12percent" title="张晓辛">张晓辛</li>
+                <div class="clear"> </div>
+            </ul>
+            <ul class="ul-height80px">
+                <li class="width18percent" title="药店加自动售药机系统">药店加自动售药机系统</li>
+                <li class="width16percent" title="100台">100台<a href="javascript:;" class="show_syj fontBlue marginLeft10px">查看</a></li>
+                <li class="width12percent h80p15l25" title="2016-12-30 2017-12-30">2016-12-30<br />2017-12-30</li>
+                <li class="width12percent" title="8800元">8800元</li>
+                <li class="width12percent" title="支付宝">支付宝</li>
+                <li class="width18percent" title="2017-02-10 12:23:00">2017-02-10 12:23:00</li>
+                <li class="width12percent" title="张晓辛">张晓辛</li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+            <input type="button" class="btn-pager" value="首页" id="homePage">
+            <input type="button" class="btn-pager" value="上一页" id="formPage">
+            <input type="button" class="btn-pager" value="1">
+            <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+            <input type="button" class="btn-pager" value="3">
+            <input type="button" class="btn-pager" value="4">
+            <input type="button" class="btn-pager" value="下一页" id="nextPage">
+            <input type="button" class="btn-pager" value="末页" id="lastPage">
+            <span class="span-pagerSum">共68页/1015条记录</span>
+        </div>
+    </div>
+    <div class="mainContent-bottom systemInfo forcRet_jc displayNone paddingBottom60">
+        <ul class="chainLayer marginTop20px">
+           <li>
+               <div class="top">123</div>
+               <div class="down">连锁数量<span class="edit_chain"></span></div>
+           </li>
+            <li>
+                <div class="top">1000</div>
+                <div class="down">录入门店</div>
+            </li>
+            <li>
+                <div class="top">150</div>
+                <div class="down">购买门店</div>
+            </li>
+            <li>
+                <div class="top">150</div>
+                <div class="down">上线门店</div>
+            </li>
+            <div class="clear"> </div>
+        </ul>
+        <ul class="chainLayer backgroundE9FDFC">
+            <li>
+                <div class="top">1000</div>
+                <div class="down">员工总数</div>
+            </li>
+            <li>
+                <div class="top">200</div>
+                <div class="down">营业员</div>
+            </li>
+            <li>
+                <div class="top">200</div>
+                <div class="down">药师</div>
+            </li>
+            <li>
+                <div class="top">200</div>
+                <div class="down">客服</div>
+            </li>
+            <div class="clear"> </div>
+        </ul>
+        <ul class="chainLayer backgroundFBFAEA">
+            <li>
+                <div class="top">30000</div>
+                <div class="down">产品数</div>
+            </li>
+            <li>
+                <div class="top">2600</div>
+                <div class="down">在售商品数</div>
+            </li>
+            <div class="clear"> </div>
+        </ul>
+        <div class="tright font6">O2O商城到期时间：2017-12-31</div>
+    </div>
+    <div class="mainContent-bottom systemInfo forcRet_ys displayNone">
+        <ul class="ul-tab-options-f">
+            <li class="activeTab" dataId="cRet_yx0">订单</li>
+            <li dataId="cRet_yx1" class="backE4CE2A">会员卡</li>
+            <li dataId="cRet_yx2" class="back17c5b3">优惠券</li>
+            <div class="clear"> </div>
+        </ul>
+        <div class="forcRet_yx0 systemInfoF">
+            <div>时间：<input type="text" class="width120 time marginRight5px">至<input type="text" class="width120 time marginLeft5px marginRight20px"><input type="button" class="btn-line-skyblue width80" value="筛选"><input type="button" class="btn-hover-skyblue width80 marginLeft10px" value="导出"></div>
+            <div class="div-table-area marginTop20px positionR">
+                <ul class="ul-table-header">
+                    <li class="width14percent">时间</li>
+                    <li class="width10percent">所有订单</li>
+                    <li class="width10percent">订单总额</li>
+                    <li class="width10percent">O2O订单</li>
+                    <li class="width15percent">O2O送货上门订单</li>
+                    <li class="width10percent">积分商城订单</li>
+                    <li class="width10percent">分销订单</li>
+                    <li class="width10percent">售药机订单</li>
+                    <li class="width10percent">O2O订单客单价</li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+                <div class="floatBg_sxtj"></div>
+                <ul class="ul-height60px">
+                    <li class="width14percent" title="筛选统计">筛选统计</li>
+                    <li class="width10percent" title="121212">121212</li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width15percent" title="344">344</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width10percent" title="222">222</li>
+                    <li class="width10percent" title="222">333<li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width14percent" title="2016-12-29">2016-12-29</li>
+                    <li class="width10percent" title="121212">121212</li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width15percent" title="344">344</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width10percent" title="222">222</li>
+                    <li class="width10percent" title="222">333<li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width14percent" title="2016-12-29">2016-12-29</li>
+                    <li class="width10percent" title="121212">121212</li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width15percent" title="344">344</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width10percent" title="222">222</li>
+                    <li class="width10percent" title="222">333<li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width14percent" title="2016-12-29">2016-12-29</li>
+                    <li class="width10percent" title="121212">121212</li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width15percent" title="344">344</li>
+                    <li class="width10percent" title="123">123</li>
+                    <li class="width10percent" title="222">222</li>
+                    <li class="width10percent" title="222">333<li>
+                    <li class="width10percent" title="121212元">121212元</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+                <input type="button" class="btn-pager" value="首页" id="homePage">
+                <input type="button" class="btn-pager" value="上一页" id="formPage">
+                <input type="button" class="btn-pager" value="1">
+                <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+                <input type="button" class="btn-pager" value="3">
+                <input type="button" class="btn-pager" value="4">
+                <input type="button" class="btn-pager" value="下一页" id="nextPage">
+                <input type="button" class="btn-pager" value="末页" id="lastPage">
+                <span class="span-pagerSum">共68页/1015条记录</span>
+            </div>
+        </div>
+        <div class="forcRet_yx1 systemInfoF displayNone">
+            <div>时间：<input type="text" class="width120 time marginRight5px">至<input type="text" class="width120 time marginLeft5px marginRight20px"><input type="button" class="btn-line-skyblue width80" value="筛选"><input type="button" class="btn-hover-skyblue width80 marginLeft10px" value="导出"></div>
+            <div class="div-table-area marginTop20px positionR">
+                <ul class="ul-table-header">
+                    <li class="width25percent">时间</li>
+                    <li class="width25percent">领取新卡</li>
+                    <li class="width50percent">绑定老卡</li>
+                    <div class="clear"> </div>
+                </ul>
+                <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+                <div class="floatBg_sxtj floatBg_sxtj_hyk"></div>
+                <ul class="ul-height60px">
+                    <li class="width25percent" title="筛选统计">筛选统计</li>
+                    <li class="width25percent" title="22">22</li>
+                    <li class="width50percent" title="33">33</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width25percent" title="2016-12-29">2016-12-29</li>
+                    <li class="width25percent" title="22">22</li>
+                    <li class="width50percent" title="33">33</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width25percent" title="2016-12-29">2016-12-29</li>
+                    <li class="width25percent" title="22">22</li>
+                    <li class="width50percent" title="33">33</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width25percent" title="2016-12-29">2016-12-29</li>
+                    <li class="width25percent" title="22">22</li>
+                    <li class="width50percent" title="33">33</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+                <input type="button" class="btn-pager" value="首页" id="homePage">
+                <input type="button" class="btn-pager" value="上一页" id="formPage">
+                <input type="button" class="btn-pager" value="1">
+                <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+                <input type="button" class="btn-pager" value="3">
+                <input type="button" class="btn-pager" value="4">
+                <input type="button" class="btn-pager" value="下一页" id="nextPage">
+                <input type="button" class="btn-pager" value="末页" id="lastPage">
+                <span class="span-pagerSum">共68页/1015条记录</span>
+            </div>
+        </div>
+        <div class="forcRet_yx2 systemInfoF displayNone">
+            <div class="selLayer">
+                <div class="selLayerLeft">优惠券类型：</div>
+                <div class="seLayerRight">
+                    <select class="selectLayer width260">
+                        <option value="0">折扣券</option>
+                        <option value="1">现金券</option>
+                        <option value="2">礼品券</option>
+                    </select>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="selLayer">
+                <div class="selLayerLeft">发放类型：</div>
+                <div class="seLayerRight">
+                    <select class="selectLayer width260">
+                        <option value="0">自定义免费发放</option>
+                        <option value="1">积分兑换</option>
+                        <option value="2">现金兑换</option>
+                        <option value="0">订单满一定金额赠送</option>
+                        <option value="1">注册会员发放</option>
+                    </select>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="selLayer">
+                <div class="selLayerLeft">状态：</div>
+                <div class="seLayerRight">
+                    <select class="selectLayer width260">
+                        <option value="0">未开始</option>
+                        <option value="1">进行中</option>
+                        <option value="2">已结束</option>
+                    </select>
+                    <input type="button" class="btn-line-skyblue width80 marginLeft20" value="筛选"><input type="button" class="btn-hover-skyblue width80 marginLeft10px" value="导出">
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="div-table-area marginTop20px positionR">
+                <ul class="ul-table-header">
+                    <li class="width16percent">优惠券名称</li>
+                    <li class="width10percent">优惠券类型</li>
+                    <li class="width10percent">优惠券面值</li>
+                    <li class="width18percent">发放形式</li>
+                    <li class="width10percent">发放总量</li>
+                    <li class="width8percent">领取量</li>
+                    <li class="width10percent">线上核销</li>
+                    <li class="width8percent">线下核销</li>
+                    <li class="width10percent">状态</li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="dataLoading"><img src="../img/cLoading.gif"></div><!--数据未加载出来时显示-->
+                <ul class="ul-height60px">
+                    <li class="width16percent" title="xxx优惠券">xxx优惠券</li>
+                    <li class="width10percent" title="折扣券">折扣券</li>
+                    <li class="width10percent" title="8折">8折</li>
+                    <li class="width18percent" title="自定义免费发放">自定义免费发放</li>
+                    <li class="width10percent" title="2000">2000</li>
+                    <li class="width8percent" title="1">1</li>
+                    <li class="width10percent" title="2">2</li>
+                    <li class="width8percent" title="1">1</li>
+                    <li class="width10percent" title="3">3</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width16percent" title="xxx优惠券">xxx优惠券</li>
+                    <li class="width10percent" title="抵价券">抵价券</li>
+                    <li class="width10percent" title="8元">8元</li>
+                    <li class="width18percent" title="自定义免费发放">自定义免费发放</li>
+                    <li class="width10percent" title="2000">2000</li>
+                    <li class="width8percent" title="1">1</li>
+                    <li class="width10percent" title="2">2</li>
+                    <li class="width8percent" title="1">1</li>
+                    <li class="width10percent" title="3">3</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-height60px">
+                    <li class="width16percent" title="xxx优惠券">xxx优惠券</li>
+                    <li class="width10percent" title="现金券">现金券</li>
+                    <li class="width10percent" title="20元">20元</li>
+                    <li class="width18percent" title="自定义免费发放">自定义免费发放</li>
+                    <li class="width10percent" title="2000">2000</li>
+                    <li class="width8percent" title="1">1</li>
+                    <li class="width10percent" title="2">2</li>
+                    <li class="width8percent" title="1">1</li>
+                    <li class="width10percent" title="3">3</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="btn-wrapper-pager"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+                <input type="button" class="btn-pager" value="首页" id="homePage">
+                <input type="button" class="btn-pager" value="上一页" id="formPage">
+                <input type="button" class="btn-pager" value="1">
+                <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+                <input type="button" class="btn-pager" value="3">
+                <input type="button" class="btn-pager" value="4">
+                <input type="button" class="btn-pager" value="下一页" id="nextPage">
+                <input type="button" class="btn-pager" value="末页" id="lastPage">
+                <span class="span-pagerSum">共68页/1015条记录</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="shadowWhite shadowWhite_cRet_open">
+    <div class="shadowContent shadow800500">
+        <div class="shadowTitle">手动开通</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul class="ul-account">
+                <li class="leftLiLayer leftLi33">商家名称：</li>
+                <li class="rightLiLayer rightLi66">
+                    <select class="selectLayer width200 selectLayer_open">
+                        <option value="1">药店加微信平台</option>
+                        <option value="5">药店加微信平台售后服务</option>
+                        <option value="2">药店加O2O商城基础套餐</option>
+                        <option value="4">药店加O2O商城上线门店</option>
+                        <option value="3">药店加自动售药机系统</option>
+                    </select>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+            <div class="open1 open">
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购期限：</li>
+                    <li class="rightLiLayer rightLi66">永久</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购费用：</li>
+                    <li class="rightLiLayer rightLi66"><input type="text" class="width150 marginRight10px" value="8800"/>元</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="open5 open displayNone">
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购期限：</li>
+                    <li class="rightLiLayer rightLi66">2017-12-31至2018-12-31</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购费用：</li>
+                    <li class="rightLiLayer rightLi66"><input type="text" class="width150 marginRight10px" value="880"/>元</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="open2 open displayNone">
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购期限：</li>
+                    <li class="rightLiLayer rightLi66">2017-12-31至2018-12-31</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购费用：</li>
+                    <li class="rightLiLayer rightLi66"><input type="text" class="width150 marginRight10px" value="3888"/>元</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="open4 open displayNone">
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">购买数量：</li>
+                    <li class="rightLiLayer rightLi66">
+                        <input type="text" class="width200"/>
+                    </li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购期限：</li>
+                    <li class="rightLiLayer rightLi66">2017-12-31至2018-12-31</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购费用：</li>
+                    <li class="rightLiLayer rightLi66"><input type="text" class="width150 marginRight10px" value="1000"/>元</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <div class="open3 open displayNone">
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">购买数量：</li>
+                    <li class="rightLiLayer rightLi66">
+                        <input type="text" class="width200"/>
+                    </li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购期限：</li>
+                    <li class="rightLiLayer rightLi66">2017-12-31至2018-12-31</li>
+                    <div class="clear"> </div>
+                </ul>
+                <ul class="ul-account">
+                    <li class="leftLiLayer leftLi33">订购费用：</li>
+                    <li class="rightLiLayer rightLi66"><input type="text" class="width150 marginRight10px" value="1000"/>元</li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确认开通" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="shadowWhite shadowWhite_cRet_sqm">
+    <div class="shadowContent shadow800500">
+        <div class="shadowTitle">授权码</div>
+        <div class="shadowClose"><input type="button" value="关闭" class="btn-hover-skyblue forClose"></div>
+        <div class="shadowMain">
+            <ul>
+                <li title="510319ZDSYJ9980193190">510319ZDSYJ9980193190</li>
+                <li title="510319ZDSYJ9980193190">510319ZDSYJ9980193190</li>
+                <li title="510319ZDSYJ9980193190">510319ZDSYJ9980193190</li>
+                <li title="510319ZDSYJ9980193190">510319ZDSYJ9980193190</li>
+                <li title="510319ZDSYJ9980193190">510319ZDSYJ9980193190</li>
+                <li title="510319ZDSYJ9980193190">510319ZDSYJ9980193190</li>
+                <li title="510319ZDSYJ9980193190">510319ZDSYJ9980193190</li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure"></div>
+    </div>
+</div>
+<div class="shadowWhite shadow240172 shadowWhite_cRet_editC">
+    <div class="shadowContent shadow240172">
+        <div class="shadowTitle">手动开通</div>
+        <div class="shadowMain">
+            <ul class="ul-account">
+                <li class="rightLiLayer rightLi66">
+                    <input type="text" class="width200 marginLeft10px"/>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="shadowBtn"><input type="button" value="确定" class="btn-hover-skyblue width80 forSure marginRight10px"><input type="button" class="btn-line-skyblue width80 cancel" value="取消"></div>
+    </div>
+</div>
+<div class="wholeBg"></div>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/jquery.datetimepicker.js"></script>
+<script src="../js/common.js"></script>
+<script>
+
+    $(function(){
+        $(".time").datetimepicker({
+            lang:'ch',
+            timepicker:false,
+            format:'Y.m.d',
+            formatDate:'Y.m.d',
+            scrollMonth:false,
+            scrollTime:false,
+            scrollInput:false,
+        });
+
+    })
+</script>
+</body>
+</html>

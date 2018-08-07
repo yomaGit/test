@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>连锁数据</title>
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="baidu-site-verification" content="02zWrSDWoO">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--[if lte IE 7]>
+    <script>
+        alert("ie7及以下版本浏览器没法达到网站浏览的最佳效果，建议升级浏览器或下载360或谷歌浏览器浏览")
+    </script>
+    <!--<![endif]-->
+
+
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery_common.css">
+</head>
+<body>
+
+<div class="subBar">
+    <div class="subBar-left">
+        <div class="logo-wrapper">
+            <img src="../img/logo.png">
+        </div>
+        <ul class="ul-nav-main">
+            <li id="Chain" class="active1">合作连锁</li>
+            <li id="Companies">合作药企</li>
+        </ul>
+    </div>
+    <div class="subBar-right">
+        <div id="forChain">
+            <div>连锁管理</div>
+            <ul class="ul-nav-link">
+                <li><a href="chainAccount.html">创建账号</a></li>
+                <li><a href="chainList.html">连锁列表</a></li>
+                <li><a href="chainGoodsAuditing.html">商品审核</a></li>
+                <li><a href="chainHelpCenter.html">帮助中心</a></li>
+                <li><a href="systemInfo.html">系统消息</a></li>
+                <li><a href="cRet_ov.html">合同及回款</a></li>
+                <li class="active2"><a href="chain_data.html">连锁数据</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="main_con">
+    <div class="mainContent-top">
+        <ul class="ul-tab-options">
+            <li class="activeTab"><a href="chain_data.html">数据统计</a><span></span></li>
+            <li><a href="chainData_all.html">所有连锁</a><span></span></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+
+        <div class="main_data_con">
+            <div class="sx_con">
+                <div class="sjsx">按时间筛选:</div>
+                    <input class="sx_date_start" type="text">
+                    <input class="sx_date_end" type="text">
+            </div>
+            <div class="coupon_data_con">
+                <ul>
+                    <li>
+                        <div class="num">778899</div>
+                        <div class="desc">平台优惠券领取量</div>
+                    </li>
+                    <li>
+                        <div class="num">34456</div>
+                        <div class="desc">平台优惠券核销量</div>
+                    </li>
+                    <li>
+                        <div class="num">79%</div>
+                        <div class="desc">平台优惠券核销率</div>
+                    </li>
+                    <li>
+                        <div class="num">227788</div>
+                        <div class="desc">平台完成订单量</div>
+                    </li>
+                    <li>
+                        <div class="num">26778</div>
+                        <div class="desc">平台订单支付金额</div>
+                    </li>
+                    <li style="margin-right: 10px;">
+                        <div class="num">748</div>
+                        <div class="desc">订单均价</div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="lsdd_con">
+                <div class="color_line"></div>
+                <div class="title">连锁订单和优惠券数据统计表</div>
+            </div>
+            <div class="search_con">
+                <label class="search_lab">
+                    <input type="text" class="search_input" id="search" placeholder="输入连锁名称或编码搜索">
+                    <img src="../img/sc.png">
+                </label>
+                <div class="dcbg">导出表格</div>
+            </div>
+            <div class="data_list_con">
+                <div class="header_con">
+                    <ul>
+                        <li class="first">连锁名称</li>
+                        <li>连锁编码</li>
+                        <li><div class="title_con" style="padding-left: 12px;">上线门店</div><span></span></li>
+                        <li><div class="title_con">领取量</div><span></span></li>
+                        <li><div class="title_con">核销量</div><span></span></li>
+                        <li><div class="title_con">核销率</div><span></span></li>
+                        <li><div class="title_con">订单量</div><span></span></li>
+                        <li><div class="title_con" style="padding-left: 12px;">送货上门</div><span></span></li>
+                        <li><div class="title_con" style="padding-left: 12px;">支付金额</div><span></span></li>
+                        <li><div class="title_con" style="padding-left: 25px;">均价</div><span></span></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="per_list_con">
+                    <ul>
+                        <li class="first">正源大药房正源大药房正源大药房正源大药房</li>
+                        <li>123456</li>
+                        <li>12</li>
+                        <li class="ee7c_color">77</li>
+                        <li class="ee7c_color">44</li>
+                        <li class="ee7c_color">908</li>
+                        <li class="default_color">0</li>
+                        <li class="default_color">0</li>
+                        <li class="default_color">66</li>
+                        <li class="default_color">14</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="per_list_con">
+                    <ul>
+                        <li class="first">正源大药房</li>
+                        <li>123456</li>
+                        <li>12</li>
+                        <li class="ee7c_color">77</li>
+                        <li class="ee7c_color">44</li>
+                        <li class="ee7c_color">908</li>
+                        <li class="default_color">0</li>
+                        <li class="default_color">0</li>
+                        <li class="default_color">66</li>
+                        <li class="default_color">14</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="per_list_con">
+                    <ul>
+                        <li class="first">正源大药房</li>
+                        <li>123456</li>
+                        <li>12</li>
+                        <li class="ee7c_color">77</li>
+                        <li class="ee7c_color">44</li>
+                        <li class="ee7c_color">908</li>
+                        <li class="default_color">0</li>
+                        <li class="default_color">0</li>
+                        <li class="default_color">66</li>
+                        <li class="default_color">14</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="btn-wrapper-pager" style="padding-right: 10px;"><!--每页数据仅显示10条，当数据不足10条时，页码不显示。页码的及时动态交互请参考：京东-->
+                <input type="button" class="btn-pager" value="首页" id="homePage">
+                <input type="button" class="btn-pager" value="上一页" id="formPage">
+                <input type="button" class="btn-pager" value="1">
+                <input type="button" class="btn-pager thisSelected" value="2"><!--当前所在页-->
+                <input type="button" class="btn-pager" value="3">
+                <input type="button" class="btn-pager" value="4">
+                <input type="button" class="btn-pager" value="下一页" id="nextPage">
+                <input type="button" class="btn-pager" value="末页" id="lastPage">
+                <span class="span-pagerSum">共68页/1015条记录</span>
+            </div>
+        </div>
+    <div class="clear"></div>
+</div>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script src="../js/jquery.datetimepicker.js"></script>
+<script src="../js/common.js"></script>
+<script>
+
+    $(function(){
+        $(".sx_date_start,.sx_date_end").datetimepicker({
+            lang:'ch',
+            timepicker:false,
+            format:'Y.m.d',
+            formatDate:'Y.m.d',
+            scrollMonth:false,
+            scrollTime:false,
+            scrollInput:false,
+        });
+
+    })
+
+
+    function timeexit(){
+        console.log("test");
+    }
+
+</script>
+</body>
+</html>

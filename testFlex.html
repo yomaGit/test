@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test flex</title>
+    <style>
+        ul{
+            display: flex;
+            flex-direction:row;
+        }
+        .a,.c{
+            /*flex: 1;*/
+            /*-webkit-flex: 1;*/
+            flex-grow:1;
+        }
+        .a{
+            flex-grow:1;
+            height: 60px;
+            background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .b{
+            flex-basis: 80px;
+            background: yellow;
+        }
+        .c{
+            flex-grow:2;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="a">1</li>
+        <li class="b">2</li>
+        <li class="c">3</li>
+    </ul>
+</body>
+</html>
