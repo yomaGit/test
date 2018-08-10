@@ -1,0 +1,10 @@
+[
+  {
+    "type":"GET",
+    "porturl":"/homepage/getHomePage"
+  },
+  {
+    "type":"GET",
+    "porturl":"/homepage/getHomePage1"
+  }
+]

@@ -41,29 +41,40 @@ router
         // let params = afun.getparams(ctx.request.url)
         // console.log('name:' + params.name + ",age:" + params.age)
         //- 中转接口
-        var opt = {
-            host:'',
-            port:'',
-            method:'GET',//这里是发送的方法
-            path:'http://ydjcs.hydee.cn/homepage/getHomePage',     //这里是访问的路径
-            headers:{
-                //这里放期望发送出去的请求头
-            }
-        }
-        var body = '';
-        var req = http.request(opt, function(res) {
-            console.log("Got response: " + res.statusCode);
-            res.on('data',function(d){
-                body += d;
-            }).on('end', function(){
-                console.log(res.headers)
-                console.log(body)
-            });
+        // var opt = {
+        //     host:'http://ydjcs.hydee.cn',
+        //     port:'',
+        //     method:'GET',//这里是发送的方法
+        //     path:'/homepage/getHomePage',     //这里是访问的路径
+        //     headers:{
+        //         //这里放期望发送出去的请求头
+        //     }
+        // }
+        // var body = '';
+        // var req = http.request(opt, function(res) {
+        //     console.log("Got response: " + res.statusCode);
+        //     res.on('data',function(d){
+        //         console.log("res f 1");
+        //         body += d;
+        //     }).on('end', function(){
+        //         console.log("res f 2"+res.headers)
+        //         console.log(body)
+        //     });
+        //
+        // }).on('error', function(e) {
+        //     console.log("Got error: " + e.message);
+        // })
+        // req.end();
 
-        }).on('error', function(e) {
-            console.log("Got error: " + e.message);
+        var request = require('request');
+        request('http://ydjcs.hydee.cn/mall/homepage/getHomePage?mercode=123456', function (error, response, body) {
+            console.log(error);
+            console.log(response);
+            console.log(body);
+            if (!error && response.statusCode == 200) {
+                console.log(body) // Show the HTML for the baidu homepage.
+            }
         })
-        req.end();
 
     })
 

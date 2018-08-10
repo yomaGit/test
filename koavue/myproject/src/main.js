@@ -7,6 +7,11 @@ import router from './router'
 import baseurl from './plugins/baseurl';//默认地址
 Vue.use(baseurl);
 
+let v=new Vue();
+
+import qs from 'querystring'
+Vue.prototype.$qs=qs;
+
 import Toast from './plugins/toast';//toast提示弹框
 Vue.use(Toast);
 
@@ -27,6 +32,7 @@ import axios from 'axios'
 // }, function (error) {
 //   return error;
 // });
+axios.defaults.baseURL = v.$baseurl.hreforigin;
 Vue.prototype.$axios=axios;
 
 Vue.config.productionTip = false

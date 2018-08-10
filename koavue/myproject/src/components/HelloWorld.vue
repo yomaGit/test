@@ -340,38 +340,40 @@
 
         })
 
-        var tformd_pd0={
-          mercode:123
-        }
-        that.$Ajaxy('POST','http://192.168.10.65:3000/getdata/post1',tformd_pd0,function(d){
-          that.koadata_tjson=d;
-        },function(){
-
-        })
-
 //        -测试ajax中转
-        var tformd_pd_zz={
-
-        }
-        that.$Ajaxy('POST','http://192.168.10.65:3000/getzzb2c',tformd_pd_zz,function(d){
-          console.log("中转返回值");
-        },function(){
-
-        })
-
-//        that.$axios.post('http://192.168.10.65:3000/getJson', {
-//          method: 'post',
-//          headers: {
-//            'Accept': 'application/json',
-//            'Content-Type': 'application/json',
-//          },
-//        }).then(function (res) {
-//
-//          that.koadata=res;
-//
-//        }).then(function (json) {
+//        var tformd_pd_zz={
+//          age0:0,
+//          age1:1,
+//          age2:2
+//        }
+//        that.$Ajaxy('POST','http://192.168.10.65:3000/getzzb2c',tformd_pd_zz,function(d){
+//          console.log("中转返回值"+JSON.stringify(d));
+//        },function(){
 //
 //        })
+
+//- 测试循环创建的node接口
+        var formdata_hp0={
+          mercode:123456
+        }
+        that.$Ajaxy('GET','homepage/getHomePage',formdata_hp0,function(d){
+
+          console.log('homepage/getHomePage ok,data:'+JSON.stringify(d));
+        },function(){
+
+          console.log('homepage/getHomePage err');
+        })
+
+        var formdata_hp1={
+          mercode:778899
+        }
+        that.$Ajaxy('GET','homepage/getHomePage1',formdata_hp1,function(d){
+
+          console.log('homepage/getHomePage1 ok,data:'+JSON.stringify(d));
+        },function(){
+
+          console.log('homepage/getHomePage1 err');
+        })
 
       },
       * testgen() {
