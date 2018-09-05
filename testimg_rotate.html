@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试图片旋转</title>
+</head>
+<body>
+
+<input type="file" id="test" onchange="upload(event)">
+
+<hr>
+
+图片展示：
+<img src="" id="img">
+
+<hr>
+
+旋转值：
+<div id="rotateval"></div>
+
+<hr>
+
+canvas（旋转修正后）:
+<canvas id="canvas"></canvas>
+
+<hr >
+
+上传后（需要旋转的情况下）：
+<img src="" id="upload_a">
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/exif.js"></script>
+<script>
+    function upload(e) {
+        var file=e.target.files;
+
+        var reader=new FileReader();
+        reader.onload=function(e){
+            var res=reader.result;
+
+            document.getElementById("img").setAttribute('src',res);
+
+            EXIF.getData(file[0],function(){
+                var Orientation = EXIF.getTag(this,'Orientation');
+
+                document.getElementById('rotateval').innerHTML=Orientation;
+
+                if(Orientation){
+
+                    var image = new Image();
+                    image.src = res;
+                    image.onload = function() {
+                        var expectWidth = this.naturalWidth;
+                        var expectHeight = this.naturalHeight;
+
+                        if (this.naturalWidth > this.naturalHeight && this.naturalWidth > 800) {
+                            expectWidth = 800;
+                            expectHeight = expectWidth * this.naturalHeight / this.naturalWidth;
+                        } else if (this.naturalHeight > this.naturalWidth && this.naturalHeight > 1200) {
+                            expectHeight = 1200;
+                            expectWidth = expectHeight * this.naturalWidth / this.naturalHeight;
+                        }
+
+                        var canvas = document.getElementById("canvas");
+                        var ctx = canvas.getContext("2d");
+                        canvas.width = expectWidth;
+                        canvas.height = expectHeight;
+                        ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
+
+                        switch(Orientation){
+                            case 6://需要顺时针（向左）90度旋转
+                                rotateImg(this,'left',canvas);
+                                break;
+                            case 8://需要逆时针（向右）90度旋转
+                                rotateImg(this,'right',canvas);
+                                break;
+                            case 3://需要180度旋转
+                                rotateImg(this,'right',canvas);//转两次
+                                rotateImg(this,'right',canvas);
+                                break;
+                        }
+
+                        function rotateImg(img, direction,canvas) {
+                            //alert(img);
+                            //最小与最大旋转方向，图片旋转4次后回到原方向
+                            var min_step = 0;
+                            var max_step = 3;
+                            //var img = document.getElementById(pid);
+                            if (img == null)return;
+                            //img的高度和宽度不能在img元素隐藏后获取，否则会出错
+                            var height = img.height;
+                            var width = img.width;
+                            //var step = img.getAttribute('step');
+                            var step = 2;
+                            if (step == null) {
+                                step = min_step;
+                            }
+                            if (direction == 'right') {
+                                step++;
+                                //旋转到原位置，即超过最大值
+                                step > max_step && (step = min_step);
+                            } else {
+                                step--;
+                                step < min_step && (step = max_step);
+                            }
+                            //旋转角度以弧度值为参数
+                            var degree = step * 90 * Math.PI / 180;
+                            var ctx = canvas.getContext('2d');
+                            switch (step) {
+                                case 0:
+                                    canvas.width = width;
+                                    canvas.height = height;
+                                    ctx.drawImage(img, 0, 0);
+                                    break;
+                                case 1:
+                                    canvas.width = height;
+                                    canvas.height = width;
+                                    ctx.rotate(degree);
+                                    ctx.drawImage(img, 0, -height);
+                                    break;
+                                case 2:
+                                    canvas.width = width;
+                                    canvas.height = height;
+                                    ctx.rotate(degree);
+                                    ctx.drawImage(img, -width, -height);
+                                    break;
+                                case 3:
+                                    canvas.width = height;
+                                    canvas.height = width;
+                                    ctx.rotate(degree);
+                                    ctx.drawImage(img, -width, 0);
+                                    break;
+                            }
+
+                            uploadfile(canvas);
+                        }
+
+                    }
+                }
+
+            })
+
+        }
+        reader.readAsDataURL(file[0])
+
+    }
+
+    function uploadfile(canvas){
+        let src = canvas.toDataURL("image/png")//这里转成的是base64的地址，直接用到img标签的src是可以显示图片的
+
+//        function dataURItoBlob(dataURI) {//图片转成Buffer
+//
+//            var byteString = atob(dataURI.split(',')[1]);
+//            var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+//            var ab = new ArrayBuffer(byteString.length);
+//            var ia = new Uint8Array(ab);
+//            for (var i = 0; i < byteString.length; i++) {
+//                ia[i] = byteString.charCodeAt(i);
+//            }
+//            return new Blob([ab], {type: mimeString});
+//        }
+//        var blob = dataURItoBlob(src);
+
+        function dataURLtoFile(dataurl, filename) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while(n--){
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new File([u8arr], filename, {type:mime});
+        }
+
+        var file_b = dataURLtoFile(src, 'test.png');
+
+        var formData = new FormData();
+        var columnName='img';
+        formData.append(columnName, file_b);
+        formData.append("filetype", file_b.type);
+
+        $.ajax({
+            type:'post',
+            url:'http://ydjcs.hydee.cn:8090/hwimg/files/upload',
+            data:formData,
+            contentType: false,
+            processData: false,
+            dataType:'json',
+            success:function(data){
+
+               document.getElementById('upload_a').setAttribute('src',data.imgartwork);
+
+            }
+        });
+
+    }
+</script>
+</body>
+</html>

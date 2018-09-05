@@ -21,7 +21,7 @@
       <input type="file" @change='imguploadtest'>
     </p>
     <p>
-      上传的图片为：<span v-if="imguj"><img v-if="imguj" :src="imgur" class="imgup"></span>
+      上传的图片为：<span v-if="imguj"><img v-if="imguj" :src="imguj" class="imgup"></span>
     </p>
     <router-link to="/test0">跳转到test0的页面</router-link>
     <div class="element-ui">
@@ -167,6 +167,7 @@
           "blue",
           "red"
         ],
+        testgenter:''
       }
     },
     computed:{//- 计算属性
@@ -459,14 +460,59 @@
         },1)
 
 
+        that.testgenter=that.resetfl_sel();
+        that.testgenter.next();
+        that.testgenter.next();
 
+        new Promise(function (resolve,reject) {
+          resolve('123');
+        }).then(function (d) {
+          console.log(d)
+//          return new Promise(function (resolve,reject) {
+//            resolve('234')
+//          })
+        }).then(function (d) {
+          console.log(d);
+        })
 
+        let testjg=[1,2];
+        let [testjg_0,testjg_1,testjg_2]=testjg;
+        console.log(testjg_0+" "+testjg_1+" "+testjg_2)
+
+        //- 变量常量输出调试
+        let divtdom;
+        for(var tti=0;tti<5;tti++){
+          divtdom=document.createElement('div');
+          divtdom.innerText=tti;
+          divtdom.onclick=function(){
+            console.log("tti test:"+tti);
+          }
+          document.body.appendChild(divtdom);
+        }
+
+        let divtdom_let;
+        for(let tti_=0;tti_<5;tti_++){
+          divtdom_let=document.createElement('div');
+          divtdom_let.innerText=tti_+'let';
+          divtdom_let.onclick=function(){
+            console.log("tti test:"+tti_);
+          }
+          document.body.appendChild(divtdom_let);
+        }
+
+        //- 测试 {}
+        let tenyf='test {}';
+        console.log(`test ${tenyf}`);
 
       },
       * testgen() {
         yield 'test0'
         yield 'test1'
-      }
+      },
+      * resetfl_sel(){
+        yield 1;
+        console.log("run");
+      },
     },
     watch: {//- watch 监测
       msg(val) {
