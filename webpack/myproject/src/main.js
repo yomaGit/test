@@ -19,10 +19,10 @@ Vue.use(Ajaxy);
 import imgupload from './plugins/imgupload';//图片上传
 Vue.use(imgupload);
 
-import 'element-ui/lib/theme-chalk/index.css'
-import { Button,Select } from 'element-ui'//- element-ui的组件单独引入
-Vue.use(Button);
-Vue.use(Select);
+// import 'element-ui/lib/theme-chalk/index.css'
+// import { Button,Select } from 'element-ui'//- element-ui的组件单独引入
+// Vue.use(Button);
+// Vue.use(Select);
 
 import axios from 'axios'
 axios.interceptors.response.use(function (response) {
@@ -31,6 +31,19 @@ axios.interceptors.response.use(function (response) {
   return error;
 });
 Vue.prototype.$axios=axios;
+
+//- ant-design start
+
+import 'ant-design-vue/dist/antd.css'
+// import Antd from 'ant-design-vue'
+// Vue.use(Antd)
+
+import {
+  Button
+} from 'ant-design-vue'
+Vue.use(Button)
+
+//- ant-design end
 
 Vue.config.productionTip = false
 

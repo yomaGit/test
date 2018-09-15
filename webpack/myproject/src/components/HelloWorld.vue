@@ -138,6 +138,12 @@
 
     </div>
 
+    <div>
+      <a-button type="primary">Primary</a-button>
+      <a-button>Default</a-button>
+      <a-button type="dashed">Dashed</a-button>
+      <a-button type="danger">Danger</a-button>
+    </div>
 
   </div>
 </template>
@@ -245,6 +251,8 @@
         },function(){
           console.log("地址获取失败了");
         })
+
+
 //        that.$Ajaxy("post","http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea",{ parentid:"310100" },function(d){
 //          console.log("地址获取成功了 返回数据为上海市的区");
 //          that.areasnote="";
@@ -504,6 +512,19 @@
         let tenyf='test {}';
         console.log(`test ${tenyf}`);
 
+        function timeout(ms) {
+          return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+          });
+        }
+
+        async function asyncPrint(value, ms) {
+          await timeout(ms);
+          console.log(value);
+        }
+
+        asyncPrint('hello world', 1000);
+        
       },
       * testgen() {
         yield 'test0'
