@@ -87,8 +87,8 @@
 </template>
 
 <script>
-  import navbar from '../../moudles/navbar'
-  import pager from '../../moudles/pager'
+  import navbar from '../../../components/navbar/navbar'
+  import pager from '../../../components/pager/pager'
 
   export default {
     name: 'retial_management',
@@ -320,5 +320,5 @@
 </script>
 
 <style lang="sass">
-  @import "../../../css/business_event/retail_management/index"
+  @import "index"
 </style>

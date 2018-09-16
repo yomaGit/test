@@ -46,5 +46,5 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "../../css/moudles/pager.scss"
+  @import "pager"
 </style>

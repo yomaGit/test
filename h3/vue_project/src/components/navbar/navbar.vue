@@ -28,5 +28,5 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "../../css/moudles/navbar.scss"
+  @import "navbar"
 </style>
