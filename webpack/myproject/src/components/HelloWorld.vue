@@ -24,34 +24,34 @@
       上传的图片为：<span v-if="imguj"><img v-if="imguj" :src="imguj" class="imgup"></span>
     </p>
     <router-link to="/test0">跳转到test0的页面</router-link>
-    <div class="element-ui">
-      <div>
-        <el-button>默认按钮</el-button>
-        <el-button type="primary">主要按钮</el-button>
-        <el-button type="success">成功按钮</el-button>
-        <el-button type="info">信息按钮</el-button>
-        <el-button type="warning">警告按钮</el-button>
-        <el-button type="danger">危险按钮</el-button>
-      </div>
+    <!--<div class="element-ui">-->
+      <!--<div>-->
+        <!--<el-button>默认按钮</el-button>-->
+        <!--<el-button type="primary">主要按钮</el-button>-->
+        <!--<el-button type="success">成功按钮</el-button>-->
+        <!--<el-button type="info">信息按钮</el-button>-->
+        <!--<el-button type="warning">警告按钮</el-button>-->
+        <!--<el-button type="danger">危险按钮</el-button>-->
+      <!--</div>-->
 
-      <div style="margin: 20px 0">
-        <el-button plain>朴素按钮</el-button>
-        <el-button type="primary" plain>主要按钮</el-button>
-        <el-button type="success" plain>成功按钮</el-button>
-        <el-button type="info" plain>信息按钮</el-button>
-        <el-button type="warning" plain>警告按钮</el-button>
-        <el-button type="danger" plain>危险按钮</el-button>
-      </div>
+      <!--<div style="margin: 20px 0">-->
+        <!--<el-button plain>朴素按钮</el-button>-->
+        <!--<el-button type="primary" plain>主要按钮</el-button>-->
+        <!--<el-button type="success" plain>成功按钮</el-button>-->
+        <!--<el-button type="info" plain>信息按钮</el-button>-->
+        <!--<el-button type="warning" plain>警告按钮</el-button>-->
+        <!--<el-button type="danger" plain>危险按钮</el-button>-->
+      <!--</div>-->
 
-      <div>
-        <el-button round>圆形按钮</el-button>
-        <el-button type="primary" round>主要按钮</el-button>
-        <el-button type="success" round>成功按钮</el-button>
-        <el-button type="info" round>信息按钮</el-button>
-        <el-button type="warning" round>警告按钮</el-button>
-        <el-button type="danger" round>危险按钮</el-button>
-      </div>
-    </div>
+      <!--<div>-->
+        <!--<el-button round>圆形按钮</el-button>-->
+        <!--<el-button type="primary" round>主要按钮</el-button>-->
+        <!--<el-button type="success" round>成功按钮</el-button>-->
+        <!--<el-button type="info" round>信息按钮</el-button>-->
+        <!--<el-button type="warning" round>警告按钮</el-button>-->
+        <!--<el-button type="danger" round>危险按钮</el-button>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div class="lesstest">
       <div class="tb">测试文字</div>
@@ -138,20 +138,35 @@
 
     </div>
 
-    <div>
-      <a-button type="primary">Primary</a-button>
-      <a-button>Default</a-button>
-      <a-button type="dashed">Dashed</a-button>
-      <a-button type="danger">Danger</a-button>
-    </div>
+    <!--<div>-->
+      <!--<a-button type="primary">Primary</a-button>-->
+      <!--<a-button>Default</a-button>-->
+      <!--<a-button type="dashed">Dashed</a-button>-->
+      <!--<a-button type="danger">Danger</a-button>-->
+    <!--</div>-->
+
+    测试watch的immediate<br />
+    <input type="text" v-model="testInputVal" style="border: 1px solid red;">
+    <br />
+    测试input插件,Input插件的attr都会映射到子组件里<br />
+    <testInput placeholder="我是父组件的placeholder" v-model="testInputVal_$attr"></testInput>
+    <br />
+    测试div的显示v-model<br />
+    <divToggle v-model="testToggle_v" ref="divToggle"></divToggle>
+    <button @click="changeDiv_toggle">父组件的改变div显示状态</button>
+
+
 
   </div>
 </template>
 
 <script>
+import testInput from './input'
+import divToggle from './divtoggle'
 
   export default {//- 为模块指定默认输出
     name: 'HelloWorld',
+    components:{testInput,divToggle},
     props: {
       //- 要传递的参数
       show: {
@@ -173,7 +188,10 @@
           "blue",
           "red"
         ],
-        testgenter:''
+        testgenter:'',
+        testInputVal:'111',
+        testInputVal_$attr:'223',
+        testToggle_v:true,
       }
     },
     computed:{//- 计算属性
@@ -371,8 +389,6 @@
           console.log(j + " " + testarr_new[j])
         }
 
-
-
         let tgn = that.testgen();
         console.log(tgn.next())
         console.log(tgn.next())
@@ -512,8 +528,8 @@
         let tenyf='test {}';
         console.log(`test ${tenyf}`);
 
-        function timeout(ms) {
-          return new Promise((resolve) => {
+        async function timeout(ms) {
+          await new Promise((resolve) => {
             setTimeout(resolve, ms);
           });
         }
@@ -524,7 +540,50 @@
         }
 
         asyncPrint('hello world', 1000);
-        
+
+        console.log('Object assign对象合并，浅拷贝测试');
+        const assign_a={a:1,b:2}
+        const assign_b={c:3,d:4}
+        console.log(Object.assign(assign_a,assign_b));
+
+        const assign_deep_a={a:1,b:{b0:3,b1:4}}
+        const assign_deep_b={a:2,b:{b3:5}}
+        console.log(Object.assign(assign_deep_a,assign_deep_b));
+
+        let objectJX={
+          method:function(){
+            console.log('i am objectJX');
+          },
+          methodn(){
+            console.log('i am objectJXn');
+          },
+          methodn_n:()=>{
+            console.log('i am objectJXn_n');
+          }
+        }
+
+        console.log(objectJX.method());
+        console.log(objectJX.methodn());
+        console.log(objectJX.methodn_n());
+
+        let setArr=[1,2,3,4,4,{a:1},{a:1}]
+        console.log(`输出set结构`);
+        console.log(new Set(setArr));
+        let setArr_n=[...new Set(setArr)];
+        console.log('输出新的数组，去重');
+        console.log(setArr_n);
+
+        async function test_await_promise() {
+          await Promise.reject('出错了');
+          await Promise.resolve('测试await是否执行 hello world'); // 不会执行
+        }
+
+        test_await_promise().then(()=>{
+
+        }).catch((e)=>{
+          console.log('监听到了 '+e);
+        })
+
       },
       * testgen() {
         yield 'test0'
@@ -534,10 +593,33 @@
         yield 1;
         console.log("run");
       },
+      testinputval_$attr(v){
+        console.log(`子组件input值改变触发了父组件的方法，value值为:${v}`);
+      },
+      changeDiv_toggle(){
+        this.testToggle_v=!this.testToggle_v;
+
+        this.$refs.divToggle.changeState();
+      },
     },
     watch: {//- watch 监测
       msg(val) {
         console.log("watch 监听到msg发生了变化 变化后的值为'" + val + "'");
+      },
+      testInputVal:{
+        handler(v){
+          console.log(`测试input的watch变化，input值为${v}`);
+        },
+        immediate:true
+      },
+      testInputVal_$attr(v){
+        console.log(`子组件input触发了父组件的v-model，值为${v}`);
+      },
+      testToggle_v(v){
+
+
+
+        console.log(`divToggle的v-model值变了，值为${v}`);
       }
     },
     created() {//- vue创建后，进入页面执行一次

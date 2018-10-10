@@ -1,3 +1,4 @@
+$spriteimg: 'static/img/sprites0.png'; //- 精灵图地址
 
 @mixin flex-c-c { //- flex y center x center
   display: flex;
@@ -17,6 +18,12 @@
   justify-content: space-between;
 }
 
+@mixin flex-c-se { //- flex y center x evenly
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 @mixin flex-c-s { //- flex y center x start
   display: flex;
   align-items: center;
@@ -29,10 +36,22 @@
   justify-content: flex-end;
 }
 
+@mixin flex-s-s { //- flex y start x start
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
 @mixin flex-s-c { //- flex y start x center
   display: flex;
   align-items: flex-start;
   justify-content: center;
+}
+
+@mixin flex-s-e { //- flex y start x end
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 @mixin flex-e-c { //- flex y end x center
@@ -101,4 +120,20 @@
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
+}
+
+@mixin transition_all3{
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+@mixin transition_all5{
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
 }

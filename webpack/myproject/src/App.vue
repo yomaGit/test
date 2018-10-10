@@ -16,8 +16,6 @@ export default {
   *{
     margin:0;
     padding:0;
-    border:none;
-    outline:none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -53,5 +51,7 @@ export default {
     box-shadow: 0 0 10px 2px #CAAB8F;
     z-index: 99999999;
   }
-
+button{
+  background: #999999;
+}
 </style>

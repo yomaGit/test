@@ -11,6 +11,17 @@ a, address, b, big, blockquote, body, button, center, cite, code, dd, del, div, 
 
 a {
   text-decoration: none;
+  color: #409eff;
+
+  &:hover {
+    color: #66b2ff;
+  }
+  &:active {
+    color: #3a8ee6;
+  }
+  &:focus{
+    text-decoration: none;
+  }
 }
 
 li, ul {
@@ -27,85 +38,85 @@ html, body {
   height: 100%;
 }
 
-div.body {
+.body {
   min-width: 1200px;
   height: 100%;
   @include overflow-h-a;
   background: #eeeeee;
   font-size: 14px;
   color: #333333;
-}
 
-a {
-  color: #409eff;
-
-  &:hover {
-    color: #66b2ff;
+  .cbg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    z-index: 9991;
   }
-  &:active {
-    color: #3a8ee6;
+
+  .dataLoading {
+    height: 50px;
+    @include flex-c-c;
+    display: none;
+
+    img {
+      display: block;
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
+    }
   }
-}
 
-.cbg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .3);
-  z-index: 31;
-}
-
-.dataLoading {
-  height: 50px;
-  @include flex-c-c;
-  display: none;
-
-  img {
-    display: block;
-    width: 35px;
-    height: 35px;
-    margin-right: 10px;
+  .floatLeft, .floatleft, .flaotleft {
+    float: left;
   }
-}
 
-.floatLeft, .floatleft, .flaotleft {
-  float: left;
-}
+  .floatRight, .floatright {
+    float: right;
+  }
 
-.floatRight, .floatright {
-  float: right;
-}
+  .clear {
+    @include clearboth;
+  }
 
-.clear {
-  @include clearboth;
-}
+  .content {
+    padding: 60px 0 0 230px;
+    position: relative;
+    background: #f0f0f0;
+    min-height: 100vh;
+    @include transition_all5;
+  }
 
-.content {
-  padding: 60px 0 0 230px;
-  position: relative;
-  background: #f0f0f0;
-  min-height: 100vh;
-}
+  &.hidebart{
 
-.processbar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  z-index: 2000;
-}
-.processbar.off{
-  opacity: 0;
-  transition: opacity .3s linear;
-}
-.processbar div{
-  width: 0%;
-  height: 2px;
-  background: #2892f0;
-  -webkit-transition: width .2s linear;
-  -moz-transition: width .2s linear;
-  transition: width .2s linear;
+    .content{
+      padding-left: 0;
+      @include transition_all5;
+    }
+  }
+
+  .processbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    z-index: 2000;
+
+    &.off{
+      opacity: 0;
+      transition: opacity .3s linear;
+    }
+
+    div{
+      width: 0%;
+      height: 2px;
+      background: #2892f0;
+      -webkit-transition: width .2s linear;
+      -moz-transition: width .2s linear;
+      transition: width .2s linear;
+    }
+  }
 }

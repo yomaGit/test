@@ -5,6 +5,10 @@ import store from './store'
 
 const v = new Vue();
 
+import {v4} from 'uuid';
+
+Vue.prototype.$v4 = v4;
+
 import basemsg from './plugins/basemsg';//- 默认参数
 Vue.use(basemsg);
 
@@ -22,44 +26,46 @@ Vue.use(catchrecord);
 import Ajaxy from './plugins/ajaxy';//- ajax方法
 Vue.use(Ajaxy);
 
+import 'iview/dist/styles/iview.css';
 import {
   Button,
-  Icon,
+  ButtonGroup,
   Dropdown,
-  Menu,
+  DropdownItem,
+  DropdownMenu,
   Input,
-  InputNumber,
   Select,
-  TreeSelect,
+  Option,
   Checkbox,
-  Pagination,
+  CheckboxGroup,
+  Page,
+  Modal,
+  Message,
+  Spin,
+  Icon,
+} from 'iview';
 
-} from 'ant-design-vue';
+Vue.component('Button', Button);
+Vue.component('ButtonGroup', ButtonGroup);
+Vue.component('Dropdown', Dropdown);
+Vue.component('DropdownItem', DropdownItem);
+Vue.component('DropdownMenu', DropdownMenu);
+Vue.component('Input', Input);
+Vue.component('Select', Select);
+Vue.component('Option', Option);
+Vue.component('Checkbox', Checkbox);
+Vue.component('CheckboxGroup', CheckboxGroup);
+Vue.component('Page', Page);
+Vue.component('Modal', Modal);
+Vue.component('Message', Message);
+Vue.component('Spin', Spin);
+Vue.component('Icon', Icon);
 
-Vue.component(Button.name, Button)
-Vue.component(Button.Group.name, Button.Group)
-Vue.component(Icon.name, Icon)
-Vue.component(Dropdown.name, Dropdown)
-Vue.component(Dropdown.Button.name, Dropdown.Button)
-Vue.component(Menu.name, Menu)
-Vue.component(Menu.Item.name, Menu.Item)
-Vue.component(Menu.SubMenu.name, Menu.SubMenu)
-Vue.component(Menu.Divider.name, Menu.Divider)
-Vue.component(Menu.ItemGroup.name, Menu.ItemGroup)
-Vue.component(Input.name, Input)
-Vue.component(Input.Group.name, Input.Group)
-Vue.component(Input.Search.name, Input.Search)
-Vue.component(Input.TextArea.name, Input.TextArea)
-Vue.component(InputNumber.name, InputNumber)
-Vue.component(Select.name, Select)
-Vue.component(Select.Option.name, Select.Option)
-Vue.component(Select.OptGroup.name, Select.OptGroup)
-Vue.component(TreeSelect.name, TreeSelect)
-Vue.component(TreeSelect.TreeNode.name, TreeSelect.TreeNode)
-Vue.component(Checkbox.name, Checkbox)
-Vue.component(Checkbox.Group.name, Checkbox.Group)
-Vue.component(Pagination.name, Pagination)
+Object.assign(Vue.prototype,{
+  $Modal : Modal,
+  $Message : Message,
 
+})
 
 Vue.config.productionTip = false;
 

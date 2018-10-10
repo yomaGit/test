@@ -6,12 +6,20 @@ Vue.use(Router)
 
 const notfound = () => import(/* webpackChunkName: "notfound" */ '@/pages/notfound')
 
-const retail_management = () => import(/* webpackChunkName: "business_event" */ '@/pages/business_event/retail_management/index')
+const retail_management = () => import(/* webpackChunkName: "business_event" */ '@/pages/business_event/retail_management')
 
 const router=new Router({
   routes: [
     {
-      path: '/retail_management',//- 零售管理
+      path: '/',//- 默认
+      name: 'default',
+      component: retail_management,
+      meta:{
+        title:'零售管理',
+      }
+    },
+    {
+      path: '/h3/retail_management',//- 零售管理
       name: 'retail_management',
       component: retail_management,
       meta:{

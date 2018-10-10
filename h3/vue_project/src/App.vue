@@ -1,72 +1,65 @@
 <template>
-  <div>
+  <div class="body" :class="{hidebart:hidebart}" @click="bodyclick">
+
     <div class="cbg" v-show="cbgshow" id='cbg' @click='cbgclick'></div>
-    <div class="processbar" :class={off:!probarshow} v-show="processbar_show"><div :style="'width:'+probarwidth+'%;'"></div></div>
+    <div class="processbar" :class={off:!probarshow} v-show="processbar_show">
+      <div :style="'width:'+probarwidth+'%;'"></div>
+    </div>
+
+    <navbar ref="navbar"></navbar>
 
     <router-view ref="routerview"/>
+
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App',
-  data(){
-    return {
+  import navbar from './pages/modules/navbar'
+
+  export default {
+    name: 'App',
+    components: {navbar},
+    data() {
+      return {}
+    },
+    methods: {//- 方法
+      bodyclick() {//- 全局点击方法
+        let that = this;
+
+        //- dataList的弹框隐藏的跨组件方法
+        if (that.$refs.routerview.$refs.dataList.closeFloat) that.$refs.routerview.$refs.dataList.closeFloat();
+
+        //- navbar的头部搜索框隐藏的跨组件方法
+        if (that.$refs.navbar.closeFloat) that.$refs.navbar.closeFloat();
+      },
+      cbgclick() {//- 全局cbg的点击方法
+
+      }
+    },
+    computed: {
+      hidebart() {
+        return this.$store.state.hidebart
+      },
+      cbgshow() {
+        return this.$store.state.cbgshow
+      },
+      probarshow() {
+        return this.$store.state.processbar;
+      },
+      processbar_show() {
+        return this.$store.state.processbar_show;
+      },
+      probarwidth() {
+        return this.$store.state.processbar_width;
+      },
+    },
+    mounted() {
+      let that = this;
+
+      that.$store.commit('resetHeight')//- 初始化二级菜单的点击交互的height
 
     }
-  },
-  methods:{//- 方法
-    bodyclick(){//- 全局点击方法
-      let that=this;
-
-
-    },
-    cbgclick(){//- 全局cbg的点击方法
-
-    }
-  },
-  computed: {
-    hidebart(){
-      return this.$store.state.hidebart
-    },
-    cbgshow(){
-      return this.$store.state.cbgshow
-    },
-    probarshow(){
-      return this.$store.state.processbar;
-    },
-    processbar_show(){
-      return this.$store.state.processbar_show;
-    },
-    probarwidth(){
-      return this.$store.state.processbar_width;
-    }
-  },
-  watch:{//- 监听
-
-  },
-  created(){//- 创建 常用
-
-  },
-  updated(){//- 组件更新之后
-
-  },
-  destroyed(){//- 销毁
-
-  },
-  beforeRouteEnter(to, from, next){//- 进入路由，无this
-
-    next(true);
-  },
-  beforeRouteUpdate(to, from, next){//- 路由改变，可this
-
-    next(true);
-  },
-  beforeRouteLeave(to, from, next){//- 离开路由，可this
-
-    next(true);
   }
-}
 </script>
 
 <style lang="sass">

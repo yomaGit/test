@@ -11,6 +11,7 @@ Vue.use(Router)
 
 //路由懒加载，加了webpackChunkName:后可以把相同name的组合到一起加载
 const HelloWorld = () => import(/* webpackChunkName: "group-foo" */ '@/components/HelloWorld')
+const menulist = () => import(/* webpackChunkName: "menulist" */ '@/components/menusel')
 const test0 = () => import(/* webpackChunkName: "group-test0" */ '@/components/test0')
 const index = () => import(/* webpackChunkName: "group-index" */ '@/components/index')
 const notfound = () => import('@/components/notfound')
@@ -39,6 +40,11 @@ export default new Router({
         //- 全局后置守卫
         console.log("helloworld afterEach 全局后置守卫");
       },
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: menulist
     },
     {
       path: '/test0',

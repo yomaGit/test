@@ -1,11 +1,17 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
+import 'babel-polyfill'
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 
 import baseurl from './plugins/baseurl';//默认地址
 Vue.use(baseurl);
+
+import {v4} from 'uuid';//- 处理URL查询字符串
+Vue.prototype.$v4=v4;
 
 import Qs from 'qs';//- 处理URL查询字符串
 Vue.prototype.$qs=Qs;
@@ -34,7 +40,7 @@ Vue.prototype.$axios=axios;
 
 //- ant-design start
 
-import 'ant-design-vue/dist/antd.css'
+// import 'ant-design-vue/dist/antd.css'
 // import Antd from 'ant-design-vue'
 // Vue.use(Antd)
 
