@@ -51,6 +51,8 @@ export default new Router({
       name: 'test0',
       component: test0
     },
+
+
     {//- 页面未找到的情况404
       path: '*',
       name: 'notfound',

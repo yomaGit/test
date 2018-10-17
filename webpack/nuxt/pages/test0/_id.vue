@@ -2,6 +2,16 @@
   <section>
     这里是带有id的页面
     {{$route.params.id}}
+
+    store的counter:{{count}}
+
+    <br/>
+    这里是是服务端渲染的数据citylist:
+    <ul>
+      <li v-for="item in citylist" :key="item.id">
+        {{item.id}} {{item.name}}
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -12,33 +22,41 @@
   export default {
     name: "id",
     data() {
-      return {}
+      return {
+        citylist: ['test']
+      }
     },
-    asyncData({params}) {
-      return new Promise(function (resolve, reject) {
+    asyncData({context}) {
 
-          let data = qs.stringify({parentid: "310100"});
+      let data = qs.stringify({parentid: "310100"});
 
-          axios({
-            url: 'http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea',
-            method: 'post',
-            data: data
-          }).then(function (d) {
-            resolve(d)
-          }).catch(function () {
-            reject()
-          })
+      return axios({
+        url: 'http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea',
+        method: 'post',
+        data: data
+      }).then(function (d) {
 
-        }).then(function (d) {
-          console.log("地址获取成功了 返回数据为上海市的区");
-          console.log(d);
+        return {
+          citylist: d.data.data
+        }
 
-        }, function () {
-          console.log("地址获取失败了");
-        })
+      }).catch(function () {
+
+      })
+
 
     },
-    methods: {}
+    computed:{
+      count(){
+        return this.$store.state.counter
+      }
+    },
+    methods: {
+
+    },
+    mounted(){
+
+    }
   }
 </script>
 

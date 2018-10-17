@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+测试javascript的原型
+
+<script>
+
+
+    function a(name){
+        this.name=name;
+        this.say=function(){
+            return 'name：'+this.name
+        }
+    }
+    a.prototype.sayw=function () {
+        return 'sayw name:'+this.name
+    }
+    var b=new a('hello');
+    console.log(b.say());
+    console.log(b.sayw());
+
+    console.log(b);
+
+
+</script>
+</body>
+</html>

@@ -7,6 +7,7 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const PreloadWebpackPlugin=require('preload-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -78,12 +79,27 @@ const webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'//- 注入依赖的时候按照依赖先后顺序进行注入，比如，需要先注入vendor.js，再注入app.js
     }),
+
+    //- 资源预加载 TODO 确定预加载资源文件
+    new PreloadWebpackPlugin({
+      rel: 'prefetch',
+    }),
+
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as(entry) {
+        if (/\.css$/.test(entry)) return 'style'
+        return 'script';
+      },
+      include: ['app', 'vendor', 'manifest']
+    }),
+
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
     // split vendor js into its own file
-    new webpack.optimize.CommonsChunkPlugin({//- node_modules中引入的js提取到vendor.js，即抽取库文件
+    new webpack.optimize.CommonsChunkPlugin({//- node_modules中引入的js提取到vendor.js，即抽取库文件 全部
       name: 'vendor',
       minChunks (module) {
         return (
@@ -95,52 +111,43 @@ const webpackConfig = merge(baseWebpackConfig, {
         )
       }
     }),
-    //- 抽取element-ui内容到单独文件
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'vendor.eui.extra',
-    //   minChunks (module) {
-    //     return (
-    //       module.resource &&
-    //       /\.js$/.test(module.resource) &&
-    //       module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui')
-    //       ) === 0
-    //     )
-    //   }
-    // }),
-    //
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'vendor.eui.big',
-    //   minChunks (module) {
-    //     return (
-    //       module.resource &&
-    //       /\.js$/.test(module.resource) &&
-    //       module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/date-picker.js')
-    //       ) === 0|| module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/utils')
-    //       ) === 0|| module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/table.js')
-    //       ) === 0|| module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/time-picker.js')
-    //       ) === 0|| module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/time-select.js')
-    //       ) === 0|| module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/tree.js')
-    //       ) === 0||module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/select.js')
-    //       ) === 0||module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/color-picker.js')
-    //       ) === 0||module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/upload.js')
-    //       ) === 0||module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/cascader.js')
-    //       ) === 0||module.resource.indexOf(
-    //         path.join(__dirname, '../node_modules/element-ui/lib/slider.js')
-    //       ) === 0
-    //     )
-    //   }
-    // }),
+
+    new webpack.optimize.CommonsChunkPlugin({//- node_modules中引入的js提取到vendor.js，即抽取库文件 主文件
+      name: 'vendor.vue',
+      minChunks (module) {
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf(
+            path.join(__dirname, '../node_modules/vue')
+          ) === 0 || module.resource.indexOf(
+            path.join(__dirname, '../node_modules/vue-router')
+          ) === 0 || module.resource.indexOf(
+            path.join(__dirname, '../node_modules/vuex')
+          ) === 0 || module.resource.indexOf(
+            path.join(__dirname, '../node_modules/axios')
+          ) === 0 || module.resource.indexOf(
+            path.join(__dirname, '../node_modules/qs')
+          ) === 0 || module.resource.indexOf(
+            path.join(__dirname, '../node_modules/iview')
+          ) === 0
+        )
+      }
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({//- node_modules中引入的js提取到vendor.js，即抽取库文件 iview
+      name: 'vendor.iview',
+      minChunks (module) {
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf(
+            path.join(__dirname, '../node_modules/iview')
+          ) === 0
+        )
+      }
+    }),
+
     // extract webpack runtime and module manifest to its own file in order to
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({//- 将运行时代码提取到mainfest.js，chunk等
@@ -160,21 +167,6 @@ const webpackConfig = merge(baseWebpackConfig, {
           /\.js$/.test(module.resource) &&
           module.resource.indexOf(
             path.join(__dirname, '../node_modules')
-          ) === 0
-        )
-      }
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({//- 业务主文件，自写的插件等
-      name: 'app',
-      async: 'vendor-async-echarts',
-      children: true,
-      minChunks (module) {
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(
-            path.join(__dirname, '../node_modules/echarts')
           ) === 0
         )
       }

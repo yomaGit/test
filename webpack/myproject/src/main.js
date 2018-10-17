@@ -16,8 +16,8 @@ Vue.prototype.$v4=v4;
 import Qs from 'qs';//- 处理URL查询字符串
 Vue.prototype.$qs=Qs;
 
-import Toast from './plugins/toast';//toast提示弹框
-Vue.use(Toast);
+// import Toast from './plugins/toast';//toast提示弹框
+// Vue.use(Toast);
 
 import Ajaxy from './plugins/ajaxy';//ajax方法
 Vue.use(Ajaxy);
@@ -44,14 +44,23 @@ Vue.prototype.$axios=axios;
 // import Antd from 'ant-design-vue'
 // Vue.use(Antd)
 
-import {
-  Button
-} from 'ant-design-vue'
-Vue.use(Button)
+// import {
+//   Button
+// } from 'ant-design-vue'
+// Vue.use(Button)
 
 //- ant-design end
 
+// import Toast from 'lib/dist/Toast.js'
+// Vue.use(Toast);
+import toast from 'pubtest_wp'
+Vue.use(toast);
+
 Vue.config.productionTip = false
+
+window.onresize=function () {
+  console.log(`%c屏幕尺寸出现了变化`,'color:red;');
+}
 
 /* eslint-disable no-new */
 new Vue({

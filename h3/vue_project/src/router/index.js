@@ -4,9 +4,9 @@ import store from '../store'
 
 Vue.use(Router)
 
-const notfound = () => import(/* webpackChunkName: "notfound" */ '@/pages/notfound')
+const notfound = () => import(/* webpackChunkName: "notfound" */ '@/views/notfound')
 
-const retail_management = () => import(/* webpackChunkName: "business_event" */ '@/pages/business_event/retail_management')
+const retail_management = () => import(/* webpackChunkName: "business_event" */ '@/views/business_event/retail_management')
 
 const router=new Router({
   routes: [

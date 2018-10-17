@@ -6,7 +6,7 @@
     </p>
     <p>页面内容测试 {{content}}</p>
     <p>
-      <button class="abutton" @click='toast("测试文字信息")'>点击测试toast</button>
+      <button class="abutton" @click='toast("测试文字信息")' v-stat="{type:'click',fun:'测试toast'}">点击测试toast</button>
       <button class="abutton" @click='toast("测试文字信息 1")'>点击测试toast 1</button>
     </p>
     <p>
@@ -155,18 +155,34 @@
     <divToggle v-model="testToggle_v" ref="divToggle"></divToggle>
     <button @click="changeDiv_toggle">父组件的改变div显示状态</button>
 
+    <hr />
 
+    测试directive的input focus 3s后消失 解绑 ， 再3s后 绑定
+    <template v-if="testUnbind_autoFocus">
+      <input type="text" v-autoFocus>
+    </template>
+
+    <br />
+    测试npm 发布的插件 pubtest_wp
+    <toast></toast>
+    <button @click="toastTest('i am toast1')">toast 'i am toast1'</button>
+    <button @click="toastTest('i am toast2')">toast 'i am toast2'</button>
 
   </div>
 </template>
 
 <script>
-import testInput from './input'
-import divToggle from './divtoggle'
+  import testInput from './input'
+  import divToggle from './divtoggle'
+  import mixin from '../mixins/mixin_0'
+  import autoFocus from '../directives/autoFocus'
+  import stat from '../directives/stat'
 
   export default {//- 为模块指定默认输出
     name: 'HelloWorld',
     components:{testInput,divToggle},
+    mixins:[mixin],
+    directives:{autoFocus,stat},
     props: {
       //- 要传递的参数
       show: {
@@ -192,6 +208,7 @@ import divToggle from './divtoggle'
         testInputVal:'111',
         testInputVal_$attr:'223',
         testToggle_v:true,
+        testUnbind_autoFocus:true
       }
     },
     computed:{//- 计算属性
@@ -237,6 +254,14 @@ import divToggle from './divtoggle'
       init() {
         var that = this;
         //      console.log(this._props.show);//- 获取传入参数
+
+        setTimeout(()=>{
+          that.testUnbind_autoFocus=false;
+        },3000)
+
+        setTimeout(()=>{
+          that.testUnbind_autoFocus=true;
+        },6000)
 
         var imgb = that.$baseurl.imgupload;
         console.log("图片上传地址为 " + imgb);
@@ -541,7 +566,7 @@ import divToggle from './divtoggle'
 
         asyncPrint('hello world', 1000);
 
-        console.log('Object assign对象合并，浅拷贝测试');
+        console.log('%cObject assign对象合并，浅拷贝测试','color:red');
         const assign_a={a:1,b:2}
         const assign_b={c:3,d:4}
         console.log(Object.assign(assign_a,assign_b));
@@ -567,10 +592,10 @@ import divToggle from './divtoggle'
         console.log(objectJX.methodn_n());
 
         let setArr=[1,2,3,4,4,{a:1},{a:1}]
-        console.log(`输出set结构`);
+        console.log(`%c输出set结构`,'color:red');
         console.log(new Set(setArr));
         let setArr_n=[...new Set(setArr)];
-        console.log('输出新的数组，去重');
+        console.log('%c输出新的数组，去重','color:red');
         console.log(setArr_n);
 
         async function test_await_promise() {
@@ -583,6 +608,7 @@ import divToggle from './divtoggle'
         }).catch((e)=>{
           console.log('监听到了 '+e);
         })
+
 
       },
       * testgen() {
@@ -601,6 +627,9 @@ import divToggle from './divtoggle'
 
         this.$refs.divToggle.changeState();
       },
+      toastTest(str){//- 自编写的插件
+        this.$toast(str)
+      }
     },
     watch: {//- watch 监测
       msg(val) {
@@ -616,8 +645,6 @@ import divToggle from './divtoggle'
         console.log(`子组件input触发了父组件的v-model，值为${v}`);
       },
       testToggle_v(v){
-
-
 
         console.log(`divToggle的v-model值变了，值为${v}`);
       }
@@ -666,7 +693,7 @@ import divToggle from './divtoggle'
 </style>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style lang="scss">
 
   p {
     color: #333333;
@@ -676,11 +703,15 @@ import divToggle from './divtoggle'
     padding: 3px 5px;
     cursor: pointer;
     background: #e0e0e0;
+
+    &:hover{
+      background: #eeeeee;
+    }
   }
 
-  abutton:hover {
-    background: #eeeeee;
-  }
+  /*abutton:hover {*/
+    /*background: #eeeeee;*/
+  /*}*/
 
   .imgup {
     width: 200px;
