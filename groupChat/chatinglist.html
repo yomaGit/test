@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>chatingList</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <input type="hidden" id="chatinglist">
+    <div class="fun">
+        <div class="l addGC">+发起群聊</div>
+        <div class="l user">用户列表</div>
+        <div class="l quit">退出</div>
+    </div>
+    <div class="list">
+        <div class="loading">数据获取中......</div>
+        <div class="loadingNone">无数据，发起个群聊或在用户列表找个人单聊吧</div>
+        <ul>
+            <!--<li>-->
+                <!--<a href="chating.html" class="c">-->
+                    <!--<div class="img">-->
+                        <!--<div class="imggroup">-->
+                            <!--<img src="img/user.jpg">-->
+                            <!--<img src="img/user.jpg">-->
+                            <!--<img src="img/user.jpg">-->
+                            <!--<img src="img/user.jpg">-->
+                        <!--</div>-->
+                        <!--<div class="num"></div>-->
+                    <!--</div>-->
+                    <!--<div class="con">-->
+                        <!--<div class="name">小明</div>-->
+                        <!--<div class="text">我是文本</div>-->
+                    <!--</div>-->
+                    <!--<div class="msg">-->
+                        <!--<div class="time">10:30</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="chating.html" class="c">-->
+                    <!--<div class="img">-->
+                        <!--<img src="img/user.jpg">-->
+                        <!--<div class="num">3</div>-->
+                    <!--</div>-->
+                    <!--<div class="con">-->
+                        <!--<div class="name">小明</div>-->
+                        <!--<div class="text">我是文本</div>-->
+                    <!--</div>-->
+                    <!--<div class="msg">-->
+                        <!--<div class="time">10:30</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</li>-->
+
+        </ul>
+    </div>
+    <div class="groupSel">
+        <div class="fun">
+            <div class="l close">关闭</div>
+            <div class="l addGroup">创建</div>
+        </div>
+        <div class="con">
+            <div class="ulayer">
+                <div class="name">名称 <span>*</span></div>
+                <input type="text" placeholder="输入群名称，必填" id="groupName">
+            </div>
+            <div class="ulayer">
+                <div class="name">简介</div>
+                <input type="textarea" placeholder="输入群简介，选填" id="groupIntro">
+            </div>
+            <div class="userSel">
+                <div class="name">添加成员 <span>*</span></div>
+                <div class="loading">数据获取中......</div>
+                <div class="loadingNone">无成员数据</div>
+                <ul>
+                    <!--<li>-->
+                        <!--<label class="c">-->
+                            <!--<input type="checkbox">-->
+                            <!--<div class="img"><img src="img/user.jpg"></div>-->
+                            <!--<div class="name">小明</div>-->
+                        <!--</label>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label class="c">-->
+                            <!--<input type="checkbox">-->
+                            <!--<div class="img"><img src="img/user.jpg"></div>-->
+                            <!--<div class="name">小明</div>-->
+                        <!--</label>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label class="c">-->
+                            <!--<input type="checkbox">-->
+                            <!--<div class="img"><img src="img/user.jpg"></div>-->
+                            <!--<div class="name">小明</div>-->
+                        <!--</label>-->
+                    <!--</li>-->
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="userlist">
+        <div class="fun">
+            <div class="l close">关闭</div>
+        </div>
+        <div class="con">
+            <div class="note">点击用户发起1对1通讯</div>
+            <div class="loading">数据获取中......</div>
+            <div class="loadingNone">无用户数据</div>
+            <ul>
+                <!--<li>-->
+                    <!--<a href="chating.html" class="c">-->
+                        <!--<div class="img"><img src="img/user.jpg"></div>-->
+                        <!--<div class="name">小明</div>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="chating.html" class="c">-->
+                        <!--<div class="img"><img src="img/user.jpg"></div>-->
+                        <!--<div class="name">小明</div>-->
+                    <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/jquery.3.3.1.js"></script>
+    <script src="js/chatingMed.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

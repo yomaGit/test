@@ -23,7 +23,7 @@
     "less-loader": "^4.1.0",
     "node-sass": "^4.9.0",
     "preload-webpack-plugin": "^2.3.0",
-    "pubtest_wp": "^1.0.3",
+    "pubtest_wp": "^1.1.4",
     "qs": "^6.5.2",
     "sass-loader": "^7.0.1",
     "uuid": "^3.3.2",

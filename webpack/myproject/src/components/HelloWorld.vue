@@ -178,6 +178,8 @@
   import autoFocus from '../directives/autoFocus'
   import stat from '../directives/stat'
 
+  import { getAttrList } from '../ajax/getData'
+
   export default {//- 为模块指定默认输出
     name: 'HelloWorld',
     components:{testInput,divToggle},
@@ -266,44 +268,92 @@
         var imgb = that.$baseurl.imgupload;
         console.log("图片上传地址为 " + imgb);
 
-        const getattr = function(){
-          let tpromise=new Promise(function(resolve,reject){
+        // const getattr = function(){
+        //   let tpromise=new Promise(function(resolve,reject){
+        //
+        //     let data=that.$qs.stringify({ parentid:"310100" });
+        //
+        //     that.$axios({
+        //       url: 'http://ydjcs.hydee.cn:80/ydj-platform/area/queryareaa',
+        //       method: 'post',
+        //       data: data
+        //     }).then(function (d) {
+        //       resolve(d)
+        //     }).catch(function () {
+        //       reject()
+        //     })
+        //
+        //   });
+        //
+        //   return tpromise;
+        // }
 
-            let data=that.$qs.stringify({ parentid:"310100" });
-
-            that.$axios({
-              url: 'http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea',
-              method: 'post',
-              data: data
-            }).then(function (d) {
-              resolve(d)
-            }).catch(function () {
-              reject()
-            })
-
-          });
-
-          return tpromise;
-        }
-
-        getattr().then(function(d){
-          console.log("地址获取成功了 返回数据为上海市的区");
-          that.areasnote="";
-          that.areas=d.data;
-          that.areasj=true;
-        },function(){
-          console.log("地址获取失败了");
-        })
-
-
-//        that.$Ajaxy("post","http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea",{ parentid:"310100" },function(d){
-//          console.log("地址获取成功了 返回数据为上海市的区");
-//          that.areasnote="";
-//          that.areas=d.data;
-//          that.areasj=true;
-//        },function(){
-//          console.log("地址获取失败了");
-//        });
+        // new Promise(function(resolve,reject){
+        //   let a=undefined;
+        //   let b=a.length;
+        //   let data=that.$qs.stringify({ parentid:"310100" });
+        //
+        //   that.$axios({
+        //     url: 'http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea',
+        //     method: 'post',
+        //     data: data
+        //   }).then(function (d) {
+        //
+        //     if(d.status===200){
+        //       resolve(d.data)
+        //     }else{
+        //       reject()
+        //     }
+        //
+        //   }).catch(function () {
+        //     reject()
+        //   })
+        //
+        // }).then(function(d){
+        //
+        //   try{
+        //     console.log("地址获取成功了 返回数据为上海市的区");
+        //     that.areasnote="";
+        //     that.areas=d.data;
+        //     that.areasj=true;
+        //
+        //     let a=undefined;
+        //     let b=a.length;
+        //
+        //   }catch(e){
+        //     console.log('%ccatch error','color:blue');
+        //   }
+        //
+        //
+        // },function(){
+        //   console.log("%c地址获取失败了","color:blue");
+        // }).catch(()=>{
+        //   console.log('%cpromise error','color:blue');
+        // })
+        // let aa=undefined;
+        // let bb=aa.length;
+        // new Promise((resolve,reject)=>{
+        //
+        //   that.$Ajaxy("post","http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea1",{ parentid:"310100" },function(d){
+        //     resolve(d);
+        //   },function(){
+        //     reject();
+        //   });
+        // }).then((d)=>{
+        //   console.log("地址获取成功了 返回数据为上海市的区");
+        //   console.log(d);
+        //   that.areasnote="";
+        //   that.areas=d.data.data;
+        //   that.areasj=true;
+        //
+        //   let a=undefined;
+        //   let b=a.length;
+        //
+        // },()=>{
+        //   console.log("%c地址获取失败了 reject",'color:blue');
+        // }).catch((e)=>{
+        //   console.log('%cpromise then里的 error','color:blue');
+        // })
 
 //        that.$Ajaxy("POST","http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea",{ parentid:"310100" },"json",function(d){
 //          console.log("地址获取成功了 返回数据为上海市的区");
@@ -609,6 +659,12 @@
           console.log('监听到了 '+e);
         })
 
+        that.getAttr().catch((e)=>{
+          //- 方法内逻辑报错
+          console.log(`%c监听到了getAttr的error`,'color:blue');
+          console.log(`%c error name:${e.name} ; message:${e.message}`,'color:blue');
+
+        })
 
       },
       * testgen() {
@@ -618,6 +674,46 @@
       * resetfl_sel(){
         yield 1;
         console.log("run");
+      },
+      async getAttr(){
+
+        // let aa=undefined;
+        // let bb=aa.length;
+
+        // let res=await $axios_t('http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea',{ parentid:"310100" })
+        let res=await getAttrList('310100');
+        // throw new Error('出错了');
+        if(res){
+
+          this.areasnote="";
+          this.areas=res.data;
+          this.areasj=true;
+
+          // let aa=undefined;
+          // let bb=aa.length;
+
+          // let res1=await $axios_t('http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea',{ parentid:"310100" })
+          // throw new Error('出错了1');
+
+          // if(res1){
+          //
+          //   console.log(`%carea/queryarea1 结果出来了`,'color:blue');
+          //
+          //   let aa1=undefined;
+          //   let bb1=aa1.length;
+          //
+          //
+          // }else{
+          //   //- 接口报错
+          //   console.log(`%cHelloWorld 1 的async结果出来了error`,'color:red');
+          // }
+
+
+        }else{
+          //- 接口报错
+          console.log(`%cHelloWorld 的async结果出来了error`,'color:red');
+        }
+
       },
       testinputval_$attr(v){
         console.log(`子组件input值改变触发了父组件的方法，value值为:${v}`);
@@ -629,6 +725,12 @@
       },
       toastTest(str){//- 自编写的插件
         this.$toast(str)
+
+        this.testerror();
+      },
+      testerror(){
+        let aa=undefined;
+        let bb=aa.length;
       }
     },
     watch: {//- watch 监测

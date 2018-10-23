@@ -13,8 +13,8 @@ Vue.use(baseurl);
 import {v4} from 'uuid';//- 处理URL查询字符串
 Vue.prototype.$v4=v4;
 
-import Qs from 'qs';//- 处理URL查询字符串
-Vue.prototype.$qs=Qs;
+// import Qs from 'qs';//- 处理URL查询字符串
+// Vue.prototype.$qs=Qs;
 
 // import Toast from './plugins/toast';//toast提示弹框
 // Vue.use(Toast);
@@ -32,7 +32,7 @@ Vue.use(imgupload);
 
 import axios from 'axios'
 axios.interceptors.response.use(function (response) {
-  return response.data;
+  return response;
 }, function (error) {
   return error;
 });
@@ -53,13 +53,21 @@ Vue.prototype.$axios=axios;
 
 // import Toast from 'lib/dist/Toast.js'
 // Vue.use(Toast);
-import toast from 'pubtest_wp'
+import { toast } from 'pubtest_wp'
 Vue.use(toast);
 
 Vue.config.productionTip = false
 
 window.onresize=function () {
   console.log(`%c屏幕尺寸出现了变化`,'color:red;');
+}
+
+window.onerror=function (e) {
+  console.log(`%c监控到了 window error`,'color:blue');
+  console.log(e);
+  console.log(arguments);
+
+  // return true;//- TODO return true 的情况下控制台不会输出错误信息
 }
 
 /* eslint-disable no-new */

@@ -10,8 +10,15 @@ Ajaxy.install = function (Vue, options) {
       method: type,
       params: data
     }).then(function (d) {
-      suc(d)
+
+      try{
+        suc(d)
+      }catch(e){
+        console.log(`%c$Ajaxy里的catch`,'color:blue;');
+      }
+
     }).catch(function () {
+      console.log('%c$Ajaxy $axios error');
       err()
     })
 

@@ -3,28 +3,11 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-const v = new Vue();
-
 import {v4} from 'uuid';
-
 Vue.prototype.$v4 = v4;
-
-import basemsg from './plugins/basemsg';//- 默认参数
-Vue.use(basemsg);
-
-import Qs from 'qs';//- 处理URL查询字符串
-Vue.prototype.$qs = Qs;
-
-import axios from 'axios'//- axios异步
-
-axios.defaults.baseURL = v.$baseurl.hreforigin;
-Vue.prototype.$axios = axios;
 
 import catchrecord from './plugins/catchrecord';//- 错误收集
 Vue.use(catchrecord);
-
-import Ajaxy from './plugins/ajaxy';//- ajax方法
-Vue.use(Ajaxy);
 
 import 'iview/dist/styles/iview.css';
 import {

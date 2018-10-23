@@ -1,0 +1,122 @@
+@import "../../public";
+$imgurl:'../../../../'+$spriteimg;
+
+.crumbs{
+  width: 100%;
+  height: 35px;
+  border-bottom: 1px solid #d6d6d6;
+
+  .l{
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 20px;
+    position: relative;
+    color: #399bff;
+
+    &:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 8px;
+      width: 1px;
+      height: 18px;
+      background-color: #d6d6d6;
+      z-index: 1;
+    }
+
+    &.sel{
+
+      &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #399bff;
+        z-index: 1;
+      }
+    }
+  }
+}
+.step{
+  padding: 18px;
+
+  ul{
+    height: 115px;
+    background-color: #fff;
+    @include flex-c-c;
+    padding: 0 140px;
+
+    li{
+
+      &.circle{
+
+        width: 55px;
+        height: 55px;
+        @include borderradius100;
+        border: 1px solid #d8d8d8;
+        @include flex-c-c;
+        color: #999999;
+
+        &.sel{
+          background-color: #f39c12;
+          border-color: #f39c12;
+          color: #ffffff;
+        }
+      }
+      &.line{
+        flex-grow: 1;
+
+        height: 4px;
+        background-color: #f0f0f0;
+      }
+
+    }
+  }
+}
+.property{
+  padding: 0 18px;
+
+  >ul{
+    display: flex;
+    background-color: #ffffff;
+    padding-bottom: 24px;
+
+    >li{
+      flex-grow: 1;
+      width: 1%;
+      padding-left: 60px;
+      padding-top: 28px;
+
+      .name{
+        height: 24px;
+        line-height: 24px;
+        padding-left: 20px;
+        position: relative;
+
+        &:before{
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 7px;
+          height: 24px;
+          background-color: #f39c12;
+          z-index: 1;
+        }
+      }
+      ul{
+        margin-top: 25px;
+
+        li{
+          height: 30px;
+          line-height: 30px;
+          color: #666666;
+        }
+      }
+    }
+  }
+}
+

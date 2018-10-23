@@ -7,7 +7,7 @@
 
     <br>
 
-    <router-link to="/plugin/dev/toast">toast测试</router-link>
+    <!--<router-link to="/plugin/dev/toast">toast测试</router-link>-->
 
   </div>
 </template>
