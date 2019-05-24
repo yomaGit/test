@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gGR2VnsoqK4hDRHxjmX3Ui2n"></script>
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gGR2VnsoqK4hDRHxjmX3Ui2n"></script>-->
     <!--<script type="text/javascript" src="convertor.js"></script>-->
 
     <title>html5 Gps转百度</title>
@@ -16,60 +16,81 @@
 <div id="allmap"></div>
 </body>
 </html>
-<script src="https://cdn.bootcss.com/flexslider/2.6.4/jquery.flexslider-min.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gGR2VnsoqK4hDRHxjmX3Ui2n"></script>
-<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<!--<script src="https://cdn.bootcss.com/flexslider/2.6.4/jquery.flexslider-min.js"></script>-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kZkz7GOQCkDl7ECGOogVDdq2kyPwT8uS"></script>
+<!--<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>-->
 <script type="text/javascript">
-//    var map = new BMap.Map("allmap");
-//    var longitude, latitude;
-//    navigator.geolocation.getCurrentPosition(function (position) {
-//        //alert("1");
-//        longitude = position.coords.longitude;
-//        latitude = position.coords.latitude;
-//        console.log(longitude+" "+latitude);
-//    });
-//    setTimeout(function () {
-//        var gpsPoint = new BMap.Point(longitude, latitude);
-//        BMap.Convertor.translate(gpsPoint, 0, function (point) {
-//            var geoc = new BMap.Geocoder();
-//            geoc.getLocation(point, function (rs) {
+
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,12);
+
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            var mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            map.panTo(r.point);
+            alert('您的位置：'+r.point.lng+','+r.point.lat);
+        }
+        else {
+            alert('failed'+this.getStatus());
+        }
+    },{enableHighAccuracy: true})
+
+
+   // var map = new BMap.Map("allmap");
+   // var longitude, latitude;
+   // navigator.geolocation.getCurrentPosition(function (position) {
+   //     //alert("1");
+   //     alert(JSON.stringify(position));
+   //     longitude = position.coords.longitude;
+   //     latitude = position.coords.latitude;
+   //     console.log(longitude+" "+latitude);
+   // });
+   // setTimeout(function () {
+   //     var gpsPoint = new BMap.Point(longitude, latitude);
+   //     BMap.Convertor.translate(gpsPoint, 0, function (point) {
+   //         var geoc = new BMap.Geocoder();
+   //         geoc.getLocation(point, function (rs) {
+   //
+   //             map.addControl(new BMap.NavigationControl());
+   //             map.addControl(new BMap.ScaleControl());
+   //             map.addControl(new BMap.OverviewMapControl());
+   //             map.centerAndZoom(point, 18);
+   //             map.addOverlay(new BMap.Marker(point)) ;
+   //
+   //             //alert("2");
+   //             var addComp = rs.addressComponents;
+   //             alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+   //             alert('您的位置：'+rs.point.lng+','+rs.point.lat);
+   //         });
+   //     });
+   // }, 1000);
+// navigator.geolocation.getCurrentPosition(translatePoint); //定位
 //
-//                map.addControl(new BMap.NavigationControl());
-//                map.addControl(new BMap.ScaleControl());
-//                map.addControl(new BMap.OverviewMapControl());
-//                map.centerAndZoom(point, 18);
-//                map.addOverlay(new BMap.Marker(point)) ;
+// function translatePoint(position) {
+//     var currentLat = position.coords.latitude;
+//     var currentLon = position.coords.longitude;
+//     SetCookie("curLat", currentLat, 1);//设置cookie
+//     SetCookie("curLng", currentLon, 1);//设置cookie
+//     var gpsPoint = new BMap.Point(currentLon, currentLat);
 //
-//                //alert("2");
-//                var addComp = rs.addressComponents;
-//                alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-//                alert('您的位置：'+rs.point.lng+','+rs.point.lat);
-//            });
-//        });
-//    }, 1000);
-navigator.geolocation.getCurrentPosition(translatePoint); //定位
-
-function translatePoint(position) {
-    var currentLat = position.coords.latitude;
-    var currentLon = position.coords.longitude;
-    SetCookie("curLat", currentLat, 1);//设置cookie
-    SetCookie("curLng", currentLon, 1);//设置cookie
-    var gpsPoint = new BMap.Point(currentLon, currentLat);
-
-    var pt = new BMap.Point(currentLon, currentLat);
-    var geoc = new BMap.Geocoder();
-    geoc.getLocation(pt, function (rs) {
-        var addComp = rs.addressComponents;
-        SetCookie("curLat", currentLat, 1); //设置cookie
-        SetCookie("curLng", currentLon, 1); //设置cookie
-        //alert(JSON.stringify(addComp));
-        var city = addComp.city;
-
-        //获得具体街道信息
-        var texts = addComp.district + "-" + addComp.street + "-" + addComp.streetNumber;
-        $("#allmap").text(texts);
-
-
-    });
-}
+//     var pt = new BMap.Point(currentLon, currentLat);
+//     var geoc = new BMap.Geocoder();
+//     geoc.getLocation(pt, function (rs) {
+//         var addComp = rs.addressComponents;
+//         SetCookie("curLat", currentLat, 1); //设置cookie
+//         SetCookie("curLng", currentLon, 1); //设置cookie
+//         //alert(JSON.stringify(addComp));
+//         var city = addComp.city;
+//
+//         //获得具体街道信息
+//         var texts = addComp.district + "-" + addComp.street + "-" + addComp.streetNumber;
+//         $("#allmap").text(texts);
+//
+//
+//     });
+// }
 </script>

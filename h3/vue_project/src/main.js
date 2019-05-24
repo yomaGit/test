@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -6,8 +8,8 @@ import store from './store'
 import {v4} from 'uuid';
 Vue.prototype.$v4 = v4;
 
-import catchrecord from './plugins/catchrecord';//- 错误收集
-Vue.use(catchrecord);
+import rewriteError from './plugins/rewriteError'
+rewriteError();
 
 import 'iview/dist/styles/iview.css';
 import {
@@ -49,6 +51,11 @@ Object.assign(Vue.prototype,{
   $Message : Message,
 
 })
+
+import './utils/rem'
+
+import {dataList} from './pages/components'
+Vue.use(dataList)
 
 Vue.config.productionTip = false;
 

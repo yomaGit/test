@@ -1,2 +1,2 @@
 # vue_project
-项目模板
+vue项目模板

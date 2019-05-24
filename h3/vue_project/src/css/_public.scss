@@ -122,6 +122,22 @@ $spriteimg: 'static/img/sprites0.png'; //- 精灵图地址
   border-radius: 100%;
 }
 
+@mixin transition_allnone{
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+@mixin transition_all2{
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
 @mixin transition_all3{
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
@@ -136,4 +152,10 @@ $spriteimg: 'static/img/sprites0.png'; //- 精灵图地址
   -ms-transition: all .5s;
   -o-transition: all .5s;
   transition: all .5s;
+}
+
+@mixin boxShadowd6d6d6{
+  -webkit-box-shadow: 0 0 8px #d6d6d6;
+  -moz-box-shadow: 0 0 8px #d6d6d6;
+  box-shadow: 0 0 8px #d6d6d6;
 }

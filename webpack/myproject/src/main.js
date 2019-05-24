@@ -58,17 +58,36 @@ Vue.use(toast);
 
 Vue.config.productionTip = false
 
+// 监听屏幕尺寸出现变化
 window.onresize=function () {
   console.log(`%c屏幕尺寸出现了变化`,'color:red;');
 }
 
-window.onerror=function (e) {
-  console.log(`%c监控到了 window error`,'color:blue');
-  console.log(e);
-  console.log(arguments);
+import rewriteError from './plugins/rewriteError'
+rewriteError();
 
-  // return true;//- TODO return true 的情况下控制台不会输出错误信息
-}
+import {postError} from './ajax/getData'
+Vue.mixin({
+  methods: {
+    promiseMethod(methodName,suc,fai,method){
+      let _this=this;
+      return new Promise((resolve)=>{
+        resolve(methodName());
+      }).then((d)=>{
+        suc(d);
+      },()=>{
+        fai();
+      }).catch((e)=>{
+        e.errorOther={
+          page:_this.$route.fullPath,
+          method
+        }
+        postError(e)
+      })
+    },
+
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({

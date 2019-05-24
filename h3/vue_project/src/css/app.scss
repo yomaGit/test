@@ -82,10 +82,12 @@ html, body {
   }
 
   .content {
-    padding: 60px 0 0 230px;
+    padding: 0 0 0 230px;
     position: relative;
     background: #f0f0f0;
-    min-height: 100vh;
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+    @include overflow-h-a;
     @include transition_all5;
   }
 
@@ -127,14 +129,12 @@ html, body {
   height: 12px
 }
 ::-webkit-scrollbar-track{
-  border-radius: 10px;
   background-color: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
   border-width: 2px;
   border-style: solid;
   border-color: #fff;
-  border-radius: 6px;
   background-color: #c6c6c6
 }
 ::-webkit-scrollbar-thumb:hover {

@@ -7,6 +7,7 @@ Vue.use(Router)
 const notfound = () => import(/* webpackChunkName: "notfound" */ '@/pages/views/notfound')
 
 const retail_management = () => import(/* webpackChunkName: "business_event" */ '@/pages/views/business_event/retail_management')
+const retail_management1 = () => import(/* webpackChunkName: "business_event" */ '@/pages/views/business_event/retail_management1')
 
 const router=new Router({
   routes: [
@@ -22,6 +23,14 @@ const router=new Router({
       path: '/h3/retail_management',//- 零售管理
       name: 'retail_management',
       component: retail_management,
+      meta:{
+        title:'零售管理',
+      }
+    },
+    {
+      path: '/h3/retail_management1',//- 零售管理
+      name: 'retail_management1',
+      component: retail_management1,
       meta:{
         title:'零售管理',
       }

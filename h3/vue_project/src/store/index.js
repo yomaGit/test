@@ -291,27 +291,14 @@ export default new Vuex.Store({
     },
     resetHeight(state){
 
-      state.menulist=state.menulist.map((val)=>{
-
-        let menusec=val.secMenu;
+      state.menulist.forEach((v)=>{
+        let menusec=v.secMenu;
 
         if(menusec.length>0){
-          menusec = menusec.map((vs) => {
-            let nv = {...vs};
-
-            if (vs.list.length > 0)
-              nv = {
-                ...nv,
-                height: vs.list.length * 50
-              }
-
-            return nv;
+          menusec.forEach((vn)=>{
+            if (vn.list.length > 0)
+              vn.height=vn.list.length * 50
           })
-        }
-
-        return {
-          ...val,
-          secMenu:menusec
         }
 
       })
@@ -319,18 +306,11 @@ export default new Vuex.Store({
     },
     navClick(state,id){
 
-      state.navlist = state.navlist.map((val) => {
-        let nv = {
-          ...val,
-          open:false
-        }
-
-        if (val.id == id)
-          nv = {
-            ...val,
-            open: val.open ? false : true
-          }
-        return nv;
+      state.navlist.forEach((v)=>{
+        if (v.id == id)
+          v.open=v.open ? false : true
+        else
+          v.open=false;
       })
 
     },
@@ -340,64 +320,33 @@ export default new Vuex.Store({
       let navFirst=value.navFirst;
       let navSecond=value.navSecond;
 
-      let menulist=state.menulist.map((val)=>{
-        let vi={
-          ...val,
-          sel:false
-        }
-        if(val.class==menu){
-
-          let menusec=val.secMenu;
+      state.menulist.forEach((v)=>{
+        v.sel=false;
+        if(v.class==menu){
+          let menusec=v.secMenu;
           if(menusec.length>0){
-            menusec = menusec.map((vs) => {
-              let nv = {
-                ...vs,
-                sel: false,
-                open: false
-              }
-              if (nv.class == navFirst) {
-                nv = {
-                  ...nv,
-                  sel: true,
-                  open: true
-                }
-
-                if (nv.list.length > 0) {
-
-                  nv.list=nv.list.map((nvi) => {
-                    let nvin = {
-                      ...nvi,
-                      sel: false
+            menusec.forEach((vn)=>{
+              vn.sel=false;
+              vn.open=false;
+              if (vn.class == navFirst) {
+                vn.sel=true;
+                vn.open=true;
+                let list=vn.list;
+                if(list.length>0){
+                  list.forEach((vn_n)=>{
+                    vn_n.sel=false;
+                    if(vn_n.class==navSecond){
+                      vn_n.sel=true;
                     }
-                    if (nvi.class == navSecond)
-                      nvin = {
-                        ...nvi,
-                        sel: true
-                      }
-
-                    return nvin;
                   })
-
                 }
-
               }
-
-              return nv;
             })
           }
-
-          vi={
-            ...val,
-            sel:true,
-            secMenu:menusec
-          }
         }
-
-        return vi;
       })
-      state.menulist=menulist;
 
-      state.navlist=menulist.find((v)=>{
+      state.navlist=state.menulist.find((v)=>{
         return v.class=value.menu;
       }).secMenu;
 

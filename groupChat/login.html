@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+<input type="hidden" id="login">
     <div class="login">
         <div class="ulayer">
             <div class="name">账号</div>
@@ -17,11 +18,43 @@
             <input type="password" placeholder="输入账号" id="password">
         </div>
         <div class="landing">登陆</div>
+        <div class="register">注册</div>
         <div class="note">
             <div class="name">NOTE:</div>
-            <p>测试群聊和单聊的通讯功能（文字互发）；</p>
-            <p>不存储通讯记录；</p>
+            <p>测试群聊和单聊的通讯功能</p>
+            <p>方式：创建群组群聊+选择用户单聊</p>
+            <p>消息：文字消息+图片消息</p>
+            <p>除用户头像外，其他头像为默认头像</p>
         </div>
+        <div class="register_box">
+            <div class="close">关闭</div>
+            <ul>
+                <li>
+                    <div class="name">昵称：</div>
+                    <input type="text" id="register_name">
+                </li>
+                <li>
+                    <div class="name">手机号：</div>
+                    <input type="text" id="register_phoneNum">
+                </li>
+                <li class="headPic">
+                    <div class="name">头像：</div>
+                    <div class="headUpload">
+                        <label>
+                            <input type="file" id="register_file">
+                        </label>
+                    </div>
+                    <div class="note">点击图片可以更换头像</div>
+                </li>
+                <!--<li class="code">-->
+                    <!--<div class="getCode">获取验证码</div>-->
+                    <!--<input type="text" id="verCode">-->
+                <!--</li>-->
+                <!--<li class="codeShow"></li>-->
+                <li class="_register">注册</li>
+            </ul>
+        </div>
+
         <div class="loading_">
             <div class="loading_ani">
                 <div><span></span></div>
@@ -32,79 +65,183 @@
 
     </div>
     <script src="js/jquery.3.3.1.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/urlConfig.js"></script>
     <script>
+        $(function () {
 
-        $(".landing").click(function(){
-            var _this=$(this);
-            if(!_this.hasClass("logining")){
+            $(".landing").click(function(){
+                var _this=$(this);
+                if(!_this.hasClass("logining")){
 
-                var name=$("#name").val();
-                if(name.match(/^\s*$/)){
-                    alert('姓名不能为空');
+                    var name=$("#name").val();
+                    if(name.match(/^\s*$/)){
+                        alert('姓名不能为空');
+                        return false;
+                    }
+                    var password=$("#password").val();
+                    if(password.match(/^\s*$/)){
+                        alert('密码不能为空');
+                        return false;
+                    }
+
+                    $(".loading_").show();
+                    _this.html('登陆中......').addClass("logining");
+
+                    var lsJson={
+                        phone:name,
+                        password:password
+                    }
+
+                    $.ajax({
+                        type:'post',
+                        url:urlConfig.origin_groupChat+'login/in',
+                        data:lsJson,
+                        dataType:'json',
+                        success:function(data) {
+                            $(".loading_").hide();
+                            if(data.success){
+                                var dataz=data;
+
+                                var lsJson={
+                                    id:dataz.id,
+                                    name:dataz.name,
+                                    img:dataz.headPic,
+                                    token:dataz.token,
+                                    mercode:'123456',
+                                }
+
+                                sessionStorage.setItem("lsGroupChat",JSON.stringify(lsJson));
+
+                                langingerror(_this);
+                                location.href=`chatinglist.html`
+
+                            }else{
+                                langingerror(_this);
+
+                                if(data.msg) alert(data.msg);
+                                else alert('登陆失败');
+                            }
+                        },
+                        error:function(){
+                            langingerror(_this);
+                            alert("网络错误，请重试");
+                        }
+                    })
+
+
+                }
+            })
+
+            function langingerror(obj){
+                $(".loading_").hide();
+                obj.html('登陆').removeClass("logining");
+            }
+
+            $(".register").click(function () {
+                $(".codeShow").html('');
+                $("#verCode").val('')
+                $(".register_box").addClass("open")
+            })
+
+            $(".register_box .close").click(function () {
+                $(".register_box").removeClass("open")
+            })
+
+            $("#register_file").change(function () {
+                var that = $(this);
+                var file = that.prop("files");
+                var fileLength = file.length;
+                if (fileLength < 1) return;
+                $(".loading_").show();
+                var file0 = file[0];
+                var formData = new FormData();
+                var columnName = 'img';
+                formData.append(columnName, file0);
+                formData.append("filetype", file0.type);
+                $.ajax({
+                    type: 'POST',
+                    url: urlConfig.url_imgUpload,
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data != "") {
+                            var imgUrl = data.img;
+                            var dataSrc = imgUrl.substring(0, imgUrl.lastIndexOf("/")) + "/artwork" + imgUrl.substring(imgUrl.lastIndexOf("/"));
+
+                            if($(".headPic label img").length>0){
+                                $(".headPic label img").attr("src",dataSrc)
+                            }else{
+                                $(".headPic label").append(`<img src="${dataSrc}">`);
+                            }
+
+                            $(".headPic .note").show();
+
+                            that.val("");
+                        }
+
+                        $(".loading_").hide();
+
+                    },
+                    error:function () {
+                        $(".loading_").hide();
+                    }
+                })
+            })
+
+            $("._register").click(function () {
+                var nickname=$("#register_name").val();
+                if(nickname.match(/^\s*$/)){
+                    alert('用户名必填');
                     return false;
                 }
-                var password=$("#password").val();
-                if(password.match(/^\s*$/)){
-                    alert('密码不能为空');
+
+                var phonenum=$("#register_phoneNum").val();
+                if(phonenum.match(/^\s*$/)){
+                    alert('手机号必填');
                     return false;
+                }
+
+                var headpic='';
+                if($(".headPic img").length>0){
+                    headpic=$(".headPic img").attr("src");
+                }else{
+                    alert('用户头像必选');
+                    return false;
+                }
+
+                var lsJson={
+                    telephone:phonenum,
+                    nickName:nickname,
+                    headPic:headpic
                 }
 
                 $(".loading_").show();
-                _this.html('登陆中......').addClass("logining");
-
-                var lsJson={
-                    phone:name,
-                    password:password,
-                    class:2,
-                    loginType:'webType'
-                }
-
                 $.ajax({
-                    type:'post',
-                    url:'http://ydjkf.hydee.cn/merchants/user/login',
-                    data:lsJson,
-                    dataType:'json',
-                    success:function(data) {
-                        $(".loadingLogin").hide();
+                    type: 'post',
+                    url: urlConfig.origin_groupChat + 'login/register',
+                    data: lsJson,
+                    dataType: 'json',
+                    success: function (data) {
+
                         if(data.success){
-                            var dataz=data.data;
-                            var lsJsonE=dataz.employeeMap;
-
-                            var lsJson={
-                                id:lsJsonE.userid,
-                                name:lsJsonE.trueName,
-                                img:lsJsonE.headPictures,
-                                token:dataz.token,
-                                mercode:lsJsonE.merchantCode,
-                            }
-
-                            sessionStorage.setItem("lsGroupChat",JSON.stringify(lsJson));
-
-                            langingerror(_this);
-                            location.href=`chatinglist.html`
-
+                            alert('注册成功，密码默认为手机号后四位');
+                            $(".register_box").removeClass("open")
                         }else{
-                            langingerror(_this);
-
-                            if(data.msg) alert(data.msg);
-                            else alert('登陆失败');
+                            alert('注册失败，请重试');
                         }
+                        $(".loading_").hide();
+
                     },
-                    error:function(){
-                        langingerror(_this);
-                        alert("网络错误，请重试");
+                    error:function () {
+                        alert('注册失败，请重试');
+                        $(".loading_").hide();
                     }
                 })
-
-
-            }
+            })
         })
-
-        function langingerror(obj){
-            $(".loading_").hide();
-            obj.html('登陆').removeClass("logining");
-        }
+        
     </script>
 </body>
 </html>

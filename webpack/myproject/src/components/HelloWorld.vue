@@ -25,32 +25,32 @@
     </p>
     <router-link to="/test0">跳转到test0的页面</router-link>
     <!--<div class="element-ui">-->
-      <!--<div>-->
-        <!--<el-button>默认按钮</el-button>-->
-        <!--<el-button type="primary">主要按钮</el-button>-->
-        <!--<el-button type="success">成功按钮</el-button>-->
-        <!--<el-button type="info">信息按钮</el-button>-->
-        <!--<el-button type="warning">警告按钮</el-button>-->
-        <!--<el-button type="danger">危险按钮</el-button>-->
-      <!--</div>-->
+    <!--<div>-->
+    <!--<el-button>默认按钮</el-button>-->
+    <!--<el-button type="primary">主要按钮</el-button>-->
+    <!--<el-button type="success">成功按钮</el-button>-->
+    <!--<el-button type="info">信息按钮</el-button>-->
+    <!--<el-button type="warning">警告按钮</el-button>-->
+    <!--<el-button type="danger">危险按钮</el-button>-->
+    <!--</div>-->
 
-      <!--<div style="margin: 20px 0">-->
-        <!--<el-button plain>朴素按钮</el-button>-->
-        <!--<el-button type="primary" plain>主要按钮</el-button>-->
-        <!--<el-button type="success" plain>成功按钮</el-button>-->
-        <!--<el-button type="info" plain>信息按钮</el-button>-->
-        <!--<el-button type="warning" plain>警告按钮</el-button>-->
-        <!--<el-button type="danger" plain>危险按钮</el-button>-->
-      <!--</div>-->
+    <!--<div style="margin: 20px 0">-->
+    <!--<el-button plain>朴素按钮</el-button>-->
+    <!--<el-button type="primary" plain>主要按钮</el-button>-->
+    <!--<el-button type="success" plain>成功按钮</el-button>-->
+    <!--<el-button type="info" plain>信息按钮</el-button>-->
+    <!--<el-button type="warning" plain>警告按钮</el-button>-->
+    <!--<el-button type="danger" plain>危险按钮</el-button>-->
+    <!--</div>-->
 
-      <!--<div>-->
-        <!--<el-button round>圆形按钮</el-button>-->
-        <!--<el-button type="primary" round>主要按钮</el-button>-->
-        <!--<el-button type="success" round>成功按钮</el-button>-->
-        <!--<el-button type="info" round>信息按钮</el-button>-->
-        <!--<el-button type="warning" round>警告按钮</el-button>-->
-        <!--<el-button type="danger" round>危险按钮</el-button>-->
-      <!--</div>-->
+    <!--<div>-->
+    <!--<el-button round>圆形按钮</el-button>-->
+    <!--<el-button type="primary" round>主要按钮</el-button>-->
+    <!--<el-button type="success" round>成功按钮</el-button>-->
+    <!--<el-button type="info" round>信息按钮</el-button>-->
+    <!--<el-button type="warning" round>警告按钮</el-button>-->
+    <!--<el-button type="danger" round>危险按钮</el-button>-->
+    <!--</div>-->
     <!--</div>-->
 
     <div class="lesstest">
@@ -139,34 +139,39 @@
     </div>
 
     <!--<div>-->
-      <!--<a-button type="primary">Primary</a-button>-->
-      <!--<a-button>Default</a-button>-->
-      <!--<a-button type="dashed">Dashed</a-button>-->
-      <!--<a-button type="danger">Danger</a-button>-->
+    <!--<a-button type="primary">Primary</a-button>-->
+    <!--<a-button>Default</a-button>-->
+    <!--<a-button type="dashed">Dashed</a-button>-->
+    <!--<a-button type="danger">Danger</a-button>-->
     <!--</div>-->
 
-    测试watch的immediate<br />
+    测试watch的immediate<br/>
     <input type="text" v-model="testInputVal" style="border: 1px solid red;">
-    <br />
-    测试input插件,Input插件的attr都会映射到子组件里<br />
+    <br/>
+    测试input插件,Input插件的attr都会映射到子组件里<br/>
     <testInput placeholder="我是父组件的placeholder" v-model="testInputVal_$attr"></testInput>
-    <br />
-    测试div的显示v-model<br />
+    <br/>
+    测试div的显示v-model<br/>
     <divToggle v-model="testToggle_v" ref="divToggle"></divToggle>
     <button @click="changeDiv_toggle">父组件的改变div显示状态</button>
 
-    <hr />
+    <hr/>
 
     测试directive的input focus 3s后消失 解绑 ， 再3s后 绑定
     <template v-if="testUnbind_autoFocus">
       <input type="text" v-autoFocus>
     </template>
 
-    <br />
+    <br/>
     测试npm 发布的插件 pubtest_wp
     <toast></toast>
     <button @click="toastTest('i am toast1')">toast 'i am toast1'</button>
     <button @click="toastTest('i am toast2')">toast 'i am toast2'</button>
+
+    <button @click="testerror">点击触发同步报错</button>
+    <button @click="testerror_promise">点击触发异步promise报错</button>
+    <button @click="testerror_async">点击触发异步async报错</button>
+
 
   </div>
 </template>
@@ -178,13 +183,13 @@
   import autoFocus from '../directives/autoFocus'
   import stat from '../directives/stat'
 
-  import { getAttrList } from '../ajax/getData'
+  import {getAttrList, postError} from '../ajax/getData'
 
   export default {//- 为模块指定默认输出
     name: 'HelloWorld',
-    components:{testInput,divToggle},
-    mixins:[mixin],
-    directives:{autoFocus,stat},
+    components: {testInput, divToggle},
+    mixins: [mixin],
+    directives: {autoFocus, stat},
     props: {
       //- 要传递的参数
       show: {
@@ -201,25 +206,25 @@
         areas: [],
         imguj: false,
         imgur: "",
-        testarr_new:[
+        testarr_new: [
           "yellow",
           "blue",
           "red"
         ],
-        testgenter:'',
-        testInputVal:'111',
-        testInputVal_$attr:'223',
-        testToggle_v:true,
-        testUnbind_autoFocus:true
+        testgenter: '',
+        testInputVal: '111',
+        testInputVal_$attr: '223',
+        testToggle_v: true,
+        testUnbind_autoFocus: true
       }
     },
-    computed:{//- 计算属性
-      testarr_new_filter:function(){
+    computed: {//- 计算属性
+      testarr_new_filter: function () {
 //        return this.testarr_new.sort(function(a,b){
 //          return a.length>b.length;
 //        })
-        return this.testarr_new.filter(function(v){
-          return v=='red'
+        return this.testarr_new.filter(function (v) {
+          return v == 'red'
         })
 
       }
@@ -238,17 +243,17 @@
         if (files.length > 0) {
           let file = files[0];//- 单张上传
 
-          that.$imgupload(file,"",function(d){
-            if(d=="") {
+          that.$imgupload(file, "", function (d) {
+            if (d == "") {
               that.$toast("上传失败");
-            }else{
+            } else {
 //              var nd=JSON.parse(d);
               var imgUrl = d.imgartwork;//- 原图
-              that.imguj=true;
-              that.imgur=imgUrl;
+              that.imguj = true;
+              that.imgur = imgUrl;
               that.$toast("上传成功");
             }
-          },function(){
+          }, function () {
             that.$toast("上传失败");
           })
         }
@@ -257,13 +262,13 @@
         var that = this;
         //      console.log(this._props.show);//- 获取传入参数
 
-        setTimeout(()=>{
-          that.testUnbind_autoFocus=false;
-        },3000)
+        setTimeout(() => {
+          that.testUnbind_autoFocus = false;
+        }, 3000)
 
-        setTimeout(()=>{
-          that.testUnbind_autoFocus=true;
-        },6000)
+        setTimeout(() => {
+          that.testUnbind_autoFocus = true;
+        }, 6000)
 
         var imgb = that.$baseurl.imgupload;
         console.log("图片上传地址为 " + imgb);
@@ -437,9 +442,9 @@
           test1: '234_t'
         }
 
-        console.log("reflect:"+Reflect.get(testobj, 'tfun', testobj1));
-        console.log("reflect:"+Reflect.get(testobj, 'tfun'));
-        console.log("reflect:"+Reflect.get(testobj, 'test0'));
+        console.log("reflect:" + Reflect.get(testobj, 'tfun', testobj1));
+        console.log("reflect:" + Reflect.get(testobj, 'tfun'));
+        console.log("reflect:" + Reflect.get(testobj, 'test0'));
 
         Reflect.set(testobj, 'test1', '234_set')
         console.log(Reflect.get(testobj, 'test1'))
@@ -458,7 +463,7 @@
         }
         testarr_new.forEach(function (v, i) {
           console.log(i + " " + v)
-          if(i==1) testarr_new[i]="testchange";
+          if (i == 1) testarr_new[i] = "testchange";
         })
         for (let j in testarr_new) {
           console.log(j + " " + testarr_new[j])
@@ -470,33 +475,33 @@
         console.log(tgn.next())
         console.log(tgn.next())
 
-        let testarrfilter=[1,2,3,4,6,7,8,9];
-        let conarr=testarrfilter.filter(function(element,index,self){
-          return element%2===0;
+        let testarrfilter = [1, 2, 3, 4, 6, 7, 8, 9];
+        let conarr = testarrfilter.filter(function (element, index, self) {
+          return element % 2 === 0;
         })
-        console.log("filter arr:"+conarr);
+        console.log("filter arr:" + conarr);
 
-        let testarrsort=[1,2,5,3,9,7,6];
-        testarrsort.sort(function(x,y){
-          if(x>y){
+        let testarrsort = [1, 2, 5, 3, 9, 7, 6];
+        testarrsort.sort(function (x, y) {
+          if (x > y) {
             return -1;
-          }else if(x<y){
+          } else if (x < y) {
             return 1;
           }
           return 0;
         })
-        console.log("sort arr:"+testarrsort);
+        console.log("sort arr:" + testarrsort);
 
-        let testarrmap=[1,2,3,4,5,6,7,8];
-        let conarr_map=testarrmap.map(function(x){
-          return x*x;
+        let testarrmap = [1, 2, 3, 4, 5, 6, 7, 8];
+        let conarr_map = testarrmap.map(function (x) {
+          return x * x;
         })
-        console.log("map arr:"+conarr_map);
+        console.log("map arr:" + conarr_map);
 
-        let conarr_reduce=testarrmap.reduce(function(x,y){
-          return x+y;
+        let conarr_reduce = testarrmap.reduce(function (x, y) {
+          return x + y;
         })
-        console.log("reduce arr:"+conarr_reduce);
+        console.log("reduce arr:" + conarr_reduce);
 
         function* helloWorldGenerator() {
           yield 'hello';
@@ -512,7 +517,7 @@
 
         function* fibonacci() {
           let [prev, curr] = [0, 1];
-          for (;;) {
+          for (; ;) {
             yield curr;
             [prev, curr] = [curr, prev + curr];
           }
@@ -524,17 +529,18 @@
         }
 
 
-        let farr=['11','22','33'];
-        let filelength=3;
-        function* test_fa(){
-          for (let i=0;i<filelength;i++) {
+        let farr = ['11', '22', '33'];
+        let filelength = 3;
+
+        function* test_fa() {
+          for (let i = 0; i < filelength; i++) {
             console.log(farr[i]);
             yield i;
           }
         }
 
-        let testfa_l=test_fa();
-        for(let i=0;i<filelength;i++){
+        let testfa_l = test_fa();
+        for (let i = 0; i < filelength; i++) {
           testfa_l.next();
         }
 
@@ -543,27 +549,30 @@
           window.mozRequestAnimationFrame ||
           window.webkitRequestAnimationFrame ||
           window.msRequestAnimationFrame ||
-          function (callback) { window.setTimeout(callback, 1000 / 60); };
+          function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+          };
 
         let testframe;
         console.log("开始animationframe");
         loop();
-        function loop(){
+
+        function loop() {
           console.log("loop");
-          testframe=requestAnimationFrame(loop)
+          testframe = requestAnimationFrame(loop)
         }
 
-        setTimeout(function(){
+        setTimeout(function () {
           console.log("取消了animationframe");
           cancelAnimationFrame(testframe);
-        },1)
+        }, 1)
 
 
-        that.testgenter=that.resetfl_sel();
+        that.testgenter = that.resetfl_sel();
         that.testgenter.next();
         that.testgenter.next();
 
-        new Promise(function (resolve,reject) {
+        new Promise(function (resolve, reject) {
           resolve('123');
         }).then(function (d) {
           console.log(d)
@@ -574,33 +583,33 @@
           console.log(d);
         })
 
-        let testjg=[1,2];
-        let [testjg_0,testjg_1,testjg_2]=testjg;
-        console.log(testjg_0+" "+testjg_1+" "+testjg_2)
+        let testjg = [1, 2];
+        let [testjg_0, testjg_1, testjg_2] = testjg;
+        console.log(testjg_0 + " " + testjg_1 + " " + testjg_2)
 
         //- 变量常量输出调试
         let divtdom;
-        for(var tti=0;tti<5;tti++){
-          divtdom=document.createElement('div');
-          divtdom.innerText=tti;
-          divtdom.onclick=function(){
-            console.log("tti test:"+tti);
+        for (var tti = 0; tti < 5; tti++) {
+          divtdom = document.createElement('div');
+          divtdom.innerText = tti;
+          divtdom.onclick = function () {
+            console.log("tti test:" + tti);
           }
           document.body.appendChild(divtdom);
         }
 
         let divtdom_let;
-        for(let tti_=0;tti_<5;tti_++){
-          divtdom_let=document.createElement('div');
-          divtdom_let.innerText=tti_+'let';
-          divtdom_let.onclick=function(){
-            console.log("tti test:"+tti_);
+        for (let tti_ = 0; tti_ < 5; tti_++) {
+          divtdom_let = document.createElement('div');
+          divtdom_let.innerText = tti_ + 'let';
+          divtdom_let.onclick = function () {
+            console.log("tti test:" + tti_);
           }
           document.body.appendChild(divtdom_let);
         }
 
         //- 测试 {}
-        let tenyf='test {}';
+        let tenyf = 'test {}';
         console.log(`test ${tenyf}`);
 
         async function timeout(ms) {
@@ -616,23 +625,23 @@
 
         asyncPrint('hello world', 1000);
 
-        console.log('%cObject assign对象合并，浅拷贝测试','color:red');
-        const assign_a={a:1,b:2}
-        const assign_b={c:3,d:4}
-        console.log(Object.assign(assign_a,assign_b));
+        console.log('%cObject assign对象合并，浅拷贝测试', 'color:red');
+        const assign_a = {a: 1, b: 2}
+        const assign_b = {c: 3, d: 4}
+        console.log(Object.assign(assign_a, assign_b));
 
-        const assign_deep_a={a:1,b:{b0:3,b1:4}}
-        const assign_deep_b={a:2,b:{b3:5}}
-        console.log(Object.assign(assign_deep_a,assign_deep_b));
+        const assign_deep_a = {a: 1, b: {b0: 3, b1: 4}}
+        const assign_deep_b = {a: 2, b: {b3: 5}}
+        console.log(Object.assign(assign_deep_a, assign_deep_b));
 
-        let objectJX={
-          method:function(){
+        let objectJX = {
+          method: function () {
             console.log('i am objectJX');
           },
-          methodn(){
+          methodn() {
             console.log('i am objectJXn');
           },
-          methodn_n:()=>{
+          methodn_n: () => {
             console.log('i am objectJXn_n');
           }
         }
@@ -641,11 +650,11 @@
         console.log(objectJX.methodn());
         console.log(objectJX.methodn_n());
 
-        let setArr=[1,2,3,4,4,{a:1},{a:1}]
-        console.log(`%c输出set结构`,'color:red');
+        let setArr = [1, 2, 3, 4, 4, {a: 1}, {a: 1}]
+        console.log(`%c输出set结构`, 'color:red');
         console.log(new Set(setArr));
-        let setArr_n=[...new Set(setArr)];
-        console.log('%c输出新的数组，去重','color:red');
+        let setArr_n = [...new Set(setArr)];
+        console.log('%c输出新的数组，去重', 'color:red');
         console.log(setArr_n);
 
         async function test_await_promise() {
@@ -653,41 +662,86 @@
           await Promise.resolve('测试await是否执行 hello world'); // 不会执行
         }
 
-        test_await_promise().then(()=>{
+        test_await_promise().then(() => {
 
-        }).catch((e)=>{
-          console.log('监听到了 '+e);
+        }).catch((e) => {
+          console.log('监听到了 ' + e);
         })
 
-        that.getAttr().catch((e)=>{
-          //- 方法内逻辑报错
-          console.log(`%c监听到了getAttr的error`,'color:blue');
-          console.log(`%c error name:${e.name} ; message:${e.message}`,'color:blue');
+        var anum = 10000, aarr = []
+        for (let i = 0; i < anum; i++) {
+          aarr.push(i);
+        }
+        console.time('string');
+        let bbb = aarr + '';
+        console.timeEnd('string');
 
-        })
+        console.time('string');
+        let aa = 121213123123123123123;
+        let bb = aarr.toString();
+        console.timeEnd('string');
 
+        // that.getAttr().catch((e)=>{
+        //   //- 方法内逻辑报错
+        //   console.log(`%c监听到了getAttr的error`,'color:blue');
+        //   console.log(`%c error name:${e.name} ; message:${e.message}`,'color:blue');
+        //
+        // })
+
+        this.getAttr_method();
       },
       * testgen() {
         yield 'test0'
         yield 'test1'
       },
-      * resetfl_sel(){
+      * resetfl_sel() {
         yield 1;
         console.log("run");
       },
-      async getAttr(){
+      getAttr_method() {
+        const _this = this;
+
+        _this.promiseMethod(() => {
+            return getAttrList('310100')
+          }, (d) => {
+            _this.areasnote = "";
+            _this.areas = d.data;
+            _this.areasj = true;
+
+          }, () => {
+            console.log('err 了');
+          }, 'getAttr_method'
+        )
+
+        // return new Promise((s,j)=>{
+        //   let res=getAttrList('310100');
+        //   s(res)
+        // }).then((res)=>{
+        //   _this.areasnote="";
+        //   _this.areas=res.data;
+        //   _this.areasj=true;
+        // }).catch((e)=>{
+        //   console.log(`%cgetAttr的promise catch监听到了`,'color:red');
+        //   console.log(e);
+        // })
+
+      },
+
+      async getAttr() {
 
         // let aa=undefined;
         // let bb=aa.length;
 
         // let res=await $axios_t('http://ydjcs.hydee.cn:80/ydj-platform/area/queryarea',{ parentid:"310100" })
-        let res=await getAttrList('310100');
-        // throw new Error('出错了');
-        if(res){
+        let res = await getAttrList('310100');
 
-          this.areasnote="";
-          this.areas=res.data;
-          this.areasj=true;
+        // throw new Error('出错了');
+
+        if (res) {
+
+          this.areasnote = "";
+          this.areas = res.data;
+          this.areasj = true;
 
           // let aa=undefined;
           // let bb=aa.length;
@@ -709,44 +763,98 @@
           // }
 
 
-        }else{
+        } else {
           //- 接口报错
-          console.log(`%cHelloWorld 的async结果出来了error`,'color:red');
+          console.log(`%cHelloWorld 的async结果出来了error`, 'color:red');
         }
 
       },
-      testinputval_$attr(v){
+      testinputval_$attr(v) {
         console.log(`子组件input值改变触发了父组件的方法，value值为:${v}`);
       },
-      changeDiv_toggle(){
-        this.testToggle_v=!this.testToggle_v;
+      changeDiv_toggle() {
+        this.testToggle_v = !this.testToggle_v;
 
         this.$refs.divToggle.changeState();
       },
-      toastTest(str){//- 自编写的插件
-        this.$toast(str)
+      toastTest(str) {//- 自编写的插件
+        this.$toast(str);
 
         this.testerror();
       },
-      testerror(){
-        let aa=undefined;
-        let bb=aa.length;
+      testerror() {
+        let aa = undefined;
+        let bb = aa.length;
+      },
+      testerror_promise() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve()
+          }, 500)
+        }).then(() => {
+          let a = undefined;
+          let b = a.length;
+        }).catch((e) => {
+          e.errorOther = {
+            page: 'HelloWorld.vue',
+            method: 'testerror_promise'
+          }
+
+          postError(e)
+        })
+      },
+      testerror_async() {
+
+        let _this = this;
+
+        // async的报错监听
+        _this.testerror_async_next().catch((e) => {
+
+          e.errorOther = {
+            page: 'HelloWorld.vue',
+            method: 'testerror_async'
+          }
+
+          postError(e)
+
+        })
+
+      },
+      async testerror_async_next() {
+        let res = await getAttrList('310100');
+        let res_next = await this.testerror_async_next_next();
+        if (res) {
+          let a = undefined;
+          let b = a.length;
+
+        } else {
+
+        }
+      },
+      async testerror_async_next_next() {
+        let res = await getAttrList('310100')
+        if (res) {
+          // let a=undefined;
+          // let b=a.length;
+        } else {
+
+        }
       }
     },
     watch: {//- watch 监测
       msg(val) {
         console.log("watch 监听到msg发生了变化 变化后的值为'" + val + "'");
       },
-      testInputVal:{
-        handler(v){
+      testInputVal: {
+        handler(v) {
           console.log(`测试input的watch变化，input值为${v}`);
         },
-        immediate:true
+        immediate: true
       },
-      testInputVal_$attr(v){
+      testInputVal_$attr(v) {
         console.log(`子组件input触发了父组件的v-model，值为${v}`);
       },
-      testToggle_v(v){
+      testToggle_v(v) {
 
         console.log(`divToggle的v-model值变了，值为${v}`);
       }
@@ -806,13 +914,13 @@
     cursor: pointer;
     background: #e0e0e0;
 
-    &:hover{
+    &:hover {
       background: #eeeeee;
     }
   }
 
   /*abutton:hover {*/
-    /*background: #eeeeee;*/
+  /*background: #eeeeee;*/
   /*}*/
 
   .imgup {

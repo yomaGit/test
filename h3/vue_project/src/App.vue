@@ -27,10 +27,10 @@
         let that = this;
 
         //- dataList的弹框隐藏的跨组件方法
-        if (that.$refs.routerview.$refs.dataList.closeFloat) that.$refs.routerview.$refs.dataList.closeFloat();
+        // if (that.$refs.routerview.$refs.dataList&&that.$refs.routerview.$refs.dataList.closeFloat) that.$refs.routerview.$refs.dataList.closeFloat();
 
         //- navbar的头部搜索框隐藏的跨组件方法
-        if (that.$refs.navbar.closeFloat) that.$refs.navbar.closeFloat();
+        // if (that.$refs.navbar.closeFloat) that.$refs.navbar.closeFloat();
       },
       cbgclick() {//- 全局cbg的点击方法
 

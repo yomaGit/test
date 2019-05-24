@@ -57,34 +57,35 @@
 	};
 	///////////////////////////////////////////////////////
 
-	function WSSocket(wsAddress,UserInfo,UIListener){
+	function WSSocket(wsAddress,UserInfo,Mercode,Token,UIListener){
 		this.socket=new WebSocket(wsAddress);
 		this.userId=UserInfo.id;
 		this.userName=UserInfo.name;
+		this.mercode=Mercode;
+		this.token=Token;
 
 		var that=this;
 		this.socket.onerror=function(event){
 			console.log(event.data);
-			// $(".loadingLogin").hide();
+
 		};
 		this.socket.onopen=function(event){
+			console.log('socket open success');
 			that._sendConnectMessage();
-			// $(".loadingLogin,.connectReset").hide();
+
 		};
 		this.socket.onmessage=function(event){
+			console.log('接收到了服务器返回值');
+			console.log(event);
 			that._receiveMessage(toJsonObj(event.data));
-			// $(".loadingLogin").hide();
 		};
 		this.socket.onclose=function(event){
-			console.log("close");
-			// $(".loadingLogin").hide();
+			console.log("socket closed 1s后重连");
 
-			// setTimeout(function(){
-            //     if(typeof cf!="undefined"&&!cf.socketj){
-            //         $(".connectReset").show();
-            //     }
-			// 	$(".connectReset").find("span").click();
-			// },1000);
+			setTimeout(function () {
+                window.socketConnet_w();
+            },1000)
+
 		};
 
 		this.UIListener=UIListener;
@@ -95,20 +96,18 @@
 		MessageType:MessageType,
 
 		sendMessage:function(data){
-			var judgeName=data.toUserName;
+
+            console.log('发送的消息体');
+            console.log(data);
+
 			data.fromUserId=this.userId;
 			data.fromUserName=this.userName;
 			data.sendTime=getNowTimestamp();
-			// var nowDom=$(".chating_main li[dataId='"+cf.nowSendMsgId+"']");
-			// if(judgeName!="system"&&!cf.sendAgain){
-			// 	cf.setLocalStorage(cf.nowSendMsg,"0",otherUserInfo.id,otherUserInfo.name);
-			// }
-			// cf.sendMsgJudgeId=data.mid;
+
 			if(this.socket.readyState==1){
 				this.socket.send(toJsonStr(data));
 			}else{
-				// nowDom.find(".sending").hide();
-				// nowDom.find(".sendFalse").show();
+
 			}
 
 		},
@@ -127,8 +126,10 @@
 			message.content={
 				userId:that.userId,
 				timeStamp:getNowTimestamp(),
-				userType:UserType.normal
-			};
+				userType:UserType.normal,
+				mercode:that.mercode,
+				token:that.token,
+			}
 
 			this.sendMessage(message);
 		},

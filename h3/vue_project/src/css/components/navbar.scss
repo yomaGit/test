@@ -37,6 +37,8 @@ $imgurl: '../../../'+$spriteimg;
           width: 19px;
           height: 15px;
           background: url($imgurl) -36px -61px;
+          -webkit-background-size: 1000px 1000px;
+          background-size: 1000px 1000px;
         }
 
       }
@@ -62,6 +64,8 @@ $imgurl: '../../../'+$spriteimg;
             width: 20px;
             height: 20px;
             background: url($imgurl) -69px -86px;
+            -webkit-background-size: 1000px 1000px;
+            background-size: 1000px 1000px;
           }
 
           &:hover,&.sel{
@@ -118,6 +122,8 @@ $imgurl: '../../../'+$spriteimg;
               width: 14px;
               height: 15px;
               background: url($imgurl) -185px -39px;
+              -webkit-background-size: 1000px 1000px;
+              background-size: 1000px 1000px;
             }
           }
         }
@@ -215,11 +221,15 @@ $imgurl: '../../../'+$spriteimg;
                 width: 22px;
                 height: 22px;
                 background: url($imgurl) -217px -4px;
+                -webkit-background-size: 1000px 1000px;
+                background-size: 1000px 1000px;
               }
               &.lock {
                 width: 17px;
                 height: 20px;
                 background: url($imgurl) -255px -4px;
+                -webkit-background-size: 1000px 1000px;
+                background-size: 1000px 1000px;
               }
             }
           }
@@ -325,6 +335,8 @@ $imgurl: '../../../'+$spriteimg;
                   width: 16px;
                   height: 18px;
                   background: url($imgurl) -4px -4px;
+                  -webkit-background-size: 1000px 1000px;
+                  background-size: 1000px 1000px;
                 }
               }
 
@@ -334,6 +346,8 @@ $imgurl: '../../../'+$spriteimg;
                   width: 17px;
                   height: 17px;
                   background: url($imgurl) -36px -4px;
+                  -webkit-background-size: 1000px 1000px;
+                  background-size: 1000px 1000px;
                 }
               }
 
@@ -343,6 +357,8 @@ $imgurl: '../../../'+$spriteimg;
                   width: 19px;
                   height: 19px;
                   background: url($imgurl) -69px -4px;
+                  -webkit-background-size: 1000px 1000px;
+                  background-size: 1000px 1000px;
                 }
 
               }
@@ -353,6 +369,8 @@ $imgurl: '../../../'+$spriteimg;
                   width: 18px;
                   height: 18px;
                   background: url($imgurl) -102px -4px;
+                  -webkit-background-size: 1000px 1000px;
+                  background-size: 1000px 1000px;
                 }
               }
             }
@@ -361,6 +379,8 @@ $imgurl: '../../../'+$spriteimg;
             width: 9px;
             height: 16px;
             background: url($imgurl) -4px -61px;
+            -webkit-background-size: 1000px 1000px;
+            background-size: 1000px 1000px;
             @include transition_all3;
 
             &.rat {
@@ -405,6 +425,8 @@ $imgurl: '../../../'+$spriteimg;
 
                   div {
                     background: url($imgurl) -4px -32px;
+                    -webkit-background-size: 1000px 1000px;
+                    background-size: 1000px 1000px;
                   }
                 }
 
@@ -412,6 +434,8 @@ $imgurl: '../../../'+$spriteimg;
 
                   div {
                     background: url($imgurl) -36px -32px;
+                    -webkit-background-size: 1000px 1000px;
+                    background-size: 1000px 1000px;
                   }
                 }
 
@@ -419,6 +443,8 @@ $imgurl: '../../../'+$spriteimg;
 
                   div {
                     background: url($imgurl) -69px -32px;
+                    -webkit-background-size: 1000px 1000px;
+                    background-size: 1000px 1000px;
                   }
 
                 }
@@ -427,6 +453,8 @@ $imgurl: '../../../'+$spriteimg;
 
                   div {
                     background: url($imgurl) -102px -31px;
+                    -webkit-background-size: 1000px 1000px;
+                    background-size: 1000px 1000px;
                   }
                 }
               }
