@@ -305,12 +305,11 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axios@^0.16.2:
-  version "0.16.2"
-  resolved "http://registry.npm.taobao.org/axios/download/axios-0.16.2.tgz#ba4f92f17167dfbab40983785454b9ac149c3c6d"
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   dependencies:
-    follow-redirects "^1.2.3"
-    is-buffer "^1.1.5"
+    follow-redirects "^1.10.0"
 
 babel-code-frame@^6.11.0, babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
   version "6.22.0"
@@ -1900,7 +1899,7 @@ de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
 
-debug@2, debug@2.6.1, debug@^2.1.1, debug@^2.2.0, debug@^2.4.5:
+debug@2, debug@2.6.1, debug@^2.1.1, debug@^2.2.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
@@ -2730,11 +2729,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-follow-redirects@^1.2.3:
-  version "1.2.4"
-  resolved "http://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.2.4.tgz#355e8f4d16876b43f577b0d5ce2668b9723214ea"
-  dependencies:
-    debug "^2.4.5"
+follow-redirects@^1.10.0:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.1.tgz#5f69b813376cee4fd0474a3aba835df04ab763b7"
 
 for-in@^0.1.5:
   version "0.1.6"
@@ -3385,7 +3382,7 @@ is-binary-path@^1.0.0:
   dependencies:
     binary-extensions "^1.0.0"
 
-is-buffer@^1.0.2, is-buffer@^1.1.5:
+is-buffer@^1.0.2:
   version "1.1.5"
   resolved "http://registry.npm.taobao.org/is-buffer/download/is-buffer-1.1.5.tgz#1f3b26ef613b214b88cbca23cc6c01d87961eecc"
 
@@ -6340,7 +6337,7 @@ string_decoder@^0.10.25, string_decoder@~0.10.x:
 
 stringmap@~0.2.2:
   version "0.2.2"
-  resolved "http://registry.npmjs.org/stringmap/-/stringmap-0.2.2.tgz#556c137b258f942b8776f5b2ef582aa069d7d1b1"
+  resolved "https://registry.npmjs.org/stringmap/-/stringmap-0.2.2.tgz#556c137b258f942b8776f5b2ef582aa069d7d1b1"
 
 stringset@~0.2.1:
   version "0.2.1"
