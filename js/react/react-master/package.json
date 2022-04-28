@@ -6,7 +6,7 @@
   ],
   "devDependencies": {
     "art": "^0.10.1",
-    "async": "^1.5.0",
+    "async": "^2.6.4",
     "babel-cli": "^6.6.5",
     "babel-code-frame": "^6.26.0",
     "babel-core": "^6.0.0",
